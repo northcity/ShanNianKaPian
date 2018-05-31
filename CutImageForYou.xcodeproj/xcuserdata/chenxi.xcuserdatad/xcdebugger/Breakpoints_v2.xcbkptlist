@@ -25,13 +25,13 @@
                   symbolName = "-[ViewController presentAboutMeController:]"
                   moduleName = "CutImageForYou"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chenxi/Desktop/%E6%96%B0%E7%9A%84%E8%BD%AF%E7%94%B2/%E9%97%AA%E5%BF%B5%E8%83%B6%E5%9B%8A/CutImageForYou%202/CutImageForYou/ViewController.m"
-                  timestampString = "549194778.447979"
+                  urlString = "file:///Users/chenxi/Desktop/%E6%88%91%E7%9A%84%E5%B7%A5%E7%A8%8BGIT/%E9%97%AA%E5%BF%B5%E8%83%B6%E5%9B%8A/ShanNianKaPian/CutImageForYou/ViewController.m"
+                  timestampString = "549446384.940883"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "102"
                   endingLineNumber = "102"
-                  offsetFromSymbolStart = "280">
+                  offsetFromSymbolStart = "296">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -40,13 +40,13 @@
                   symbolName = "__43-[ViewController presentAboutMeController:]_block_invoke"
                   moduleName = "CutImageForYou"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chenxi/Desktop/%E6%96%B0%E7%9A%84%E8%BD%AF%E7%94%B2/%E9%97%AA%E5%BF%B5%E8%83%B6%E5%9B%8A/CutImageForYou%202/CutImageForYou/ViewController.m"
-                  timestampString = "549194778.449513"
+                  urlString = "file:///Users/chenxi/Desktop/%E6%88%91%E7%9A%84%E5%B7%A5%E7%A8%8BGIT/%E9%97%AA%E5%BF%B5%E8%83%B6%E5%9B%8A/ShanNianKaPian/CutImageForYou/ViewController.m"
+                  timestampString = "549446384.942428"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "102"
                   endingLineNumber = "102"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "27">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -218,12 +218,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
-            timestampString = "549277876.77473"
+            timestampString = "549446384.907545"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "814"
-            endingLineNumber = "814"
+            startingLineNumber = "859"
+            endingLineNumber = "859"
             landmarkName = "-setExclusiveTouchForButtons:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
+            timestampString = "549446384.9081579"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "600"
+            endingLineNumber = "600"
+            landmarkName = "-XiaYiPaiButtonClick:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
+            timestampString = "549446384.9088809"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "602"
+            endingLineNumber = "602"
+            landmarkName = "-XiaYiPaiButtonClick:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

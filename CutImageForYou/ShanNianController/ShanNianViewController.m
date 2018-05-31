@@ -74,7 +74,9 @@
 #pragma mark ===========WebViewDelegate============
 - (void)createWebViewAnimation{
     
-    [UIView animateWithDuration: 0.3 delay:0 usingSpringWithDamping:100 initialSpringVelocity:0.3 options:0 animations:^{
+    self.webFatherView.frame = self.beginSpeakButton.frame;
+
+    [UIView animateWithDuration: 3 delay:0 usingSpringWithDamping:100 initialSpringVelocity:0.3 options:0 animations:^{
        
         self.webFatherView.transform = CGAffineTransformMakeScale(1, 1);
         self.webFatherView.frame = CGRectMake(kAUTOWIDTH(20), CGRectGetMaxY(self.speakView.frame) + kAUTOHEIGHT(20), ScreenWidth - kAUTOWIDTH(40), ScreenHeight -SPEAKVIEW_HEIZGHT - kAUTOHEIGHT(44) - 50);
@@ -163,13 +165,43 @@
     return _waveView;
 }
 
+- (void)createDismissSpeakViewAnimation{
+    [_speakSubLayer removeFromSuperlayer];
+    
+    [UIView animateWithDuration:3 animations:^{
+        self.speakView.frame = CGRectMake(ScreenWidth/2 - ScreenWidth/6, kAUTOHEIGHT(44) + SPEAKVIEW_HEIZGHT/2 - kAUTOHEIGHT(22),ScreenWidth/3, kAUTOHEIGHT(44));
+
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:3 animations:^{
+            self.speakView.frame = CGRectMake(ScreenWidth, kAUTOHEIGHT(44) + SPEAKVIEW_HEIZGHT/2 - kAUTOHEIGHT(22),ScreenWidth/3, kAUTOHEIGHT(44));
+            self.speakView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self.speakView removeFromSuperview];
+        }];
+    }];
+}
+
 - (void)createSpeakViewAnimation{
     
-    [UIView animateWithDuration: 0.3 delay:0 usingSpringWithDamping:100 initialSpringVelocity:0.3 options:0 animations:^{
+    self.speakView.frame = self.beginSpeakButton.frame;
+    self.speakView.layer.anchorPoint = CGPointMake(0.5, 0.5);
+    [UIView animateWithDuration:  3 delay:0 usingSpringWithDamping:100 initialSpringVelocity:0.3 options:0 animations:^{
         self.speakView.transform = CGAffineTransformMakeScale(1, 1);
         self.speakView.frame = CGRectMake(kAUTOWIDTH(20), kAUTOHEIGHT(44),SPEAKVIEW_WIDTH, SPEAKVIEW_HEIZGHT);
         self.speakView.alpha = 1;
     }completion:^(BOOL finished) {
+        
+        for (int i = 0; i < 5; i ++) {
+            UIButton *button = [self.speakView viewWithTag:1000 + i];
+            button.hidden = NO;
+            // 先缩小
+            button.transform = CGAffineTransformMakeScale(0.8, 0.8);
+            [UIView animateWithDuration: 0.7 delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:0.3 options:0 animations:^{
+                button.transform = CGAffineTransformMakeScale(1, 1);
+            } completion:nil];
+            
+        }
+        
        _speakSubLayer=[CALayer layer];
         CGRect fixframe=self.speakView.layer.frame;
         _speakSubLayer.frame = fixframe;
@@ -322,7 +354,8 @@
         //处理按钮松开状态
         [button addTarget:self action:@selector(TouchUp:)forControlEvents: UIControlEventTouchUpInside | UIControlEventTouchUpOutside];
         
-        
+        button.tag = 1000 + i;
+        button.hidden = YES;
     }
     
    
@@ -332,7 +365,8 @@
         button.backgroundColor = [UIColor blueColor];
         [self.speakView addSubview:button];
         [button setImage:[UIImage imageNamed:@"灵感"] forState:UIControlStateNormal];
-
+        button.tag = 100 + i;
+        
         button.layer.borderWidth = 2;
         button.layer.borderColor = [UIColor whiteColor].CGColor;
         button.layer.shadowOffset = CGSizeMake(0, 2);
@@ -340,7 +374,7 @@
         button.layer.shadowOpacity = 0.3;
         button.layer.shadowRadius = 3;
         button.layer.cornerRadius = kAUTOHEIGHT(15);
-        
+        [button addTarget:self action:@selector(XiaYiPaiButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [button setImageEdgeInsets:UIEdgeInsetsMake(kAUTOWIDTH(4), kAUTOHEIGHT(4),kAUTOWIDTH(4), kAUTOHEIGHT(4))];
 
         if (i == 0) {
@@ -456,7 +490,7 @@
     self.speakLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 88, ScreenWidth-20, 200)];
     self.speakLabel.textColor = [UIColor redColor];
     self.speakLabel.numberOfLines = 0;
-    [self.view addSubview:self.speakLabel];
+//    [self.view addSubview:self.speakLabel];
     
 //    //创建语音识别对象
 //    _iFlySpeechRecognizer = [IFlySpeechRecognizer sharedInstance];
@@ -512,11 +546,11 @@
         _waveView.targetWaveHeight = 0.15;
 
 //    }
-
+    __weak typeof(self) weakSelf = self;
     _audioPlayer.playEnd = ^(BOOL playEnd) {
         if (playEnd) {
 //            _waveView.targetWaveHeight = 0;
-            [_waveView stopAnimating];
+            [weakSelf.waveView stopAnimating];
         }
     };
     
@@ -561,6 +595,17 @@
 /**
  start speech recognition
  **/
+
+- (void)XiaYiPaiButtonClick:(UIButton *)button{
+    switch (button.tag) {
+        case XiaYiPaiClickActionShanChu:
+            [self createDismissSpeakViewAnimation];
+            break;
+            
+        default:
+            break;
+    }
+}
 
 - (void)chuLiSuoYouView{
     if (!self.speakView) {
