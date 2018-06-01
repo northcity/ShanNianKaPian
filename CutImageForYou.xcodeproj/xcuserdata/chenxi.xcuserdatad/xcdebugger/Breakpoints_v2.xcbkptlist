@@ -26,12 +26,12 @@
                   moduleName = "CutImageForYou"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chenxi/Desktop/%E6%88%91%E7%9A%84%E5%B7%A5%E7%A8%8BGIT/%E9%97%AA%E5%BF%B5%E8%83%B6%E5%9B%8A/ShanNianKaPian/CutImageForYou/ViewController.m"
-                  timestampString = "549446384.940883"
+                  timestampString = "549524874.204476"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "102"
                   endingLineNumber = "102"
-                  offsetFromSymbolStart = "296">
+                  offsetFromSymbolStart = "280">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -41,12 +41,12 @@
                   moduleName = "CutImageForYou"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chenxi/Desktop/%E6%88%91%E7%9A%84%E5%B7%A5%E7%A8%8BGIT/%E9%97%AA%E5%BF%B5%E8%83%B6%E5%9B%8A/ShanNianKaPian/CutImageForYou/ViewController.m"
-                  timestampString = "549446384.942428"
+                  timestampString = "549524874.205886"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "102"
                   endingLineNumber = "102"
-                  offsetFromSymbolStart = "27">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
-            timestampString = "549446384.907545"
+            timestampString = "549524874.014484"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "859"
-            endingLineNumber = "859"
+            startingLineNumber = "900"
+            endingLineNumber = "900"
             landmarkName = "-setExclusiveTouchForButtons:"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
-            timestampString = "549446384.9081579"
+            timestampString = "549524874.015133"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "600"
-            endingLineNumber = "600"
+            startingLineNumber = "641"
+            endingLineNumber = "641"
             landmarkName = "-XiaYiPaiButtonClick:"
             landmarkType = "7">
          </BreakpointContent>
@@ -250,12 +250,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
-            timestampString = "549446384.9088809"
+            timestampString = "549524874.0156569"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "602"
-            endingLineNumber = "602"
+            startingLineNumber = "643"
+            endingLineNumber = "643"
             landmarkName = "-XiaYiPaiButtonClick:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
+            timestampString = "549524874.01613"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "-createDismissSpeakViewAnimation"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -165,21 +165,54 @@
     return _waveView;
 }
 
+#pragma mark ========== 上面显示的SpeakView的动画
 - (void)createDismissSpeakViewAnimation{
     [_speakSubLayer removeFromSuperlayer];
     
     [UIView animateWithDuration:3 animations:^{
         self.speakView.frame = CGRectMake(ScreenWidth/2 - ScreenWidth/6, kAUTOHEIGHT(44) + SPEAKVIEW_HEIZGHT/2 - kAUTOHEIGHT(22),ScreenWidth/3, kAUTOHEIGHT(44));
 
+        self.speakTextView.frame = CGRectMake(kAUTOWIDTH(30), kAUTOHEIGHT(25), SPEAKVIEW_WIDTH - kAUTOWIDTH(60), SPEAKVIEW_HEIZGHT - kAUTOHEIGHT(80));
+        
+        for (int i = 0; i < 5; i ++) {
+            UIButton *upButton = [self.speakView viewWithTag:1000 + i];
+            upButton.transform = CGAffineTransformMakeScale(1.2, 1.2);
+            
+            UIButton *downButton = [self.speakView viewWithTag:100 + i];
+            downButton.transform = CGAffineTransformMakeScale(1.2, 1.2);
+            
+            [UIView animateWithDuration: 0.7 delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:0.3 options:0 animations:^{
+                upButton.transform = CGAffineTransformMakeScale(0.1, 0.1);
+                downButton.transform = CGAffineTransformMakeScale(0.1, 0.1);
+                
+                upButton.alpha = 0;
+                downButton.alpha = 0;
+            } completion:^(BOOL finished) {
+                upButton.hidden = YES;
+                downButton.hidden = YES;
+            }];
+            
+        }
+        
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:3 animations:^{
             self.speakView.frame = CGRectMake(ScreenWidth, kAUTOHEIGHT(44) + SPEAKVIEW_HEIZGHT/2 - kAUTOHEIGHT(22),ScreenWidth/3, kAUTOHEIGHT(44));
             self.speakView.alpha = 0;
+            
+            [self.webViewSubLayer removeFromSuperlayer];
+              self.webFatherView.frame = CGRectMake(kAUTOWIDTH(20), SPEAKVIEW_HEIZGHT - kAUTOHEIGHT(20), ScreenWidth - kAUTOWIDTH(40), ScreenHeight -SPEAKVIEW_HEIZGHT - kAUTOHEIGHT(44) - 50);
+            [UIView animateWithDuration:0.5 animations:^{
+                self.webFatherView.frame = CGRectMake(kAUTOWIDTH(20), ScreenHeight, ScreenWidth - kAUTOWIDTH(40), ScreenHeight -SPEAKVIEW_HEIZGHT - kAUTOHEIGHT(44) - 50);
+            } completion:^(BOOL finished) {
+                [self.webFatherView removeFromSuperview];
+            }];
+            
         } completion:^(BOOL finished) {
             [self.speakView removeFromSuperview];
         }];
     }];
 }
+
 
 - (void)createSpeakViewAnimation{
     
@@ -192,12 +225,18 @@
     }completion:^(BOOL finished) {
         
         for (int i = 0; i < 5; i ++) {
-            UIButton *button = [self.speakView viewWithTag:1000 + i];
-            button.hidden = NO;
-            // 先缩小
-            button.transform = CGAffineTransformMakeScale(0.8, 0.8);
+            UIButton *upButton = [self.speakView viewWithTag:1000 + i];
+            upButton.hidden = NO;
+            upButton.transform = CGAffineTransformMakeScale(0.8, 0.8);
+            
+            UIButton *downButton = [self.speakView viewWithTag:100 + i];
+            downButton.hidden = NO;
+            downButton.transform = CGAffineTransformMakeScale(0.8, 0.8);
+            
             [UIView animateWithDuration: 0.7 delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:0.3 options:0 animations:^{
-                button.transform = CGAffineTransformMakeScale(1, 1);
+                upButton.transform = CGAffineTransformMakeScale(1, 1);
+                downButton.transform = CGAffineTransformMakeScale(1, 1);
+
             } completion:nil];
             
         }
@@ -237,6 +276,7 @@
     
 }
 
+#pragma mark =========== 创建SpeakView ==========
 - (void)createSpeakView{
     
     self.speakView = [[UIView alloc]initWithFrame:CGRectMake(kAUTOWIDTH(20),ScreenHeight,SPEAKVIEW_WIDTH, SPEAKVIEW_HEIZGHT)];
@@ -366,6 +406,7 @@
         [self.speakView addSubview:button];
         [button setImage:[UIImage imageNamed:@"灵感"] forState:UIControlStateNormal];
         button.tag = 100 + i;
+        button.hidden = YES;
         
         button.layer.borderWidth = 2;
         button.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -490,7 +531,7 @@
     self.speakLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 88, ScreenWidth-20, 200)];
     self.speakLabel.textColor = [UIColor redColor];
     self.speakLabel.numberOfLines = 0;
-//    [self.view addSubview:self.speakLabel];
+    [self.view addSubview:self.speakLabel];
     
 //    //创建语音识别对象
 //    _iFlySpeechRecognizer = [IFlySpeechRecognizer sharedInstance];
