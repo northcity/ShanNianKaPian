@@ -7,6 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "IFlyMSC/IFlyMSC.h"
+
+@class PopupView;
+@class IFlyDataUploader;
+@class IFlySpeechRecognizer;
+@class IFlyPcmRecorder;
 
 typedef NS_ENUM(NSUInteger, XiaYiPaiClickActionTag) {
     XiaYiPaiClickActionShanChu =100, //Cell按钮

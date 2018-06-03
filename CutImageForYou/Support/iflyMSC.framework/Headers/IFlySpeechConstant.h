@@ -595,6 +595,13 @@
  */
 +(NSString*)KEEP_ALIVE;
 
+/*!
+ *  唤醒录音保存路径
+ *
+ *  @return 唤醒录音保存路径key
+ */
++(NSString*) IVW_AUDIO_PATH;
+
 #pragma mark -  评测相关设置key
 /*!
  *  评测类型<br>

@@ -34,7 +34,7 @@ typedef void(^IFlyOnBuildFinishCompletionHandler)(NSString* grammarId,IFlySpeech
  *
  *  @param errorCode 错误描述
  */
-- (void) onError:(IFlySpeechError *) errorCode;
+- (void) onCompleted:(IFlySpeechError *) errorCode;
 
 /*!
  *  识别结果回调
@@ -69,20 +69,20 @@ typedef void(^IFlyOnBuildFinishCompletionHandler)(NSString* grammarId,IFlySpeech
 /*!
  *  开始录音回调<br>
  *  当调用了`startListening`函数之后，如果没有发生错误则会回调此函数。<br>
- *  如果发生错误则回调onError:函数
+ *  如果发生错误则回调onCompleted:函数
  */
 - (void) onBeginOfSpeech;
 
 /*!
  *  停止录音回调<br>
  *  当调用了`stopListening`函数或者引擎内部自动检测到断点，如果没有发生错误则回调此函数。<br>
- *  如果发生错误则回调onError:函数
+ *  如果发生错误则回调onCompleted:函数
  */
 - (void) onEndOfSpeech;
 
 /*!
  *  取消识别回调<br>
- *  当调用了`cancel`函数之后，会回调此函数，在调用了cancel函数和回调onError之前会有一个<br>
+ *  当调用了`cancel`函数之后，会回调此函数，在调用了cancel函数和回调onCompleted之前会有一个<br>
  *  短暂时间，您可以在此函数中实现对这段时间的界面显示。
  */
 - (void) onCancel;

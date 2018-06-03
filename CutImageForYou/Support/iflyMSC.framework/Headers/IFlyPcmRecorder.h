@@ -105,5 +105,12 @@
  */
 -(void) setSaveAudioPath:(NSString *)savePath;
 
+/*!
+ *  录音器是否完成
+ *
+ *  @return  录音器完全结束返回YES，否则返回NO
+ */
+-(BOOL) isCompleted;
+
 @end
 

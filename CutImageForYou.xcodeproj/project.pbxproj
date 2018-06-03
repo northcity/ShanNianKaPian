@@ -14,7 +14,6 @@
 		152056A120B5517200B55E5F /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 152056A020B5517200B55E5F /* Contacts.framework */; };
 		152056A320B5517C00B55E5F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 152056A220B5517C00B55E5F /* AddressBook.framework */; };
 		152056A520B5518700B55E5F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 152056A420B5518700B55E5F /* QuartzCore.framework */; };
-		152056A720B553B300B55E5F /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 152056A620B553B300B55E5F /* iflyMSC.framework */; };
 		152056AA20B55C2F00B55E5F /* IATConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 152056A820B55C2E00B55E5F /* IATConfig.m */; };
 		152056AF20B55E8800B55E5F /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 152056AB20B55E8700B55E5F /* LaunchViewController.m */; };
 		152056B020B55E8800B55E5F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 152056AE20B55E8800B55E5F /* ViewController.m */; };
@@ -51,6 +50,7 @@
 		15FAC18D20A524D800DD5E1B /* CutImageForYouUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FAC18C20A524D800DD5E1B /* CutImageForYouUITests.m */; };
 		F758C81120A6F5260083B2B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F758C81020A6F5260083B2B7 /* Assets.xcassets */; };
 		F79A83A920A6F5FC008EC8E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F758C81020A6F5260083B2B7 /* Assets.xcassets */; };
+		F7B49FB520C4239F00B7B280 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B49FB420C4239F00B7B280 /* iflyMSC.framework */; };
 		F7F1530620A5DF1E00525F05 /* ZJViewShow.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F152FE20A5DF1E00525F05 /* ZJViewShow.m */; };
 		F7F1532C20A5EB1900525F05 /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F1531020A5EB1800525F05 /* Factory.m */; };
 		F7F1532D20A5EB1900525F05 /* weibo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7F1531220A5EB1800525F05 /* weibo.jpg */; };
@@ -122,7 +122,6 @@
 		152056A020B5517200B55E5F /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		152056A220B5517C00B55E5F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		152056A420B5518700B55E5F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		152056A620B553B300B55E5F /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
 		152056A820B55C2E00B55E5F /* IATConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IATConfig.m; sourceTree = "<group>"; };
 		152056A920B55C2E00B55E5F /* IATConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IATConfig.h; sourceTree = "<group>"; };
 		152056AB20B55E8700B55E5F /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
@@ -182,6 +181,7 @@
 		15FAC19C20A5271600DD5E1B /* ThirdPathKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdPathKey.h; sourceTree = "<group>"; };
 		15FAC19D20A5271600DD5E1B /* HeaderDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderDefines.h; sourceTree = "<group>"; };
 		F758C81020A6F5260083B2B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CutImageForYou/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		F7B49FB420C4239F00B7B280 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iflyMSC.framework; path = CutImageForYou/Support/iflyMSC.framework; sourceTree = "<group>"; };
 		F7F152F820A5DF1E00525F05 /* ZJViewShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJViewShow.h; sourceTree = "<group>"; };
 		F7F152FE20A5DF1E00525F05 /* ZJViewShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJViewShow.m; sourceTree = "<group>"; };
 		F7F1530D20A5EB1800525F05 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
@@ -256,7 +256,7 @@
 				F7F1536320A5F2AA00525F05 /* CFNetwork.framework in Frameworks */,
 				F7F1536120A5F2A000525F05 /* MobileCoreServices.framework in Frameworks */,
 				F7F1535D20A5F28A00525F05 /* CoreLocation.framework in Frameworks */,
-				152056A720B553B300B55E5F /* iflyMSC.framework in Frameworks */,
+				F7B49FB520C4239F00B7B280 /* iflyMSC.framework in Frameworks */,
 				F7F1535520A5F25D00525F05 /* libsqlite3.tbd in Frameworks */,
 				F7F1535320A5F24C00525F05 /* Security.framework in Frameworks */,
 				F7F1535120A5F23A00525F05 /* Social.framework in Frameworks */,
@@ -413,7 +413,6 @@
 		15FAC19A20A526F500DD5E1B /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				152056A620B553B300B55E5F /* iflyMSC.framework */,
 				F7F1534D20A5F21500525F05 /* BmobSDK.framework */,
 				F7F1530E20A5EB1800525F05 /* AboutMeController */,
 				F7F152F520A5DF1E00525F05 /* newProgress */,
@@ -491,6 +490,7 @@
 		F7F1534F20A5F23A00525F05 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F7B49FB420C4239F00B7B280 /* iflyMSC.framework */,
 				152056A420B5518700B55E5F /* QuartzCore.framework */,
 				152056A220B5517C00B55E5F /* AddressBook.framework */,
 				152056A020B5517200B55E5F /* Contacts.framework */,
@@ -884,7 +884,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CutImageForYou/Support/PrefixHeader.pch";
 				INFOPLIST_FILE = CutImageForYou/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chenxi.dingge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chenxi.shanniankapian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -908,7 +908,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CutImageForYou/Support/PrefixHeader.pch";
 				INFOPLIST_FILE = CutImageForYou/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chenxi.dingge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chenxi.shanniankapian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

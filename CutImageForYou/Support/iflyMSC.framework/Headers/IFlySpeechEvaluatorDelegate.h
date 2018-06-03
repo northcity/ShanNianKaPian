@@ -26,14 +26,14 @@
 
 /*!
  *  开始录音回调<br>
- *  当调用了`startListening`函数之后，如果没有发生错误则会回调此函数。如果发生错误则回调onError:函数
+ *  当调用了`startListening`函数之后，如果没有发生错误则会回调此函数。如果发生错误则回调onCompleted:函数
  */
 - (void)onBeginOfSpeech;
 
 /*!
  *  停止录音回调<br>
  *  当调用了`stopListening`函数或者引擎内部自动检测到断点，如果没有发生错误则回调此函数。<br>
- *  如果发生错误则回调onError:函数
+ *  如果发生错误则回调onCompleted:函数
  */
 - (void)onEndOfSpeech;
 
@@ -49,7 +49,7 @@
  *
  *  @param errorCode 错误描述类
  */
-- (void)onError:(IFlySpeechError *)errorCode;
+- (void)onCompleted:(IFlySpeechError *)errorCode;
 
 /*!
  *  评测结果回调<br>
