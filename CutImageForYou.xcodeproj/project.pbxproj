@@ -52,6 +52,7 @@
 		15FAC18220A524D800DD5E1B /* CutImageForYouTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FAC18120A524D800DD5E1B /* CutImageForYouTests.m */; };
 		15FAC18D20A524D800DD5E1B /* CutImageForYouUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FAC18C20A524D800DD5E1B /* CutImageForYouUITests.m */; };
 		F758C81120A6F5260083B2B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F758C81020A6F5260083B2B7 /* Assets.xcassets */; };
+		F776443C20C57F0500AEF1E5 /* BCShanNianDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F776443B20C57F0500AEF1E5 /* BCShanNianDateManager.m */; };
 		F79A83A920A6F5FC008EC8E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F758C81020A6F5260083B2B7 /* Assets.xcassets */; };
 		F7B49FB520C4239F00B7B280 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B49FB420C4239F00B7B280 /* iflyMSC.framework */; };
 		F7F1530620A5DF1E00525F05 /* ZJViewShow.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F152FE20A5DF1E00525F05 /* ZJViewShow.m */; };
@@ -189,6 +190,8 @@
 		15FAC19C20A5271600DD5E1B /* ThirdPathKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdPathKey.h; sourceTree = "<group>"; };
 		15FAC19D20A5271600DD5E1B /* HeaderDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderDefines.h; sourceTree = "<group>"; };
 		F758C81020A6F5260083B2B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CutImageForYou/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		F776443A20C57F0500AEF1E5 /* BCShanNianDateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCShanNianDateManager.h; sourceTree = "<group>"; };
+		F776443B20C57F0500AEF1E5 /* BCShanNianDateManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCShanNianDateManager.m; sourceTree = "<group>"; };
 		F7B49FB420C4239F00B7B280 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iflyMSC.framework; path = CutImageForYou/Support/iflyMSC.framework; sourceTree = "<group>"; };
 		F7F152F820A5DF1E00525F05 /* ZJViewShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJViewShow.h; sourceTree = "<group>"; };
 		F7F152FE20A5DF1E00525F05 /* ZJViewShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJViewShow.m; sourceTree = "<group>"; };
@@ -246,6 +249,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15F8669420C53231006A2F99 /* CloudKit.framework in Frameworks */,
 				F7F1535B20A5F28200525F05 /* AudioToolbox.framework in Frameworks */,
 				F7F1536B20A5F2CF00525F05 /* libicucore.tbd in Frameworks */,
 				F7F1535920A5F27800525F05 /* libc++.tbd in Frameworks */,
@@ -267,7 +271,6 @@
 				F7B49FB520C4239F00B7B280 /* iflyMSC.framework in Frameworks */,
 				F7F1535520A5F25D00525F05 /* libsqlite3.tbd in Frameworks */,
 				F7F1535320A5F24C00525F05 /* Security.framework in Frameworks */,
-				15F8669420C53231006A2F99 /* CloudKit.framework in Frameworks */,
 				F7F1535120A5F23A00525F05 /* Social.framework in Frameworks */,
 				F7F1534E20A5F21500525F05 /* BmobSDK.framework in Frameworks */,
 			);
@@ -305,6 +308,8 @@
 			children = (
 				15610FD420C4D4E200983FFE /* BCShanNianKaPianManager.h */,
 				15610FD520C4D4E200983FFE /* BCShanNianKaPianManager.m */,
+				F776443A20C57F0500AEF1E5 /* BCShanNianDateManager.h */,
+				F776443B20C57F0500AEF1E5 /* BCShanNianDateManager.m */,
 			);
 			path = BCShanNianKaPianManager;
 			sourceTree = "<group>";
@@ -729,6 +734,7 @@
 				152056C220B64FB100B55E5F /* PcmPlayer.m in Sources */,
 				F7F1534820A5EB5200525F05 /* MainContentCell.m in Sources */,
 				15C3267220A56C730032E3E6 /* STPhotoBroswer.m in Sources */,
+				F776443C20C57F0500AEF1E5 /* BCShanNianDateManager.m in Sources */,
 				15610FD620C4D4E200983FFE /* BCShanNianKaPianManager.m in Sources */,
 				15950BC220B68B7B00206DC6 /* ShanNianTableViewCell.m in Sources */,
 				15950BC620B68BF900206DC6 /* ShanNianMuLuViewController.m in Sources */,
