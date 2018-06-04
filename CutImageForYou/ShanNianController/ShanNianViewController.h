@@ -30,4 +30,5 @@ typedef NS_ENUM(NSUInteger, XiaYiPaiClickActionTag) {
 @property(nonnull,strong)UIView *webFatherView;
 @property (nonatomic,assign) BOOL isBeginOfSpeech;//Whether or not SDK has invoke the delegate methods of beginOfSpeech.
 
+@property(nonatomic,strong)UIView *shangViewLineView;
 @end

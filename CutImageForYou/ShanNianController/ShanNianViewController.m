@@ -18,6 +18,8 @@
 #import "ShanNianMuLuViewController.h"
 #import <WebKit/WebKit.h>
 #import "UIImage+Gradient.h"
+#import "BCShanNianKaPianManager.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 #define SPEAKVIEW_HEIZGHT   kAUTOHEIGHT(170)
 #define SPEAKVIEW_WIDTH     ScreenWidth - kAUTOWIDTH(40)
@@ -27,6 +29,8 @@
 #define MASS   1
 #define  INITIALVE   1
 #define Dur_Time  2
+
+#define AnimationTime 0.3
 
 #define NAME        @"userwords"
 #define USERWORDS   @"{\"userword\":[{\"name\":\"我的常用词\",\"words\":[\"佳晨实业\",\"蜀南庭苑\",\"高兰路\",\"复联二\"]},{\"name\":\"我的好友\",\"words\":[\"李馨琪\",\"鹿晓雷\",\"张集栋\",\"周家莉\",\"叶震珂\",\"熊泽萌\"]}]}"
@@ -60,9 +64,15 @@
 @implementation ShanNianViewController
 
 #pragma mark ========生命周期==========
+- (void)createBgImageView{
+    UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
+    bgImageView.image = [UIImage imageNamed:@"smart"];
+    [self.view addSubview:bgImageView];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self createBgImageView];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.hidden = YES;
     [self createBaseUI];
@@ -110,6 +120,10 @@
 - (void)startBtnHandler:(id)sender {
     
     NSLog(@"%s[IN]",__func__);
+    [self chuLiSuoYouView];
+    //    [self createDismissSpeakViewAnimation];
+    [self createSpeakView];
+    [self createSpeakViewAnimation];
     
     if ([IATConfig sharedInstance].haveView == NO) {
         
@@ -177,7 +191,7 @@
  stop recording
  **/
 - (void)stopBtnHandler:(id)sender {
-    
+//    [BCShanNianKaPianManager maDaZhongJianZhenDong];
     NSLog(@"%s",__func__);
     
     if(self.isStreamRec && !self.isBeginOfSpeech){
@@ -275,8 +289,12 @@
 /**
  start audio stream recognition
  **/
+
+
 - (void)audioStreamBtnHandler:(id)sender {
-    
+   
+//    [self maDaZhongJianZhenDong];
+
     NSLog(@"%s[IN]",__func__);
     [self chuLiSuoYouView];
 //    [self createDismissSpeakViewAnimation];
@@ -476,6 +494,11 @@
     _speakTextView.text = [NSString stringWithFormat:@"%@%@", _speakTextView.text,resultFromJson];
 
     if (isLast){
+        [self createWebView];
+        [self createWebViewAnimation];
+        NSString *urlString = [NSString stringWithFormat:@"https://www.baidu.com/s?wd=%@",_speakTextView.text];
+        NSString *encoded=[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:encoded]]];
         NSLog(@"ISR Results(json)：%@",  self.result);
     }
     NSLog(@"_result=%@",_result);
@@ -808,7 +831,7 @@
     
     self.webFatherView.frame = self.beginSpeakButton.frame;
 
-    [UIView animateWithDuration: 3 delay:0 usingSpringWithDamping:100 initialSpringVelocity:0.3 options:0 animations:^{
+    [UIView animateWithDuration: AnimationTime delay:0 usingSpringWithDamping:100 initialSpringVelocity:0.3 options:0 animations:^{
        
         self.webFatherView.transform = CGAffineTransformMakeScale(1, 1);
         self.webFatherView.frame = CGRectMake(kAUTOWIDTH(20), CGRectGetMaxY(self.speakView.frame) + kAUTOHEIGHT(20), ScreenWidth - kAUTOWIDTH(40), ScreenHeight -SPEAKVIEW_HEIZGHT - kAUTOHEIGHT(44) - 50);
@@ -872,7 +895,7 @@
     
     
     self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0,  kAUTOHEIGHT(44), SPEAKVIEW_WIDTH, ScreenHeight - SPEAKVIEW_HEIZGHT - kAUTOHEIGHT(44) - 50 - kAUTOHEIGHT(44))];
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
+//    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com/s?wd="]]];
     self.webView.navigationDelegate = self;
     self.webView.UIDelegate = self;
     self.webView.backgroundColor = [UIColor yellowColor];
@@ -900,11 +923,10 @@
 #pragma mark ========== 上面显示的SpeakView的动画
 - (void)createDismissSpeakViewAnimation{
     [_speakSubLayer removeFromSuperlayer];
-    
-    [UIView animateWithDuration:3 animations:^{
+    [UIView animateWithDuration:AnimationTime animations:^{
         self.speakView.frame = CGRectMake(ScreenWidth/2 - ScreenWidth/6, kAUTOHEIGHT(44) + SPEAKVIEW_HEIZGHT/2 - kAUTOHEIGHT(22),ScreenWidth/3, kAUTOHEIGHT(44));
 
-        self.speakTextView.frame = CGRectMake(kAUTOWIDTH(30), kAUTOHEIGHT(35), SPEAKVIEW_WIDTH - kAUTOWIDTH(60), SPEAKVIEW_HEIZGHT - kAUTOHEIGHT(80));
+        self.speakTextView.frame = CGRectMake(kAUTOWIDTH(30), kAUTOHEIGHT(15), SPEAKVIEW_WIDTH - kAUTOWIDTH(60), SPEAKVIEW_HEIZGHT - kAUTOHEIGHT(80));
         
         for (int i = 0; i < 5; i ++) {
             UIButton *upButton = [self.speakView viewWithTag:1000 + i];
@@ -913,15 +935,17 @@
             UIButton *downButton = [self.speakView viewWithTag:100 + i];
             downButton.transform = CGAffineTransformMakeScale(1.2, 1.2);
             
-            [UIView animateWithDuration: 0.7 delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:0.3 options:0 animations:^{
+            [UIView animateWithDuration: AnimationTime delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:0.3 options:0 animations:^{
                 upButton.transform = CGAffineTransformMakeScale(0.1, 0.1);
                 downButton.transform = CGAffineTransformMakeScale(0.1, 0.1);
                 
                 upButton.alpha = 0;
                 downButton.alpha = 0;
+                self.shangViewLineView.alpha = 0;
             } completion:^(BOOL finished) {
                 upButton.hidden = YES;
                 downButton.hidden = YES;
+                self.shangViewLineView.hidden = YES;
             }];
             
         }
@@ -933,7 +957,7 @@
             
             [self.webViewSubLayer removeFromSuperlayer];
               self.webFatherView.frame = CGRectMake(kAUTOWIDTH(20), SPEAKVIEW_HEIZGHT - kAUTOHEIGHT(20), ScreenWidth - kAUTOWIDTH(40), ScreenHeight -SPEAKVIEW_HEIZGHT - kAUTOHEIGHT(44) - 50);
-            [UIView animateWithDuration:0.5 animations:^{
+            [UIView animateWithDuration:AnimationTime animations:^{
                 self.webFatherView.frame = CGRectMake(kAUTOWIDTH(20), ScreenHeight, ScreenWidth - kAUTOWIDTH(40), ScreenHeight -SPEAKVIEW_HEIZGHT - kAUTOHEIGHT(44) - 50);
             } completion:^(BOOL finished) {
                 [self.webFatherView removeFromSuperview];
@@ -950,7 +974,7 @@
     
     self.speakView.frame = self.beginSpeakButton.frame;
     self.speakView.layer.anchorPoint = CGPointMake(0.5, 0.5);
-    [UIView animateWithDuration:  3 delay:0 usingSpringWithDamping:100 initialSpringVelocity:0.3 options:0 animations:^{
+    [UIView animateWithDuration: AnimationTime delay:0 usingSpringWithDamping:100 initialSpringVelocity:0.3 options:0 animations:^{
         self.speakView.transform = CGAffineTransformMakeScale(1, 1);
         self.speakView.frame = CGRectMake(kAUTOWIDTH(20), kAUTOHEIGHT(44),SPEAKVIEW_WIDTH, SPEAKVIEW_HEIZGHT);
         self.speakView.alpha = 1;
@@ -965,10 +989,10 @@
             downButton.hidden = NO;
             downButton.transform = CGAffineTransformMakeScale(0.8, 0.8);
             
-            [UIView animateWithDuration: 0.7 delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:0.3 options:0 animations:^{
+            [UIView animateWithDuration: AnimationTime delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:0.3 options:0 animations:^{
                 upButton.transform = CGAffineTransformMakeScale(1, 1);
                 downButton.transform = CGAffineTransformMakeScale(1, 1);
-
+                self.shangViewLineView.hidden = NO;
             } completion:nil];
             
         }
@@ -1203,10 +1227,10 @@
         
     }
     
-    UIView *lineView =  [[UIView alloc]initWithFrame:CGRectMake(0, SPEAKVIEW_HEIZGHT - kAUTOHEIGHT(38), SPEAKVIEW_WIDTH,0.5)];
-    lineView.backgroundColor = PNCColor(235, 235, 235);
-//    lineView.alpha = 0.7;
-    [self.speakView addSubview:lineView];
+    self.shangViewLineView =  [[UIView alloc]initWithFrame:CGRectMake(0, SPEAKVIEW_HEIZGHT - kAUTOHEIGHT(38), SPEAKVIEW_WIDTH,0.5)];
+    self.shangViewLineView.backgroundColor = PNCColor(235, 235, 235);
+    self.shangViewLineView.hidden = YES;
+    [self.speakView addSubview:self.shangViewLineView];
     
     self.speakView.layer.cornerRadius = kAUTOWIDTH(10);
     self.speakView.layer.borderWidth = 2;
@@ -1233,6 +1257,74 @@
 }
 
 #pragma mark ========创建识别按钮========
+//
+//- (void)beginMaDaQingZhenDong{
+//        [BCShanNianKaPianManager maDaQingZhenDong];
+//}
+//
+//- (void)beginMaDaZhongJianZhenDong{
+//        [BCShanNianKaPianManager maDaZhongJianZhenDong];
+//
+//}
+//
+//- (void)beginMaDaZhongZhenDong{
+//    [BCShanNianKaPianManager maDaZhongZhenDong];
+//}
+
+- (void)kaiShiAnXiaShiBieBtn{
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 10.0) {
+        if (@available(iOS 10.0, *)) {
+            UIImpactFeedbackGenerator*impactLight = [[UIImpactFeedbackGenerator alloc]initWithStyle:UIImpactFeedbackStyleLight];
+            [impactLight impactOccurred];
+        }
+    }else{
+        AudioServicesPlaySystemSound(1519);
+    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self startBtnHandler:nil];
+    });
+}
+
+
+- (void)kaiShiSongKaiShiBieBtn{
+    
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 10.0) {
+        if (@available(iOS 10.0, *)) {
+            UIImpactFeedbackGenerator*impactLight = [[UIImpactFeedbackGenerator alloc]initWithStyle:UIImpactFeedbackStyleLight];
+            [impactLight impactOccurred];
+        }
+    }else{
+        AudioServicesPlaySystemSound(1519);
+    }
+        [self stopBtnHandler:nil];
+
+    
+}
+- (void)maDaQingZhenDongDong{
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 10.0) {
+        if (@available(iOS 10.0, *)) {
+            UIImpactFeedbackGenerator*impactLight = [[UIImpactFeedbackGenerator alloc]initWithStyle:UIImpactFeedbackStyleLight];
+            [impactLight impactOccurred];
+        }
+    }else{
+        AudioServicesPlaySystemSound(1519);
+    }
+}
+
+
+
+- (void)maDaZhongJianZhenDong{
+    
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 10.0) {
+        if (@available(iOS 10.0, *)) {
+            UIImpactFeedbackGenerator*impactLight = [[UIImpactFeedbackGenerator alloc]initWithStyle:UIImpactFeedbackStyleMedium];
+            [impactLight impactOccurred];
+        }
+    }else{
+        AudioServicesPlaySystemSound(1519);
+    }
+}
+
 - (void)createBaseUI{
     
     self.beginSpeakButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -1240,8 +1332,17 @@
     self.beginSpeakButton.backgroundColor = [UIColor redColor];
     self.beginSpeakButton.layer.masksToBounds = YES;
     self.beginSpeakButton.layer.cornerRadius = 25;
+    [self.beginSpeakButton setTitle:@"说话" forState:UIControlStateNormal];
     [self.view addSubview:self.beginSpeakButton];
-    [self.beginSpeakButton addTarget:self action:@selector(audioStreamBtnHandler:) forControlEvents:UIControlEventTouchUpInside];
+   
+//    [self.beginSpeakButton addTarget:self action:@selector(beginMaDaQingZhenDong) forControlEvents:UIControlEventTouchDown];
+    
+//    [self.beginSpeakButton addTarget:self action:@selector(beginMaDaQingZhenDong) forControlEvents:UIControlEventTouchDown];
+    [self.beginSpeakButton addTarget:self action:@selector(kaiShiAnXiaShiBieBtn) forControlEvents:UIControlEventTouchDown];
+
+//    [self.beginSpeakButton addTarget:self action:@selector(stopBtnHandler:) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchUpOutside];
+    [self.beginSpeakButton addTarget:self action:@selector(kaiShiSongKaiShiBieBtn) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchUpOutside];
+
     
     self.beginPlayButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.beginPlayButton.frame = CGRectMake(ScreenWidth/2 - 25, ScreenHeight - 170, 50, 50);

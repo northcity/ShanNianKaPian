@@ -26,7 +26,7 @@
                   moduleName = "CutImageForYou"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chenxi/Desktop/%E6%88%91%E7%9A%84%E5%B7%A5%E7%A8%8BGIT/%E9%97%AA%E5%BF%B5%E8%83%B6%E5%9B%8A/ShanNianKaPian/CutImageForYou/ViewController.m"
-                  timestampString = "549524874.204476"
+                  timestampString = "549797205.836652"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "102"
@@ -41,7 +41,7 @@
                   moduleName = "CutImageForYou"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chenxi/Desktop/%E6%88%91%E7%9A%84%E5%B7%A5%E7%A8%8BGIT/%E9%97%AA%E5%BF%B5%E8%83%B6%E5%9B%8A/ShanNianKaPian/CutImageForYou/ViewController.m"
-                  timestampString = "549524874.205886"
+                  timestampString = "549797205.838079"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "102"
@@ -218,12 +218,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
-            timestampString = "549524874.014484"
+            timestampString = "549797205.7995729"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "900"
-            endingLineNumber = "900"
-            landmarkName = "-setExclusiveTouchForButtons:"
+            startingLineNumber = "664"
+            endingLineNumber = "664"
+            landmarkName = "-initRecognizer"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -234,12 +234,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
-            timestampString = "549524874.015133"
+            timestampString = "549797205.799929"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "641"
-            endingLineNumber = "641"
-            landmarkName = "-XiaYiPaiButtonClick:"
+            startingLineNumber = "666"
+            endingLineNumber = "666"
+            landmarkName = "-initRecognizer"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -249,13 +249,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
-            timestampString = "549524874.0156569"
+            filePath = "CutImageForYou/BCShanNianKaPianManager/BCShanNianKaPianManager.m"
+            timestampString = "549791653.025528"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "643"
-            endingLineNumber = "643"
-            landmarkName = "-XiaYiPaiButtonClick:"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "+maDaQingZhenDong"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -265,13 +265,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
-            timestampString = "549524874.01613"
+            filePath = "CutImageForYou/BCShanNianKaPianManager/BCShanNianKaPianManager.m"
+            timestampString = "549791653.0255769"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
-            landmarkName = "-createDismissSpeakViewAnimation"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "+maDaQingZhenDong"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CutImageForYou/BCShanNianKaPianManager/BCShanNianKaPianManager.m"
+            timestampString = "549791653.025619"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "+maDaKaiShiZhenDong"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
