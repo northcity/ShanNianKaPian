@@ -39,7 +39,7 @@ const CGFloat kStatusBarHeight = 20;
 @property(nonatomic,strong)UIImageView * backGroundImage;
 @property(nonatomic,strong)UIVisualEffectView *effectView;
 @property(nonatomic,strong)UIBlurEffect *effect;
-
+@property(nonatomic,strong)UILabel *desginLabel;
 
 @end
 
@@ -68,16 +68,21 @@ const CGFloat kStatusBarHeight = 20;
     
 }
 - (void)viewWillAppear:(BOOL)animated{
+    
     self.navigationController.navigationBar.hidden = YES;
     self.tabBarController.tabBar.hidden = YES;
+
 }
 - (void)backAction{
-  
+    
     [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 - (void)createUI{
+    
+  
+    
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) style:UITableViewStyleGrouped];
-   
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
@@ -87,11 +92,11 @@ const CGFloat kStatusBarHeight = 20;
     self.tableView.sectionHeaderHeight = 5;
     self.tableView.sectionFooterHeight = 0;
     if (PNCisIPHONEX) {
-//        self.tableView.sectionHeaderHeight = 24;
+        //        self.tableView.sectionHeaderHeight = 24;
         self.tableView.sectionFooterHeight = 0;
     }
     UIImageView * backimage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
-//    [self.view addSubview:backimage];
+    //    [self.view addSubview:backimage];
     backimage.image = [[UIImage imageNamed:@"QQ20180311-1.jpg"] applyBlurWithRadius:5 tintColor:nil saturationDeltaFactor:1 maskImage:nil];
     backimage.contentMode = UIViewContentModeScaleAspectFill;
     [self.view insertSubview:self.tableView aboveSubview:backimage];
@@ -121,15 +126,23 @@ const CGFloat kStatusBarHeight = 20;
     label111.layer.shadowRadius=1.2;
     //    [self.view addSubview:label111];
     
+    self.desginLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, ScreenHeight - kAUTOHEIGHT(60), ScreenWidth - 40, 44)];
+    self.desginLabel.text = @"- - Create By NorthCity - -";
+    self.desginLabel.textColor = [UIColor blackColor];
+    self.desginLabel.textAlignment = NSTextAlignmentCenter;
+    self.desginLabel.font = [UIFont fontWithName:@"HeiTi SC" size:8];
+    self.desginLabel.alpha = 0.9;
+    [self.view addSubview:self.desginLabel];
+    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return 2;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (PNCisIPHONEX) {
         return 65;
-
+        
     }
     return 55;
 }
@@ -163,118 +176,43 @@ const CGFloat kStatusBarHeight = 20;
     cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     
-    if (indexPath.row == 0) {
-        
+    if (indexPath.section == 0 && indexPath.row == 0) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.textLabel.text = NSLocalizedString( @"更多独立精品App", nil);
-        cell.imageView.image = [UIImage imageNamed:@"沙漏"];
-        
-        NSString *statusString = [[NSUserDefaults standardUserDefaults] objectForKey:@"KaiGuanShiFouDaKai"];
-        if ([statusString isEqualToString:@"开"]) {
-            cell.contentView.hidden = NO;
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }else if ([statusString isEqualToString:@"关"]){
-            cell.contentView.hidden = YES;
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }else{
-            cell.contentView.hidden = YES;
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }
-        
-    }else if (indexPath.row == 6){
-        cell.textLabel.text = @"我的收藏";
-        cell.imageView.image = [UIImage imageNamed:@"星级2"];
+        cell.textLabel.text = @"语音识别设置";
+    }
+    if (indexPath.section == 0 && indexPath.row == 1) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
-    }else if (indexPath.row == 1){
-        cell.textLabel.text = NSLocalizedString(@"意见反馈", nil) ;
-        cell.imageView.image = [UIImage imageNamed:@"反馈问题"];
+        cell.textLabel.text = @"iCloud开关";
+    }
+    if (indexPath.section == 0 && indexPath.row == 2) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
-    }else if (indexPath.row == 7){
-        
-        cell.textLabel.text = @"清除缓存";
-        cell.imageView.image = [UIImage imageNamed:@"new2清除缓存"];
+        cell.textLabel.text = @"密码锁";
+    }
+    if (indexPath.section == 0 && indexPath.row == 3) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
-        
-        
-    }else if (indexPath.row == 2){
-        cell.textLabel.text = NSLocalizedString(@"给个赞", nil) ;
-        cell.imageView.image = [UIImage imageNamed:@"星级2"];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
-    }else if (indexPath.row == 8){
-        
-        cell.textLabel.text = NSLocalizedString(@"升级信纸", nil) ;
-        cell.imageView.image = [UIImage imageNamed:@"增值服务1.png"];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
-        UILabel *detailLabel = [Factory createLabelWithTitle:  NSLocalizedString(@"¥6 购买", nil) frame:CGRectMake(cell.bounds.size.width - kAUTOWIDTH(180), 5, kAUTOWIDTH(150), 50)];
-        [cell.contentView addSubview:detailLabel];
-        detailLabel.numberOfLines = 1;
-        detailLabel.font = [UIFont fontWithName:@"Heiti SC" size:13.f];
-        detailLabel.textAlignment = NSTextAlignmentRight;
-    }else if (indexPath.row == 3){
-        
-        cell.label.frame = CGRectMake(10, 10, ScreenWidth-20, 180);
-        if (!_backGroundImage) {
-            _backGroundImage = [[UIImageView alloc]initWithFrame:cell.label.bounds];
-        }
-        [cell.label addSubview:_backGroundImage];
-        _backGroundImage.backgroundColor = [UIColor clearColor];
-        _backGroundImage.image = [UIImage imageNamed:@"QQ20180311-1.jpg"];
-        _backGroundImage.layer.cornerRadius = 6;
-        _backGroundImage.layer.masksToBounds = YES;
-        _backGroundImage.alpha = 0.6;
-        _backGroundImage.contentMode = UIViewContentModeScaleAspectFill;
-        
-        self.effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-        
-        self.effectView = [[UIVisualEffectView alloc] initWithEffect:self.effect];
-        
-        self.effectView.frame = cell.label.bounds;
-        
-        self.effectView.alpha = 1.f;
-        self.effectView.userInteractionEnabled = YES;
-        [_backGroundImage addSubview:self.effectView];
-        
-        UILabel * label2 = [Factory createLabelWithTitle:@"* 这就是我心里的一座城池，其他人眼中的一片废墟。" frame:CGRectMake(5,20 ,ScreenWidth-40,55) fontSize:12.f];
-        label2.numberOfLines = 0;
-        label2.textAlignment = NSTextAlignmentLeft;
-        label2.font = [UIFont fontWithName:@"Heiti SC" size:12.f];
-        label2.textAlignment = NSTextAlignmentCenter;
-        label2.backgroundColor = [UIColor clearColor];
-        label2.textColor = [UIColor whiteColor];
-//        [cell addSubview:label2];
-        
-        UILabel * label1 = [Factory createLabelWithTitle:NSLocalizedString(@"春日傍晚\n落日西斜\n远海的岛屿渐渐看不见了\n忽然岛上亮起了一盏盏灯火\n指明了它们的所在\n— 正冈子规", nil) frame:CGRectMake(0,20 ,ScreenWidth-20,170) fontSize:12.f];
-        label1.numberOfLines = 0;
-        
-        label1.font = [UIFont fontWithName:@"Heiti SC" size:13.f];
-        label1.textAlignment = NSTextAlignmentCenter;
-//        label1.backgroundColor = [UIColor redColor];
-        label1.textColor = [UIColor blackColor];
-        [cell.contentView addSubview:label1];
-        
-//        cell.label.backgroundColor = [UIColor blackColor];
-        cell.label.alpha = 0.5f;
-        
-        
-        
-        cell.label.layer.shadowColor=[UIColor grayColor].CGColor;
-        cell.label.layer.shadowOffset=CGSizeMake(0, 4);
-        cell.label.layer.shadowOpacity=0.6f;
-        cell.label.layer.shadowRadius=12;
-//        [self.contentView addSubview:cell.label];
-        cell.label.alpha = 0.8;
-        
+        cell.textLabel.text = @"Touch ID/Face ID";
     }
     
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.textLabel.text = @"发送反馈";
+    }
+    if (indexPath.section == 1 && indexPath.row == 1) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.textLabel.text = @"分享给朋友";
+    }
+    if (indexPath.section == 1 && indexPath.row == 2) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.textLabel.text = @"给个小心心";
+    }
+    if (indexPath.section == 1 && indexPath.row == 3) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.textLabel.text = @"主题设置";
+    }
     
-    
-    return cell;
+    return  cell;
 }
+
 
 - (void)loadAppStoreController{
     // 初始化控制器
@@ -289,7 +227,7 @@ const CGFloat kStatusBarHeight = 20;
             [self presentViewController:storeProductViewContorller animated:YES completion:nil];
         }
     }];
- }
+}
 //AppStore取消按钮监听
 - (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController{
     [self dismissViewControllerAnimated:YES completion:^{
@@ -300,53 +238,15 @@ const CGFloat kStatusBarHeight = 20;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.row == 2) {
-//        NSString * url = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@",@"1358237203"];
-//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
-
-//        [self loadAppStoreController];
         NSString *itunesurl = @"itms-apps://itunes.apple.com/cn/app/id1383797480?mt=8&action=write-review";
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:itunesurl]];
         
     }
     
     
-    
     if (indexPath.row == 4) {
-        //        NSString * appstoreUrlString = @"https://appsto.re/cn/8phbbb.i";
-        //
-        //        NSURL * url = [NSURL URLWithString:appstoreUrlString];
-        //
-        //        if ([[UIApplication sharedApplication] canOpenURL:url])
-        //        {
-        //            [[UIApplication sharedApplication] openURL:url];
-        //        }
-        //        else
-        //        {
-        //            NSLog(@"can not open");
-        //        }
-        //
-        //        //初始化控制器
-        //        SKStoreProductViewController *storeProductViewContorller = [[SKStoreProductViewController alloc] init];
-        //        //设置代理请求为当前控制器本身
-        //        storeProductViewContorller.delegate = self;
-        //        //加载一个新的视图展示
-        //        [storeProductViewContorller loadProductWithParameters:
-        //         //appId唯一的
-        //         @{SKStoreProductParameterITunesItemIdentifier : @"1150478784"} completionBlock:^(BOOL result, NSError *error) {
-        //             //block回调
-        //             if(error){
-        //                 NSLog(@"error %@ with userInfo %@",error,[error userInfo]);
-        //             }else{
-        //                 //模态弹出appstore
-        //                 [self presentViewController:storeProductViewContorller animated:YES completion:^{
-        //
-        //                 }
-        //                  ];
-        //             }
-        //         }];
+        
         [self openAppWithIdentifier:@"1353019343"];
-        
-        
         
     }else if (indexPath.row == 1){
         
@@ -372,15 +272,9 @@ const CGFloat kStatusBarHeight = 20;
     else if (indexPath.row == 0){
         AboutViewController * ab = [[AboutViewController alloc]init];
         [self presentViewController:ab animated:YES completion:nil];
-    }else if (indexPath.row == 1){
-//        CollectionViewController *cvc = [[CollectionViewController alloc]init];
-//        [self.navigationController pushViewController:cvc animated:YES];
     }else if (indexPath.row == 3){
-
+        
         [self TiShiTongZhi];
-        
-        
-    }else if (indexPath.row == 5){
         
     }
     
@@ -388,13 +282,13 @@ const CGFloat kStatusBarHeight = 20;
 
 - (void)TiShiTongZhi{
     
-  
+    
     
     
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     _bgViews = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     _bgViews.alpha = 0.6;
-//    _bgViews.backgroundColor = [UIColor blackColor];
+    //    _bgViews.backgroundColor = [UIColor blackColor];
     [window addSubview:_bgViews];
     
     UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
@@ -492,11 +386,11 @@ const CGFloat kStatusBarHeight = 20;
             [self presentViewController:storeProductVC animated:YES completion:nil];
         }
     }];
-//- (void)productViewControllerDidFinish:(SKStoreProductViewController *)storeProductVC {
-//    [storeProductVC dismissViewControllerAnimated:YES completion:^{
-//
-//        [self.navigationController popToRootViewControllerAnimated:YES];
-//    }];
+    //- (void)productViewControllerDidFinish:(SKStoreProductViewController *)storeProductVC {
+    //    [storeProductVC dismissViewControllerAnimated:YES completion:^{
+    //
+    //        [self.navigationController popToRootViewControllerAnimated:YES];
+    //    }];
 }
 
 - (void)clearHuancun{
@@ -506,8 +400,8 @@ const CGFloat kStatusBarHeight = 20;
     [actionsheet addAction:[UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         //删除按钮
         //1.删除sd
-//        [[SDImageCache sharedImageCache] clearMemory];//清除内存缓存
-//        [[SDImageCache sharedImageCache] clearDisk];//磁盘
+        //        [[SDImageCache sharedImageCache] clearMemory];//清除内存缓存
+        //        [[SDImageCache sharedImageCache] clearDisk];//磁盘
         //2.界面下载的缓存
         NSString *myPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/MyCaches"];
         //删除
@@ -522,7 +416,7 @@ const CGFloat kStatusBarHeight = 20;
 //获取所有缓存大小
 - (CGFloat)getCacheSize {
     //缓存 有两类 sdwebimage 还有 每个界面保存的缓存
-//    CGFloat sdSize = [[SDImageCache sharedImageCache] getSize];
+    //    CGFloat sdSize = [[SDImageCache sharedImageCache] getSize];
     NSString *myPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/MyCaches"];
     //获取文件夹中的所有的文件
     NSArray *arr = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:myPath error:nil];
@@ -534,7 +428,7 @@ const CGFloat kStatusBarHeight = 20;
     }
     //1M = 1024 K = 1024*1024字节
     CGFloat totalSize = 1024;
-//    (sdSize+size) * 3/1024.0/1024.0;
+    //    (sdSize+size) * 3/1024.0/1024.0;
     return totalSize;
 }
 - (void)mailComposeController:(MFMailComposeViewController*)controller
@@ -565,3 +459,125 @@ const CGFloat kStatusBarHeight = 20;
 
 
 @end
+
+
+//
+//-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    MainContentCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+//
+//    cell.backgroundColor = [UIColor clearColor];
+//    cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+//
+//    if (indexPath.row == 0) {
+//
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//        cell.textLabel.text = NSLocalizedString( @"更多独立精品App", nil);
+//        cell.imageView.image = [UIImage imageNamed:@"沙漏"];
+//
+//        NSString *statusString = [[NSUserDefaults standardUserDefaults] objectForKey:@"KaiGuanShiFouDaKai"];
+//        if ([statusString isEqualToString:@"开"]) {
+//            cell.contentView.hidden = NO;
+//            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//        }else if ([statusString isEqualToString:@"关"]){
+//            cell.contentView.hidden = YES;
+//            cell.accessoryType = UITableViewCellAccessoryNone;
+//        }else{
+//            cell.contentView.hidden = YES;
+//            cell.accessoryType = UITableViewCellAccessoryNone;
+//        }
+//
+//    }else if (indexPath.row == 6){
+//        cell.textLabel.text = @"我的收藏";
+//        cell.imageView.image = [UIImage imageNamed:@"星级2"];
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//
+//    }else if (indexPath.row == 1){
+//        cell.textLabel.text = NSLocalizedString(@"意见反馈", nil) ;
+//        cell.imageView.image = [UIImage imageNamed:@"反馈问题"];
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//
+//    }else if (indexPath.row == 7){
+//
+//        cell.textLabel.text = @"清除缓存";
+//        cell.imageView.image = [UIImage imageNamed:@"new2清除缓存"];
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//
+//
+//
+//    }else if (indexPath.row == 2){
+//        cell.textLabel.text = NSLocalizedString(@"给个赞", nil) ;
+//        cell.imageView.image = [UIImage imageNamed:@"星级2"];
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//
+//    }else if (indexPath.row == 8){
+//
+//        cell.textLabel.text = NSLocalizedString(@"升级信纸", nil) ;
+//        cell.imageView.image = [UIImage imageNamed:@"增值服务1.png"];
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//
+//        UILabel *detailLabel = [Factory createLabelWithTitle:  NSLocalizedString(@"¥6 购买", nil) frame:CGRectMake(cell.bounds.size.width - kAUTOWIDTH(180), 5, kAUTOWIDTH(150), 50)];
+//        [cell.contentView addSubview:detailLabel];
+//        detailLabel.numberOfLines = 1;
+//        detailLabel.font = [UIFont fontWithName:@"Heiti SC" size:13.f];
+//        detailLabel.textAlignment = NSTextAlignmentRight;
+//    }else if (indexPath.section == 2 && indexPath.row == 3){
+//
+//        cell.label.frame = CGRectMake(10, 10, ScreenWidth-20, 180);
+//        if (!_backGroundImage) {
+//            _backGroundImage = [[UIImageView alloc]initWithFrame:cell.label.bounds];
+//        }
+//        [cell.label addSubview:_backGroundImage];
+//        _backGroundImage.backgroundColor = [UIColor clearColor];
+//        _backGroundImage.image = [UIImage imageNamed:@"QQ20180311-1.jpg"];
+//        _backGroundImage.layer.cornerRadius = 6;
+//        _backGroundImage.layer.masksToBounds = YES;
+//        _backGroundImage.alpha = 0.6;
+//        _backGroundImage.contentMode = UIViewContentModeScaleAspectFill;
+//
+//        self.effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+//
+//        self.effectView = [[UIVisualEffectView alloc] initWithEffect:self.effect];
+//
+//        self.effectView.frame = cell.label.bounds;
+//
+//        self.effectView.alpha = 1.f;
+//        self.effectView.userInteractionEnabled = YES;
+//        [_backGroundImage addSubview:self.effectView];
+//
+//        UILabel * label2 = [Factory createLabelWithTitle:@"* 这就是我心里的一座城池，其他人眼中的一片废墟。" frame:CGRectMake(5,20 ,ScreenWidth-40,55) fontSize:12.f];
+//        label2.numberOfLines = 0;
+//        label2.textAlignment = NSTextAlignmentLeft;
+//        label2.font = [UIFont fontWithName:@"Heiti SC" size:12.f];
+//        label2.textAlignment = NSTextAlignmentCenter;
+//        label2.backgroundColor = [UIColor clearColor];
+//        label2.textColor = [UIColor whiteColor];
+//        //        [cell addSubview:label2];
+//
+//        UILabel * label1 = [Factory createLabelWithTitle:NSLocalizedString(@"春日傍晚\n落日西斜\n远海的岛屿渐渐看不见了\n忽然岛上亮起了一盏盏灯火\n指明了它们的所在\n— 正冈子规", nil) frame:CGRectMake(0,20 ,ScreenWidth-20,170) fontSize:12.f];
+//        label1.numberOfLines = 0;
+//
+//        label1.font = [UIFont fontWithName:@"Heiti SC" size:13.f];
+//        label1.textAlignment = NSTextAlignmentCenter;
+//        //        label1.backgroundColor = [UIColor redColor];
+//        label1.textColor = [UIColor blackColor];
+//        [cell.contentView addSubview:label1];
+//
+//        //        cell.label.backgroundColor = [UIColor blackColor];
+//        cell.label.alpha = 0.5f;
+//
+//
+//
+//        cell.label.layer.shadowColor=[UIColor grayColor].CGColor;
+//        cell.label.layer.shadowOffset=CGSizeMake(0, 4);
+//        cell.label.layer.shadowOpacity=0.6f;
+//        cell.label.layer.shadowRadius=12;
+//        //        [self.contentView addSubview:cell.label];
+//        cell.label.alpha = 0.8;
+//
+//    }
+//
+//
+//
+//    return cell;
+//}
+

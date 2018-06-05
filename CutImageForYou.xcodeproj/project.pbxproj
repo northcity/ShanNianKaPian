@@ -22,6 +22,7 @@
 		152056B920B562B500B55E5F /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 152056B720B562B400B55E5F /* PopupView.m */; };
 		152056BC20B5652900B55E5F /* WaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 152056BB20B5652900B55E5F /* WaveView.m */; };
 		152056C220B64FB100B55E5F /* PcmPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 152056C020B64FB000B55E5F /* PcmPlayer.m */; };
+		1526F05D20C6961400E15B91 /* ShanNianVoiceSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1526F05C20C6961300E15B91 /* ShanNianVoiceSetViewController.m */; };
 		15610FD620C4D4E200983FFE /* BCShanNianKaPianManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15610FD520C4D4E200983FFE /* BCShanNianKaPianManager.m */; };
 		1574877F20C62198004CD38B /* iCloudHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1574877A20C62198004CD38B /* iCloudHandle.m */; };
 		1574878020C62198004CD38B /* ZZRDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1574877C20C62198004CD38B /* ZZRDocument.m */; };
@@ -147,6 +148,8 @@
 		152056BF20B64FB000B55E5F /* PcmPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PcmPlayer.h; sourceTree = "<group>"; };
 		152056C020B64FB000B55E5F /* PcmPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PcmPlayer.m; sourceTree = "<group>"; };
 		152056C120B64FB000B55E5F /* PcmPlayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PcmPlayerDelegate.h; sourceTree = "<group>"; };
+		1526F05B20C6961300E15B91 /* ShanNianVoiceSetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShanNianVoiceSetViewController.h; sourceTree = "<group>"; };
+		1526F05C20C6961300E15B91 /* ShanNianVoiceSetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShanNianVoiceSetViewController.m; sourceTree = "<group>"; };
 		15610FD420C4D4E200983FFE /* BCShanNianKaPianManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCShanNianKaPianManager.h; sourceTree = "<group>"; };
 		15610FD520C4D4E200983FFE /* BCShanNianKaPianManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCShanNianKaPianManager.m; sourceTree = "<group>"; };
 		1574877920C62198004CD38B /* iCloudHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCloudHandle.h; sourceTree = "<group>"; };
@@ -365,6 +368,8 @@
 				1574878720C63265004CD38B /* 暂停播放-2.png */,
 				1520569520B54ACD00B55E5F /* ShanNianViewController.h */,
 				1520569620B54ACD00B55E5F /* ShanNianViewController.m */,
+				1526F05B20C6961300E15B91 /* ShanNianVoiceSetViewController.h */,
+				1526F05C20C6961300E15B91 /* ShanNianVoiceSetViewController.m */,
 				152056BA20B5652800B55E5F /* WaveView.h */,
 				152056BB20B5652900B55E5F /* WaveView.m */,
 				152056A920B55C2E00B55E5F /* IATConfig.h */,
@@ -755,6 +760,7 @@
 			files = (
 				152056B020B55E8800B55E5F /* ViewController.m in Sources */,
 				152056AA20B55C2F00B55E5F /* IATConfig.m in Sources */,
+				1526F05D20C6961400E15B91 /* ShanNianVoiceSetViewController.m in Sources */,
 				1574878020C62198004CD38B /* ZZRDocument.m in Sources */,
 				F7F1532C20A5EB1900525F05 /* Factory.m in Sources */,
 				152056B620B5606200B55E5F /* ISRDataHelper.m in Sources */,

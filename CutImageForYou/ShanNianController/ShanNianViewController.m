@@ -21,6 +21,9 @@
 #import "BCShanNianKaPianManager.h"
 #import <AudioToolbox/AudioToolbox.h>
 
+#import "SettingViewController.h"
+
+
 #define SPEAKVIEW_HEIZGHT   kAUTOHEIGHT(170)
 #define SPEAKVIEW_WIDTH     ScreenWidth - kAUTOWIDTH(40)
 
@@ -58,6 +61,7 @@
 
 @property(nonatomic,strong)CALayer *webViewSubLayer;
 
+@property(nonatomic,strong)UIButton *setBtn;
 
 @end
 
@@ -1326,7 +1330,26 @@
     }
 }
 
+- (void)pushSettingViewController{
+    
+    SettingViewController *svc = [[SettingViewController alloc]init];
+    
+    [self presentViewController:svc animated:YES completion:nil];
+}
+
 - (void)createBaseUI{
+
+    
+    
+    self.setBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.setBtn.frame = CGRectMake(kAUTOWIDTH(20), ScreenHeight - 100, 50, 50);
+    self.setBtn.backgroundColor = [UIColor redColor];
+    self.setBtn.layer.masksToBounds = YES;
+    self.setBtn.layer.cornerRadius = 25;
+    [self.setBtn setTitle:@"设置" forState:UIControlStateNormal];
+    [self.view addSubview:self.setBtn];
+    [self.setBtn addTarget:self action:@selector(pushSettingViewController) forControlEvents:UIControlEventTouchUpInside];
+    
     
     self.beginSpeakButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.beginSpeakButton.frame = CGRectMake(ScreenWidth/2 - 25, ScreenHeight - 100, 50, 50);
