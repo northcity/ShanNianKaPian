@@ -27,8 +27,21 @@
     _label.alpha = 0.8;
     self.textLabel.font = [UIFont fontWithName:@"Heiti SC" size:13.f];
     
+    self.playBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.playBtn.frame = CGRectMake(10, 10, 30, 30);
+    [_label addSubview:self.playBtn];
+    [self.playBtn setImage:[UIImage imageNamed:@"视频-开始-播放-2"] forState:UIControlStateNormal];
+    [self.playBtn setImage:[UIImage imageNamed:@"暂停播放-2"] forState:UIControlStateSelected];
+    [self.playBtn addTarget:self action:@selector(clickPlayBtn:) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
+- (void)clickPlayBtn:(UIButton*)sender{
+    sender.selected = !sender.selected;
+    if (_cellPlayBlock != nil) {
+        _cellPlayBlock();
+    }
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     

@@ -23,6 +23,11 @@
 		152056BC20B5652900B55E5F /* WaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 152056BB20B5652900B55E5F /* WaveView.m */; };
 		152056C220B64FB100B55E5F /* PcmPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 152056C020B64FB000B55E5F /* PcmPlayer.m */; };
 		15610FD620C4D4E200983FFE /* BCShanNianKaPianManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15610FD520C4D4E200983FFE /* BCShanNianKaPianManager.m */; };
+		1574877F20C62198004CD38B /* iCloudHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1574877A20C62198004CD38B /* iCloudHandle.m */; };
+		1574878020C62198004CD38B /* ZZRDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1574877C20C62198004CD38B /* ZZRDocument.m */; };
+		1574878120C62198004CD38B /* ZZRModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1574877E20C62198004CD38B /* ZZRModel.m */; };
+		1574878820C63267004CD38B /* 视频-开始-播放-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1574878620C63265004CD38B /* 视频-开始-播放-2.png */; };
+		1574878920C63269004CD38B /* 暂停播放-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1574878720C63265004CD38B /* 暂停播放-2.png */; };
 		1576B85D20BBD32D00B8B1F9 /* 灵感.png in Resources */ = {isa = PBXBuildFile; fileRef = 1576B85C20BBD32900B8B1F9 /* 灵感.png */; };
 		1576B85F20BBD4BC00B8B1F9 /* 灵感-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1576B85E20BBD4BA00B8B1F9 /* 灵感-2.png */; };
 		1576B86120BBD53400B8B1F9 /* 目标.png in Resources */ = {isa = PBXBuildFile; fileRef = 1576B86020BBD53100B8B1F9 /* 目标.png */; };
@@ -144,6 +149,14 @@
 		152056C120B64FB000B55E5F /* PcmPlayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PcmPlayerDelegate.h; sourceTree = "<group>"; };
 		15610FD420C4D4E200983FFE /* BCShanNianKaPianManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCShanNianKaPianManager.h; sourceTree = "<group>"; };
 		15610FD520C4D4E200983FFE /* BCShanNianKaPianManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCShanNianKaPianManager.m; sourceTree = "<group>"; };
+		1574877920C62198004CD38B /* iCloudHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCloudHandle.h; sourceTree = "<group>"; };
+		1574877A20C62198004CD38B /* iCloudHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCloudHandle.m; sourceTree = "<group>"; };
+		1574877B20C62198004CD38B /* ZZRDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZRDocument.h; sourceTree = "<group>"; };
+		1574877C20C62198004CD38B /* ZZRDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZRDocument.m; sourceTree = "<group>"; };
+		1574877D20C62198004CD38B /* ZZRModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZRModel.h; sourceTree = "<group>"; };
+		1574877E20C62198004CD38B /* ZZRModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZRModel.m; sourceTree = "<group>"; };
+		1574878620C63265004CD38B /* 视频-开始-播放-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "视频-开始-播放-2.png"; sourceTree = "<group>"; };
+		1574878720C63265004CD38B /* 暂停播放-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "暂停播放-2.png"; sourceTree = "<group>"; };
 		1576B85C20BBD32900B8B1F9 /* 灵感.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "灵感.png"; sourceTree = "<group>"; };
 		1576B85E20BBD4BA00B8B1F9 /* 灵感-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "灵感-2.png"; sourceTree = "<group>"; };
 		1576B86020BBD53100B8B1F9 /* 目标.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "目标.png"; sourceTree = "<group>"; };
@@ -306,12 +319,26 @@
 		15610FD320C4D4B900983FFE /* BCShanNianKaPianManager */ = {
 			isa = PBXGroup;
 			children = (
+				1574877820C62198004CD38B /* CloudHandle */,
 				15610FD420C4D4E200983FFE /* BCShanNianKaPianManager.h */,
 				15610FD520C4D4E200983FFE /* BCShanNianKaPianManager.m */,
 				F776443A20C57F0500AEF1E5 /* BCShanNianDateManager.h */,
 				F776443B20C57F0500AEF1E5 /* BCShanNianDateManager.m */,
 			);
 			path = BCShanNianKaPianManager;
+			sourceTree = "<group>";
+		};
+		1574877820C62198004CD38B /* CloudHandle */ = {
+			isa = PBXGroup;
+			children = (
+				1574877920C62198004CD38B /* iCloudHandle.h */,
+				1574877A20C62198004CD38B /* iCloudHandle.m */,
+				1574877B20C62198004CD38B /* ZZRDocument.h */,
+				1574877C20C62198004CD38B /* ZZRDocument.m */,
+				1574877D20C62198004CD38B /* ZZRModel.h */,
+				1574877E20C62198004CD38B /* ZZRModel.m */,
+			);
+			path = CloudHandle;
 			sourceTree = "<group>";
 		};
 		15950BBE20B68B4200206DC6 /* ShanNianController */ = {
@@ -334,6 +361,8 @@
 				1576B86020BBD53100B8B1F9 /* 目标.png */,
 				1576B85E20BBD4BA00B8B1F9 /* 灵感-2.png */,
 				1576B85C20BBD32900B8B1F9 /* 灵感.png */,
+				1574878620C63265004CD38B /* 视频-开始-播放-2.png */,
+				1574878720C63265004CD38B /* 暂停播放-2.png */,
 				1520569520B54ACD00B55E5F /* ShanNianViewController.h */,
 				1520569620B54ACD00B55E5F /* ShanNianViewController.m */,
 				152056BA20B5652800B55E5F /* WaveView.h */,
@@ -668,6 +697,7 @@
 				F7F1534720A5EB5200525F05 /* MainContentCell.xib in Resources */,
 				1576B85F20BBD4BC00B8B1F9 /* 灵感-2.png in Resources */,
 				F7F1533F20A5EB1900525F05 /* 返回1.png in Resources */,
+				1574878920C63269004CD38B /* 暂停播放-2.png in Resources */,
 				1576B86820BBD5E400B8B1F9 /* 标签.png in Resources */,
 				1576B86120BBD53400B8B1F9 /* 目标.png in Resources */,
 				F7F1533420A5EB1900525F05 /* 关闭2.png in Resources */,
@@ -684,6 +714,7 @@
 				F7F1532D20A5EB1900525F05 /* weibo.jpg in Resources */,
 				1576B86720BBD5E100B8B1F9 /* 笔记本.png in Resources */,
 				1576B87A20BBF13700B8B1F9 /* 收藏.png in Resources */,
+				1574878820C63267004CD38B /* 视频-开始-播放-2.png in Resources */,
 				15F8669020C50BB1006A2F99 /* smart.png in Resources */,
 				F7F1532E20A5EB1900525F05 /* iconcheng.png in Resources */,
 				1576B87620BBF13700B8B1F9 /* 编辑.png in Resources */,
@@ -724,6 +755,7 @@
 			files = (
 				152056B020B55E8800B55E5F /* ViewController.m in Sources */,
 				152056AA20B55C2F00B55E5F /* IATConfig.m in Sources */,
+				1574878020C62198004CD38B /* ZZRDocument.m in Sources */,
 				F7F1532C20A5EB1900525F05 /* Factory.m in Sources */,
 				152056B620B5606200B55E5F /* ISRDataHelper.m in Sources */,
 				15FAC17820A524D800DD5E1B /* main.m in Sources */,
@@ -735,6 +767,8 @@
 				F7F1534820A5EB5200525F05 /* MainContentCell.m in Sources */,
 				15C3267220A56C730032E3E6 /* STPhotoBroswer.m in Sources */,
 				F776443C20C57F0500AEF1E5 /* BCShanNianDateManager.m in Sources */,
+				1574878120C62198004CD38B /* ZZRModel.m in Sources */,
+				1574877F20C62198004CD38B /* iCloudHandle.m in Sources */,
 				15610FD620C4D4E200983FFE /* BCShanNianKaPianManager.m in Sources */,
 				15950BC220B68B7B00206DC6 /* ShanNianTableViewCell.m in Sources */,
 				15950BC620B68BF900206DC6 /* ShanNianMuLuViewController.m in Sources */,

@@ -10,4 +10,8 @@
 
 @interface ShanNianTableViewCell : UITableViewCell
 @property(nonatomic,strong)UIView * label;
+
+@property(nonatomic,strong)UIButton *playBtn;
+
+@property(nonatomic,copy)dispatch_block_t cellPlayBlock;
 @end

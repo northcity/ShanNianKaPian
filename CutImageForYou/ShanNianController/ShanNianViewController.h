@@ -31,4 +31,6 @@ typedef NS_ENUM(NSUInteger, XiaYiPaiClickActionTag) {
 @property (nonatomic,assign) BOOL isBeginOfSpeech;//Whether or not SDK has invoke the delegate methods of beginOfSpeech.
 
 @property(nonatomic,strong)UIView *shangViewLineView;
+@property(nonatomic,strong)NSData *pcmData;
+
 @end

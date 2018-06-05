@@ -766,6 +766,7 @@
 {
     NSData *audioBuffer = [NSData dataWithBytes:buffer length:size];
     
+    self.pcmData = audioBuffer;
     int ret = [self.iFlySpeechRecognizer writeAudio:audioBuffer];
     if (!ret)
     {
@@ -1476,7 +1477,9 @@
         case XiaYiPaiClickActionShanChu:
             [self createDismissSpeakViewAnimation];
             break;
-            
+          case XiaYiPaiClickActionBaoCun:
+            [self createDismissSpeakViewAnimation];
+            [self saveDataToiCloud];
         default:
             break;
     }
@@ -1501,6 +1504,20 @@
 }
 
 
+- (void)saveDataToiCloud{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *libraryPath = [paths objectAtIndex:0];
+    NSString *cachesPath = [NSString stringWithFormat:@"%@%@",libraryPath,@"/asr.pcm"];
+    NSFileManager* fm=[NSFileManager defaultManager];
+    NSData *data = [fm contentsAtPath:cachesPath];
+    
+
+
+    [iCloudHandle saveCloudKitModelWithTitle:_speakTextView.text
+                                     content:_speakTextView.text
+                                  photoImage:data];
+    
+}
 
 
 #pragma mark ===========WebView=============

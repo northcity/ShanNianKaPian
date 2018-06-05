@@ -8,16 +8,54 @@
 
 #import "ShanNianMuLuViewController.h"
 #import "ShanNianTableViewCell.h"
-@interface ShanNianMuLuViewController ()<UITableViewDataSource, UITableViewDelegate>
+#import "iCloudHandle.h"
+#import "PcmPlayer.h"
+#import "PcmPlayerDelegate.h"
+
+@interface ShanNianMuLuViewController ()<UITableViewDataSource, UITableViewDelegate,PcmPlayerDelegate>
+
 @property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic ,copy)   NSArray                   *dataArr;
+@property (nonatomic, strong) PcmPlayer *audioPlayer;
+
 @end
 
 @implementation ShanNianMuLuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpNotification];
     [self createUI];
     self.view.backgroundColor = [UIColor whiteColor];
+    [self getData];
+
+}
+
+- (void)getData
+{
+    [iCloudHandle queryCloudKitData];
+}
+
+- (void)setUpNotification
+{
+    //获取最新数据完成
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishedGetNewCloudData:) name:@"CloudDataQueryFinished" object:nil];
+    
+}
+
+#pragma mark -
+#pragma mark - notification
+
+- (void)finishedGetNewCloudData:(NSNotification *)notification
+{
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        
+        self.dataArr = notification.userInfo[@"key"];
+        [self.tableView reloadData];
+        
+    });
+    
 }
 
 
@@ -80,7 +118,7 @@
     return 55;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return _dataArr.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -93,7 +131,31 @@
     cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     
+    CKRecord *record = [self.dataArr objectAtIndex:indexPath.row];
+    cell.textLabel.text = [record objectForKey:@"titleString"];
+    
+    if (indexPath.row == 1) {
+        cell.label.backgroundColor  = PNCColor(164, 185, 277);
+    }
+    __weak typeof(self)weakSelf= self;
+    
+    cell.cellPlayBlock = ^{
+    
+        CKAsset *pcmAsset = [record objectForKey:@"image"];
+        NSData *pcmData = [NSData dataWithContentsOfFile:pcmAsset.fileURL.path];
+        [weakSelf playPcmWith:pcmData];
+    };
+    
+    
     return cell;
 }
 
+- (void)playPcmWith:(NSData *)pcmData{
+    
+    NSError *error = nil;
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];
+    _audioPlayer = [[PcmPlayer alloc] initWithData:pcmData sampleRate:[@"16000" integerValue]];
+    [_audioPlayer play];
+    
+}
 @end

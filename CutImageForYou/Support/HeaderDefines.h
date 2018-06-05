@@ -17,6 +17,7 @@
 //#import <GTSDK/GeTuiSdk.h>
 //#import "Masonry/Masonry.h"
 
+#import "iCloudHandle.h"
 #import "IFlyMSC/IFlyMSC.h"
 #import "ThirdPathKey.h"
 #import <Social/Social.h> // 导入苹果自带分享的头文件
