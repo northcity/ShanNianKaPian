@@ -8,3 +8,8 @@
 
 2018-5-31 更新动画
 2018 -6-3修改语音识别
+
+2018 -6-4
+https://github.com/rshinich/iCloudDemo
+
+iCloudDemo 
