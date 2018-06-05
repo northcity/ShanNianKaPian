@@ -16,6 +16,9 @@
 #import <MessageUI/MessageUI.h>
 //#import "AboutUSViewController.h"
 #import "AboutViewController.h"
+#import "ShanNianVoiceSetViewController.h"
+
+
 const CGFloat kNavigationBarHeight = 44;
 const CGFloat kStatusBarHeight = 20;
 @interface SettingViewController ()<UITableViewDataSource,SKStoreProductViewControllerDelegate, UITableViewDelegate,MFMailComposeViewControllerDelegate>
@@ -270,8 +273,10 @@ const CGFloat kStatusBarHeight = 20;
     }
     
     else if (indexPath.row == 0){
-        AboutViewController * ab = [[AboutViewController alloc]init];
-        [self presentViewController:ab animated:YES completion:nil];
+        ShanNianVoiceSetViewController *svc = [[ShanNianVoiceSetViewController alloc]init];
+        [self presentViewController:svc animated:YES completion:nil];
+        //        AboutViewController * ab = [[AboutViewController alloc]init];
+//        [self presentViewController:ab animated:YES completion:nil];
     }else if (indexPath.row == 3){
         
         [self TiShiTongZhi];

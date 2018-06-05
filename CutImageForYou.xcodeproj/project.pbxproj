@@ -58,6 +58,12 @@
 		15FAC18220A524D800DD5E1B /* CutImageForYouTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FAC18120A524D800DD5E1B /* CutImageForYouTests.m */; };
 		15FAC18D20A524D800DD5E1B /* CutImageForYouUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FAC18C20A524D800DD5E1B /* CutImageForYouUITests.m */; };
 		F758C81120A6F5260083B2B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F758C81020A6F5260083B2B7 /* Assets.xcassets */; };
+		F758D47920C6C4590033175D /* IATConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D47820C6C4590033175D /* IATConfigViewController.m */; };
+		F758D48120C6C47E0033175D /* SAMath.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D47B20C6C47E0033175D /* SAMath.m */; };
+		F758D48220C6C47E0033175D /* AKPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D47D20C6C47E0033175D /* AKPickerView.m */; };
+		F758D48320C6C47E0033175D /* SAMultisectorControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D47F20C6C47E0033175D /* SAMultisectorControl.m */; };
+		F758D48820C6D85E0033175D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F758D48B20C6D85E0033175D /* Localizable.strings */; };
+		F758D48920C6D85E0033175D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F758D48B20C6D85E0033175D /* Localizable.strings */; };
 		F776443C20C57F0500AEF1E5 /* BCShanNianDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F776443B20C57F0500AEF1E5 /* BCShanNianDateManager.m */; };
 		F79A83A920A6F5FC008EC8E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F758C81020A6F5260083B2B7 /* Assets.xcassets */; };
 		F7B49FB520C4239F00B7B280 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B49FB420C4239F00B7B280 /* iflyMSC.framework */; };
@@ -206,6 +212,19 @@
 		15FAC19C20A5271600DD5E1B /* ThirdPathKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdPathKey.h; sourceTree = "<group>"; };
 		15FAC19D20A5271600DD5E1B /* HeaderDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderDefines.h; sourceTree = "<group>"; };
 		F758C81020A6F5260083B2B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CutImageForYou/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		F758D47720C6C4590033175D /* IATConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IATConfigViewController.h; sourceTree = "<group>"; };
+		F758D47820C6C4590033175D /* IATConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IATConfigViewController.m; sourceTree = "<group>"; };
+		F758D47B20C6C47E0033175D /* SAMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMath.m; sourceTree = "<group>"; };
+		F758D47C20C6C47E0033175D /* SAMultisectorControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMultisectorControl.h; sourceTree = "<group>"; };
+		F758D47D20C6C47E0033175D /* AKPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKPickerView.m; sourceTree = "<group>"; };
+		F758D47E20C6C47E0033175D /* SAMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMath.h; sourceTree = "<group>"; };
+		F758D47F20C6C47E0033175D /* SAMultisectorControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMultisectorControl.m; sourceTree = "<group>"; };
+		F758D48020C6C47E0033175D /* AKPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKPickerView.h; sourceTree = "<group>"; };
+		F758D48420C6C67F0033175D /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
+		F758D48A20C6D85E0033175D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F758D48C20C6D89F0033175D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		F758D48D20C6D89F0033175D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		F758D48E20C6D89F0033175D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F776443A20C57F0500AEF1E5 /* BCShanNianDateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCShanNianDateManager.h; sourceTree = "<group>"; };
 		F776443B20C57F0500AEF1E5 /* BCShanNianDateManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCShanNianDateManager.m; sourceTree = "<group>"; };
 		F7B49FB420C4239F00B7B280 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iflyMSC.framework; path = CutImageForYou/Support/iflyMSC.framework; sourceTree = "<group>"; };
@@ -347,35 +366,15 @@
 		15950BBE20B68B4200206DC6 /* ShanNianController */ = {
 			isa = PBXGroup;
 			children = (
-				15F8668F20C50BA9006A2F99 /* smart.png */,
-				1576B87420BBF13200B8B1F9 /* 下载.png */,
-				1576B87320BBF12800B8B1F9 /* 编辑.png */,
-				1576B87220BBF12100B8B1F9 /* 删除min.png */,
-				1576B87120BBF10600B8B1F9 /* 日历.png */,
-				1576B87020BBF0FC00B8B1F9 /* 删除.png */,
-				1576B86F20BBF0FC00B8B1F9 /* 收藏.png */,
+				F758D49020C6DBD10033175D /* ShanNianSetVc */,
+				F758D48F20C6DBCB0033175D /* ShanNianImageResource */,
 				1576B86C20BBD86A00B8B1F9 /* UIImage+Gradient.h */,
 				1576B86D20BBD86A00B8B1F9 /* UIImage+Gradient.m */,
-				1576B86420BBD5DD00B8B1F9 /* 笔记本.png */,
-				1576B86320BBD5DD00B8B1F9 /* 标签.png */,
-				1576B86220BBD5DD00B8B1F9 /* 沟通.png */,
-				1576B86520BBD5DE00B8B1F9 /* 女士.png */,
-				1576B86620BBD5DE00B8B1F9 /* 日期.png */,
-				1576B86020BBD53100B8B1F9 /* 目标.png */,
-				1576B85E20BBD4BA00B8B1F9 /* 灵感-2.png */,
-				1576B85C20BBD32900B8B1F9 /* 灵感.png */,
-				1574878620C63265004CD38B /* 视频-开始-播放-2.png */,
-				1574878720C63265004CD38B /* 暂停播放-2.png */,
 				1520569520B54ACD00B55E5F /* ShanNianViewController.h */,
 				1520569620B54ACD00B55E5F /* ShanNianViewController.m */,
-				1526F05B20C6961300E15B91 /* ShanNianVoiceSetViewController.h */,
-				1526F05C20C6961300E15B91 /* ShanNianVoiceSetViewController.m */,
+				F758D48420C6C67F0033175D /* Definition.h */,
 				152056BA20B5652800B55E5F /* WaveView.h */,
 				152056BB20B5652900B55E5F /* WaveView.m */,
-				152056A920B55C2E00B55E5F /* IATConfig.h */,
-				152056A820B55C2E00B55E5F /* IATConfig.m */,
-				152056B420B5606200B55E5F /* ISRDataHelper.h */,
-				152056B520B5606200B55E5F /* ISRDataHelper.m */,
 				152056B820B562B500B55E5F /* PopupView.h */,
 				152056B720B562B400B55E5F /* PopupView.m */,
 				15950BBF20B68B7B00206DC6 /* ShanNianTableViewCell.h */,
@@ -436,8 +435,6 @@
 				15610FD320C4D4B900983FFE /* BCShanNianKaPianManager */,
 				15950BBE20B68B4200206DC6 /* ShanNianController */,
 				15FAC19A20A526F500DD5E1B /* Support */,
-				15FAC16820A524D600DD5E1B /* AppDelegate.h */,
-				15FAC16920A524D600DD5E1B /* AppDelegate.m */,
 				152056AC20B55E8700B55E5F /* LaunchViewController.h */,
 				152056AB20B55E8700B55E5F /* LaunchViewController.m */,
 				152056AD20B55E8700B55E5F /* ViewController.h */,
@@ -457,6 +454,7 @@
 				F758C81020A6F5260083B2B7 /* Assets.xcassets */,
 				15FAC18120A524D800DD5E1B /* CutImageForYouTests.m */,
 				15FAC18320A524D800DD5E1B /* Info.plist */,
+				F758D48B20C6D85E0033175D /* Localizable.strings */,
 			);
 			path = CutImageForYouTests;
 			sourceTree = "<group>";
@@ -477,11 +475,74 @@
 				F7F1530E20A5EB1800525F05 /* AboutMeController */,
 				F7F152F520A5DF1E00525F05 /* newProgress */,
 				15C3266720A56B190032E3E6 /* ImageShowTool */,
+				F758D49120C6DC3E0033175D /* ShanNianAppDelegate */,
 				15FAC19D20A5271600DD5E1B /* HeaderDefines.h */,
 				15FAC19B20A5271500DD5E1B /* PrefixHeader.pch */,
 				15FAC19C20A5271600DD5E1B /* ThirdPathKey.h */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		F758D47A20C6C47E0033175D /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				F758D47B20C6C47E0033175D /* SAMath.m */,
+				F758D47C20C6C47E0033175D /* SAMultisectorControl.h */,
+				F758D47D20C6C47E0033175D /* AKPickerView.m */,
+				F758D47E20C6C47E0033175D /* SAMath.h */,
+				F758D47F20C6C47E0033175D /* SAMultisectorControl.m */,
+				F758D48020C6C47E0033175D /* AKPickerView.h */,
+			);
+			path = SettingView;
+			sourceTree = "<group>";
+		};
+		F758D48F20C6DBCB0033175D /* ShanNianImageResource */ = {
+			isa = PBXGroup;
+			children = (
+				1576B86420BBD5DD00B8B1F9 /* 笔记本.png */,
+				1576B86320BBD5DD00B8B1F9 /* 标签.png */,
+				1576B86220BBD5DD00B8B1F9 /* 沟通.png */,
+				1576B86520BBD5DE00B8B1F9 /* 女士.png */,
+				1576B86620BBD5DE00B8B1F9 /* 日期.png */,
+				1576B86020BBD53100B8B1F9 /* 目标.png */,
+				1576B85E20BBD4BA00B8B1F9 /* 灵感-2.png */,
+				1576B85C20BBD32900B8B1F9 /* 灵感.png */,
+				1574878620C63265004CD38B /* 视频-开始-播放-2.png */,
+				1574878720C63265004CD38B /* 暂停播放-2.png */,
+				15F8668F20C50BA9006A2F99 /* smart.png */,
+				1576B87420BBF13200B8B1F9 /* 下载.png */,
+				1576B87320BBF12800B8B1F9 /* 编辑.png */,
+				1576B87220BBF12100B8B1F9 /* 删除min.png */,
+				1576B87120BBF10600B8B1F9 /* 日历.png */,
+				1576B87020BBF0FC00B8B1F9 /* 删除.png */,
+				1576B86F20BBF0FC00B8B1F9 /* 收藏.png */,
+			);
+			path = ShanNianImageResource;
+			sourceTree = "<group>";
+		};
+		F758D49020C6DBD10033175D /* ShanNianSetVc */ = {
+			isa = PBXGroup;
+			children = (
+				F758D47720C6C4590033175D /* IATConfigViewController.h */,
+				F758D47820C6C4590033175D /* IATConfigViewController.m */,
+				1526F05B20C6961300E15B91 /* ShanNianVoiceSetViewController.h */,
+				1526F05C20C6961300E15B91 /* ShanNianVoiceSetViewController.m */,
+				152056A920B55C2E00B55E5F /* IATConfig.h */,
+				152056A820B55C2E00B55E5F /* IATConfig.m */,
+				152056B420B5606200B55E5F /* ISRDataHelper.h */,
+				152056B520B5606200B55E5F /* ISRDataHelper.m */,
+				F758D47A20C6C47E0033175D /* SettingView */,
+			);
+			path = ShanNianSetVc;
+			sourceTree = "<group>";
+		};
+		F758D49120C6DC3E0033175D /* ShanNianAppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				15FAC16820A524D600DD5E1B /* AppDelegate.h */,
+				15FAC16920A524D600DD5E1B /* AppDelegate.m */,
+			);
+			path = ShanNianAppDelegate;
 			sourceTree = "<group>";
 		};
 		F7F152F520A5DF1E00525F05 /* newProgress */ = {
@@ -673,6 +734,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 15FAC15C20A524D500DD5E1B;
 			productRefGroup = 15FAC16620A524D600DD5E1B /* Products */;
@@ -699,6 +761,7 @@
 				F7F1533E20A5EB1900525F05 /* 增值服务@3x.png in Resources */,
 				F7F1533A20A5EB1900525F05 /* iconshoudiantong.png in Resources */,
 				F7F1533D20A5EB1900525F05 /* 沙漏@3x.png in Resources */,
+				F758D48820C6D85E0033175D /* Localizable.strings in Resources */,
 				F7F1534720A5EB5200525F05 /* MainContentCell.xib in Resources */,
 				1576B85F20BBD4BC00B8B1F9 /* 灵感-2.png in Resources */,
 				F7F1533F20A5EB1900525F05 /* 返回1.png in Resources */,
@@ -741,6 +804,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F758C81120A6F5260083B2B7 /* Assets.xcassets in Resources */,
+				F758D48920C6D85E0033175D /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,6 +826,7 @@
 				152056AA20B55C2F00B55E5F /* IATConfig.m in Sources */,
 				1526F05D20C6961400E15B91 /* ShanNianVoiceSetViewController.m in Sources */,
 				1574878020C62198004CD38B /* ZZRDocument.m in Sources */,
+				F758D48120C6C47E0033175D /* SAMath.m in Sources */,
 				F7F1532C20A5EB1900525F05 /* Factory.m in Sources */,
 				152056B620B5606200B55E5F /* ISRDataHelper.m in Sources */,
 				15FAC17820A524D800DD5E1B /* main.m in Sources */,
@@ -773,11 +838,14 @@
 				F7F1534820A5EB5200525F05 /* MainContentCell.m in Sources */,
 				15C3267220A56C730032E3E6 /* STPhotoBroswer.m in Sources */,
 				F776443C20C57F0500AEF1E5 /* BCShanNianDateManager.m in Sources */,
+				F758D48320C6C47E0033175D /* SAMultisectorControl.m in Sources */,
 				1574878120C62198004CD38B /* ZZRModel.m in Sources */,
 				1574877F20C62198004CD38B /* iCloudHandle.m in Sources */,
 				15610FD620C4D4E200983FFE /* BCShanNianKaPianManager.m in Sources */,
 				15950BC220B68B7B00206DC6 /* ShanNianTableViewCell.m in Sources */,
+				F758D47920C6C4590033175D /* IATConfigViewController.m in Sources */,
 				15950BC620B68BF900206DC6 /* ShanNianMuLuViewController.m in Sources */,
+				F758D48220C6C47E0033175D /* AKPickerView.m in Sources */,
 				1520569720B54ACD00B55E5F /* ShanNianViewController.m in Sources */,
 				F7F1534220A5EB1900525F05 /* AboutViewController.m in Sources */,
 				F7F1533020A5EB1900525F05 /* UIImage+ImageEffects.m in Sources */,
@@ -825,6 +893,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				152056B220B55EB000B55E5F /* Base */,
+				F758D48C20C6D89F0033175D /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -833,8 +902,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				15FAC17420A524D700DD5E1B /* Base */,
+				F758D48D20C6D89F0033175D /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F758D48B20C6D85E0033175D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F758D48A20C6D85E0033175D /* en */,
+				F758D48E20C6D89F0033175D /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -844,6 +923,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -900,6 +980,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
