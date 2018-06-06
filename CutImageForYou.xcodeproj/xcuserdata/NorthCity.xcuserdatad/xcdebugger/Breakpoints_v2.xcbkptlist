@@ -26,7 +26,7 @@
                   moduleName = "CutImageForYou"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/qianfeng/Desktop/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AEGIT/%E9%97%AA%E5%BF%B5%E5%8D%A1%E7%89%87/ShanNianKaPian/CutImageForYou/ViewController.m"
-                  timestampString = "549725483.6104881"
+                  timestampString = "549990629.8684061"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "442"
@@ -41,7 +41,7 @@
                   moduleName = "CutImageForYou"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/qianfeng/Desktop/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AEGIT/%E9%97%AA%E5%BF%B5%E5%8D%A1%E7%89%87/ShanNianKaPian/CutImageForYou/ViewController.m"
-                  timestampString = "549725483.6129659"
+                  timestampString = "549990629.870281"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "442"
@@ -56,7 +56,7 @@
                   moduleName = "CutImageForYou"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/qianfeng/Desktop/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AEGIT/%E9%97%AA%E5%BF%B5%E5%8D%A1%E7%89%87/ShanNianKaPian/CutImageForYou/ViewController.m"
-                  timestampString = "549725483.615489"
+                  timestampString = "549990629.8721189"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "442"
@@ -121,75 +121,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
-            timestampString = "549808903.615285"
+            timestampString = "549991114.517771"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
             landmarkName = "-upContactBtnHandler:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ShanNianViewController upContactBtnHandler:]"
-                  moduleName = "CutImageForYou"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/qianfeng/Desktop/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AEGIT/%E9%97%AA%E5%BF%B5%E5%8D%A1%E7%89%87/ShanNianKaPian/CutImageForYou/ShanNianController/ShanNianViewController.m"
-                  timestampString = "549725483.674336"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "242"
-                  endingLineNumber = "242"
-                  offsetFromSymbolStart = "768">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__46-[ShanNianViewController upContactBtnHandler:]_block_invoke"
-                  moduleName = "CutImageForYou"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/qianfeng/Desktop/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AEGIT/%E9%97%AA%E5%BF%B5%E5%8D%A1%E7%89%87/ShanNianKaPian/CutImageForYou/ShanNianController/ShanNianViewController.m"
-                  timestampString = "549725483.67694"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "242"
-                  endingLineNumber = "242"
-                  offsetFromSymbolStart = "124">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_"
-                  moduleName = "CutImageForYou"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/qianfeng/Desktop/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AEGIT/%E9%97%AA%E5%BF%B5%E5%8D%A1%E7%89%87/ShanNianKaPian/CutImageForYou/ShanNianController/ShanNianViewController.m"
-                  timestampString = "549725483.678864"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "242"
-                  endingLineNumber = "242"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_"
-                  moduleName = "CutImageForYou"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/qianfeng/Desktop/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AEGIT/%E9%97%AA%E5%BF%B5%E5%8D%A1%E7%89%87/ShanNianKaPian/CutImageForYou/ShanNianController/ShanNianViewController.m"
-                  timestampString = "549725483.68072"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "242"
-                  endingLineNumber = "242"
-                  offsetFromSymbolStart = "36">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -199,11 +137,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
-            timestampString = "549808903.61585"
+            timestampString = "549991114.518122"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "-viewWillDisappear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -215,11 +153,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
-            timestampString = "549808903.6160851"
+            timestampString = "549991114.518343"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
             landmarkName = "-upWordBtnHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -231,11 +169,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
-            timestampString = "549808903.617427"
+            timestampString = "549991114.518581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "397"
-            endingLineNumber = "397"
+            startingLineNumber = "408"
+            endingLineNumber = "408"
             landmarkName = "-onBeginOfSpeech"
             landmarkType = "7">
          </BreakpointContent>
@@ -247,11 +185,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
-            timestampString = "549808903.617645"
+            timestampString = "549991114.51903"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "440"
-            endingLineNumber = "440"
+            startingLineNumber = "451"
+            endingLineNumber = "451"
             landmarkName = "-onCompleted:"
             landmarkType = "7">
          </BreakpointContent>
@@ -263,11 +201,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
-            timestampString = "549808903.617847"
+            timestampString = "549991114.519588"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "382"
-            endingLineNumber = "382"
+            startingLineNumber = "393"
+            endingLineNumber = "393"
             landmarkName = "ShanNianViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -279,11 +217,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
-            timestampString = "549808903.6181591"
+            timestampString = "549991114.520032"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "368"
-            endingLineNumber = "368"
+            startingLineNumber = "379"
+            endingLineNumber = "379"
             landmarkName = "ShanNianViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -295,12 +233,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
-            timestampString = "549808903.618427"
+            timestampString = "549991114.520329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "352"
-            endingLineNumber = "352"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
             landmarkName = "-audioStreamBtnHandler:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CutImageForYou/ShanNianController/ShanNianViewController.m"
+            timestampString = "549991114.520589"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1114"
+            endingLineNumber = "1114"
+            landmarkName = "-createSpeakView"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

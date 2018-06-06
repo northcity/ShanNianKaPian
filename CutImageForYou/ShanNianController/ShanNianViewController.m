@@ -62,7 +62,8 @@
 @property(nonatomic,strong)CALayer *webViewSubLayer;
 
 @property(nonatomic,strong)UIButton *setBtn;
-
+@property(nonatomic,strong)UIVisualEffectView *effectView;
+@property(nonatomic,strong)UIBlurEffect *effect;
 @end
 
 @implementation ShanNianViewController
@@ -72,6 +73,16 @@
     UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
     bgImageView.image = [UIImage imageNamed:@"smart"];
     [self.view addSubview:bgImageView];
+    
+            self.effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    
+            self.effectView = [[UIVisualEffectView alloc] initWithEffect:self.effect];
+    
+            self.effectView.frame = bgImageView.bounds;
+    
+            self.effectView.alpha = 1.f;
+            self.effectView.userInteractionEnabled = YES;
+            [bgImageView addSubview:self.effectView];
 }
 
 - (void)viewDidLoad {
@@ -1093,14 +1104,14 @@
         
 //        UIImage *backImage = [UIImage alloc] createImageWithSize:CGSizeMake(80, 80) gradientColors:@[(id)PNCColor(55, 188, 253),(id)PNCColor(0, 0, 0)] percentageArray:@[@(0.5),@(1)]  percentage:@[@(0.3),@(1)] gradientType:GradientFromTopToBottom];
 
-        UIImage *newImage = [[UIImage alloc]createImageWithSize:CGSizeMake(80, 80) gradientColors:@[(id)PNCColor(164, 185, 277),(id)PNCColor(101, 152, 255)] percentage:@[@(0.3),@(1)] gradientType:GradientFromTopToBottom];
+        UIImage *newImage = [[UIImage alloc]createImageWithSize:CGSizeMake(80, 80) gradientColors:@[(id)PNCColor(164, 185, 255),(id)PNCColor(101, 152, 255)] percentage:@[@(0.3),@(1)] gradientType:GradientFromTopToBottom];
         buttonBackImage.image = newImage;
 
     
         
         if (i == 0) {
             
-            UIImage *newImage = [[UIImage alloc]createImageWithSize:CGSizeMake(80, 80) gradientColors:@[(id)PNCColor(164, 185, 277),(id)PNCColor(101, 152, 255)] percentage:@[@(0.4),@(1)] gradientType:GradientFromTopToBottom];
+            UIImage *newImage = [[UIImage alloc]createImageWithSize:CGSizeMake(80, 80) gradientColors:@[(id)PNCColor(164, 185, 255),(id)PNCColor(101, 152, 255)] percentage:@[@(0.4),@(1)] gradientType:GradientFromTopToBottom];
             buttonBackImage.image = newImage;
 
             
@@ -1154,7 +1165,7 @@
         [button addTarget:self action:@selector(TouchDown:)forControlEvents: UIControlEventTouchDown];
         //处理按钮松开状态
         [button addTarget:self action:@selector(TouchUp:)forControlEvents: UIControlEventTouchUpInside | UIControlEventTouchUpOutside];
-        
+        [button addTarget:self action:@selector(ShangYiPaiButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         button.tag = 1000 + i;
         button.hidden = YES;
     }
@@ -1503,6 +1514,33 @@
           case XiaYiPaiClickActionBaoCun:
             [self createDismissSpeakViewAnimation];
             [self saveDataToiCloud];
+        default:
+            break;
+    }
+}
+
+- (void)ShangYiPaiButtonClick:(UIButton *)button{
+    switch (button.tag) {
+        case ShangYiPaiClickActionDaiban:
+            self.speakView.backgroundColor = PNCColor(164, 185, 255);
+            self.nowColor = @"0XA4B9FF";
+            break;
+        case ShangYiPaiClickActionDaiFaXiaoXi:
+            self.speakView.backgroundColor = PNCColor(255, 120, 159);
+            self.nowColor = @"0XFF789F";
+            break;
+        case ShangYiPaiClickActionJiShi:
+            self.speakView.backgroundColor = PNCColor(255, 172, 94);
+            self.nowColor = @"0XFFAC5E";
+            break;
+        case ShangYiPaiClickActionLiaoTian:
+            self.speakView.backgroundColor = PNCColor(109, 212, 92);
+            self.nowColor = @"0X6DD45E";
+            break;
+        case ShangYiPaiClickActionLingGan:
+            self.speakView.backgroundColor = PNCColor(182, 118, 219);
+            self.nowColor = @"0XB676DB";
+            break;
         default:
             break;
     }

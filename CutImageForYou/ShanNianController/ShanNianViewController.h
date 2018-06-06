@@ -22,6 +22,14 @@ typedef NS_ENUM(NSUInteger, XiaYiPaiClickActionTag) {
     XiaYiPaiClickActionBaoCun//空页面按钮
 };
 
+typedef NS_ENUM(NSUInteger, ShangYiPaiClickActionTag) {
+    ShangYiPaiClickActionDaiban =1000, //Cell按钮
+    ShangYiPaiClickActionDaiFaXiaoXi,//添加银行卡
+    ShangYiPaiClickActionJiShi, //错误加载
+    ShangYiPaiClickActionLiaoTian,//进入详情按钮
+    ShangYiPaiClickActionLingGan//空页面按钮
+};
+
 @interface ShanNianViewController : UIViewController
 @property (nonatomic, assign) BOOL isCanceled;
 @property(nonatomic,strong)NSMutableArray *volumArray;
@@ -32,5 +40,7 @@ typedef NS_ENUM(NSUInteger, XiaYiPaiClickActionTag) {
 
 @property(nonatomic,strong)UIView *shangViewLineView;
 @property(nonatomic,strong)NSData *pcmData;
+
+@property(nonatomic,copy)NSString *nowColor;
 
 @end
