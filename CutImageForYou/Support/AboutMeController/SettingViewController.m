@@ -18,6 +18,8 @@
 #import "AboutViewController.h"
 #import "ShanNianVoiceSetViewController.h"
 
+#import "BCMiMaYuJieSuoViewController.h"
+#import "LZBaseNavigationController.h"
 
 const CGFloat kNavigationBarHeight = 44;
 const CGFloat kStatusBarHeight = 20;
@@ -249,6 +251,11 @@ const CGFloat kStatusBarHeight = 20;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 0 && indexPath.row == 2) {
+        BCMiMaYuJieSuoViewController *bvc = [[BCMiMaYuJieSuoViewController alloc]init];
+//        [self presentViewController:bvc animated:YES completion:nil];
+        
+        LZBaseNavigationController *nav = [[LZBaseNavigationController alloc]initWithRootViewController:bvc];
+        [self presentViewController:nav animated:YES completion:nil];
         
     }
     
@@ -262,11 +269,11 @@ const CGFloat kStatusBarHeight = 20;
     
     
     
-    if (indexPath.row == 2) {
-        NSString *itunesurl = @"itms-apps://itunes.apple.com/cn/app/id1383797480?mt=8&action=write-review";
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:itunesurl]];
-        
-    }
+//    if (indexPath.row == 2) {
+//        NSString *itunesurl = @"itms-apps://itunes.apple.com/cn/app/id1383797480?mt=8&action=write-review";
+//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:itunesurl]];
+//
+//    }
     
     
     if (indexPath.row == 4) {

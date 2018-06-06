@@ -9,6 +9,11 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
+#ifdef DEBUG
+#define LZLog(s, ... ) NSLog( @"[%@：in line: %d]-->[message: %@]", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+#else
+#define LZLog(s, ... )
+#endif
 
 #import "HeaderDefines.h"
 
