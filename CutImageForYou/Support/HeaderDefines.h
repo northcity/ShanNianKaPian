@@ -15,13 +15,12 @@
 #import "UIImage+ImageEffects.h"
 #import <BmobSDK/Bmob.h>
 //#import <GTSDK/GeTuiSdk.h>
-//#import "Masonry/Masonry.h"
+#import "Masonry/Masonry.h"
 
 #import "iCloudHandle.h"
 #import "IFlyMSC/IFlyMSC.h"
 #import "ThirdPathKey.h"
 #import <Social/Social.h> // 导入苹果自带分享的头文件
-
 
 // iOS10 及以上需导  UserNotifications.framework
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0

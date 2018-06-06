@@ -181,35 +181,43 @@ const CGFloat kStatusBarHeight = 20;
     
     if (indexPath.section == 0 && indexPath.row == 0) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.imageView.image = [UIImage imageNamed:@"语音1"];
         cell.textLabel.text = @"语音识别设置";
     }
     if (indexPath.section == 0 && indexPath.row == 1) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.imageView.image = [UIImage imageNamed:@"云1"];
         cell.textLabel.text = @"iCloud开关";
     }
     if (indexPath.section == 0 && indexPath.row == 2) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.textLabel.text = @"密码锁";
+        cell.imageView.image = [UIImage imageNamed:@"密码1"];
+        cell.textLabel.text = @"密码与解锁";
     }
     if (indexPath.section == 0 && indexPath.row == 3) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.imageView.image = [UIImage imageNamed:@"指纹2"];
         cell.textLabel.text = @"Touch ID/Face ID";
     }
     
     if (indexPath.section == 1 && indexPath.row == 0) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.imageView.image = [UIImage imageNamed:@"反馈11"];
         cell.textLabel.text = @"发送反馈";
     }
     if (indexPath.section == 1 && indexPath.row == 1) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.imageView.image = [UIImage imageNamed:@"发送11"];
         cell.textLabel.text = @"分享给朋友";
     }
     if (indexPath.section == 1 && indexPath.row == 2) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.imageView.image = [UIImage imageNamed:@"点赞11"];
         cell.textLabel.text = @"给个小心心";
     }
     if (indexPath.section == 1 && indexPath.row == 3) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.imageView.image = [UIImage imageNamed:@"个人111"];
         cell.textLabel.text = @"主题设置";
     }
     
@@ -239,6 +247,20 @@ const CGFloat kStatusBarHeight = 20;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 0 && indexPath.row == 2) {
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     if (indexPath.row == 2) {
         NSString *itunesurl = @"itms-apps://itunes.apple.com/cn/app/id1383797480?mt=8&action=write-review";

@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1500833920C771CB00415140 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1500832020C771CA00415140 /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		1500833A20C771CB00415140 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1500832920C771CA00415140 /* ViewController+MASAdditions.m */; };
+		1500833B20C771CB00415140 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1500832D20C771CA00415140 /* MASCompositeConstraint.m */; };
+		1500833C20C771CB00415140 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1500832E20C771CA00415140 /* MASConstraintMaker.m */; };
+		1500833D20C771CB00415140 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1500832F20C771CA00415140 /* MASLayoutConstraint.m */; };
+		1500833E20C771CB00415140 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1500833020C771CA00415140 /* NSArray+MASAdditions.m */; };
+		1500833F20C771CB00415140 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1500833120C771CA00415140 /* View+MASAdditions.m */; };
+		1500834020C771CB00415140 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1500833420C771CA00415140 /* MASConstraint.m */; };
+		1500834120C771CB00415140 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1500833620C771CA00415140 /* MASViewConstraint.m */; };
+		1500834220C771CB00415140 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1500833720C771CA00415140 /* MASViewAttribute.m */; };
+		1500834320C771CB00415140 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1500833820C771CA00415140 /* Info.plist */; };
 		1520569720B54ACD00B55E5F /* ShanNianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1520569620B54ACD00B55E5F /* ShanNianViewController.m */; };
 		1520569B20B5513F00B55E5F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1520569A20B5513F00B55E5F /* AVFoundation.framework */; };
 		1520569D20B5514900B55E5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1520569C20B5514900B55E5F /* Foundation.framework */; };
@@ -23,6 +34,7 @@
 		152056BC20B5652900B55E5F /* WaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 152056BB20B5652900B55E5F /* WaveView.m */; };
 		152056C220B64FB100B55E5F /* PcmPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 152056C020B64FB000B55E5F /* PcmPlayer.m */; };
 		1526F05D20C6961400E15B91 /* ShanNianVoiceSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1526F05C20C6961300E15B91 /* ShanNianVoiceSetViewController.m */; };
+		153A9ADA20C7DA8F009BCBFE /* BCMiMaYuJieSuoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 153A9AD920C7DA8F009BCBFE /* BCMiMaYuJieSuoViewController.m */; };
 		15610FD620C4D4E200983FFE /* BCShanNianKaPianManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15610FD520C4D4E200983FFE /* BCShanNianKaPianManager.m */; };
 		1574877F20C62198004CD38B /* iCloudHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1574877A20C62198004CD38B /* iCloudHandle.m */; };
 		1574878020C62198004CD38B /* ZZRDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1574877C20C62198004CD38B /* ZZRDocument.m */; };
@@ -47,6 +59,25 @@
 		15950BC220B68B7B00206DC6 /* ShanNianTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15950BC020B68B7B00206DC6 /* ShanNianTableViewCell.m */; };
 		15950BC320B68B7B00206DC6 /* ShanNianTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15950BC120B68B7B00206DC6 /* ShanNianTableViewCell.xib */; };
 		15950BC620B68BF900206DC6 /* ShanNianMuLuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15950BC520B68BF900206DC6 /* ShanNianMuLuViewController.m */; };
+		15C0C90820C77BF500FF3963 /* ng_bps_fuceng_duigou@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C0C90620C77BF100FF3963 /* ng_bps_fuceng_duigou@2x.png */; };
+		15C0C90920C77BF800FF3963 /* ng_bps_fuceng_duigou@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C0C90720C77BF100FF3963 /* ng_bps_fuceng_duigou@3x.png */; };
+		15C0C90F20C77F8800FF3963 /* ShanNianVoiceSetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C0C90D20C77F8800FF3963 /* ShanNianVoiceSetCell.m */; };
+		15C0C91020C77F8800FF3963 /* ShanNianVoiceSetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15C0C90E20C77F8800FF3963 /* ShanNianVoiceSetCell.xib */; };
+		15C0C91220C78ADA00FF3963 /* 英语@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C0C91120C78AD800FF3963 /* 英语@3x.png */; };
+		15C0C91420C7996400FF3963 /* 中文@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C0C91320C7996100FF3963 /* 中文@3x.png */; };
+		15C0C91820C79B0800FF3963 /* 美国@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C0C91720C79B0400FF3963 /* 美国@3x.png */; };
+		15C0C91A20C79B5600FF3963 /* 美国1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C0C91920C79B4C00FF3963 /* 美国1@3x.png */; };
+		15C0C91D20C7A89A00FF3963 /* 云1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C0C91B20C7A82B00FF3963 /* 云1@3x.png */; };
+		15C0C91E20C7A89C00FF3963 /* 云@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C0C91C20C7A82C00FF3963 /* 云@3x.png */; };
+		15C0C92020C7A95C00FF3963 /* 密码@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C0C91F20C7A95100FF3963 /* 密码@3x.png */; };
+		15C0C92220C7AA2800FF3963 /* 密码1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C0C92120C7AA2600FF3963 /* 密码1@3x.png */; };
+		15C0C92420C7AAA600FF3963 /* 指纹2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C0C92320C7AA9E00FF3963 /* 指纹2@3x.png */; };
+		15C0C92620C7AF6600FF3963 /* 语音1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C0C92520C7AF6400FF3963 /* 语音1@3x.png */; };
+		15C0C92B20C7B0D600FF3963 /* 点赞11@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C0C92820C7B0D000FF3963 /* 点赞11@3x.png */; };
+		15C0C92C20C7B0D600FF3963 /* 发送11@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C0C92920C7B0D000FF3963 /* 发送11@3x.png */; };
+		15C0C92D20C7B0D600FF3963 /* 反馈11@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C0C92A20C7B0D100FF3963 /* 反馈11@3x.png */; };
+		15C0C92E20C7B0D600FF3963 /* 个人111@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C0C92720C7B0D000FF3963 /* 个人111@3x.png */; };
+		15C0C93220C7B95900FF3963 /* ShanNianMiMaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C0C93120C7B95900FF3963 /* ShanNianMiMaView.m */; };
 		15C3266F20A56B330032E3E6 /* STImageVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C3266920A56B190032E3E6 /* STImageVIew.m */; };
 		15C3267120A56B390032E3E6 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C3266E20A56B190032E3E6 /* UIView+Extension.m */; };
 		15C3267220A56C730032E3E6 /* STPhotoBroswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C3266B20A56B190032E3E6 /* STPhotoBroswer.m */; };
@@ -130,6 +161,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1500831F20C771CA00415140 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
+		1500832020C771CA00415140 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		1500832120C771CA00415140 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
+		1500832220C771CA00415140 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
+		1500832320C771CA00415140 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		1500832420C771CA00415140 /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
+		1500832520C771CA00415140 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
+		1500832620C771CA00415140 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		1500832720C771CA00415140 /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
+		1500832820C771CA00415140 /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
+		1500832920C771CA00415140 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		1500832A20C771CA00415140 /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
+		1500832B20C771CA00415140 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
+		1500832C20C771CA00415140 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		1500832D20C771CA00415140 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
+		1500832E20C771CA00415140 /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
+		1500832F20C771CA00415140 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
+		1500833020C771CA00415140 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		1500833120C771CA00415140 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
+		1500833220C771CA00415140 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		1500833320C771CA00415140 /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
+		1500833420C771CA00415140 /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
+		1500833520C771CA00415140 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		1500833620C771CA00415140 /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
+		1500833720C771CA00415140 /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
+		1500833820C771CA00415140 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1520569520B54ACD00B55E5F /* ShanNianViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShanNianViewController.h; sourceTree = "<group>"; };
 		1520569620B54ACD00B55E5F /* ShanNianViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShanNianViewController.m; sourceTree = "<group>"; };
 		1520569A20B5513F00B55E5F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -156,6 +213,8 @@
 		152056C120B64FB000B55E5F /* PcmPlayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PcmPlayerDelegate.h; sourceTree = "<group>"; };
 		1526F05B20C6961300E15B91 /* ShanNianVoiceSetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShanNianVoiceSetViewController.h; sourceTree = "<group>"; };
 		1526F05C20C6961300E15B91 /* ShanNianVoiceSetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShanNianVoiceSetViewController.m; sourceTree = "<group>"; };
+		153A9AD820C7DA8F009BCBFE /* BCMiMaYuJieSuoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMiMaYuJieSuoViewController.h; sourceTree = "<group>"; };
+		153A9AD920C7DA8F009BCBFE /* BCMiMaYuJieSuoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMiMaYuJieSuoViewController.m; sourceTree = "<group>"; };
 		15610FD420C4D4E200983FFE /* BCShanNianKaPianManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCShanNianKaPianManager.h; sourceTree = "<group>"; };
 		15610FD520C4D4E200983FFE /* BCShanNianKaPianManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCShanNianKaPianManager.m; sourceTree = "<group>"; };
 		1574877920C62198004CD38B /* iCloudHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCloudHandle.h; sourceTree = "<group>"; };
@@ -187,6 +246,27 @@
 		15950BC120B68B7B00206DC6 /* ShanNianTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShanNianTableViewCell.xib; sourceTree = "<group>"; };
 		15950BC420B68BF900206DC6 /* ShanNianMuLuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShanNianMuLuViewController.h; sourceTree = "<group>"; };
 		15950BC520B68BF900206DC6 /* ShanNianMuLuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShanNianMuLuViewController.m; sourceTree = "<group>"; };
+		15C0C90620C77BF100FF3963 /* ng_bps_fuceng_duigou@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ng_bps_fuceng_duigou@2x.png"; sourceTree = "<group>"; };
+		15C0C90720C77BF100FF3963 /* ng_bps_fuceng_duigou@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ng_bps_fuceng_duigou@3x.png"; sourceTree = "<group>"; };
+		15C0C90C20C77F8800FF3963 /* ShanNianVoiceSetCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShanNianVoiceSetCell.h; sourceTree = "<group>"; };
+		15C0C90D20C77F8800FF3963 /* ShanNianVoiceSetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShanNianVoiceSetCell.m; sourceTree = "<group>"; };
+		15C0C90E20C77F8800FF3963 /* ShanNianVoiceSetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShanNianVoiceSetCell.xib; sourceTree = "<group>"; };
+		15C0C91120C78AD800FF3963 /* 英语@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "英语@3x.png"; sourceTree = "<group>"; };
+		15C0C91320C7996100FF3963 /* 中文@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "中文@3x.png"; sourceTree = "<group>"; };
+		15C0C91720C79B0400FF3963 /* 美国@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "美国@3x.png"; sourceTree = "<group>"; };
+		15C0C91920C79B4C00FF3963 /* 美国1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "美国1@3x.png"; sourceTree = "<group>"; };
+		15C0C91B20C7A82B00FF3963 /* 云1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "云1@3x.png"; sourceTree = "<group>"; };
+		15C0C91C20C7A82C00FF3963 /* 云@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "云@3x.png"; sourceTree = "<group>"; };
+		15C0C91F20C7A95100FF3963 /* 密码@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "密码@3x.png"; sourceTree = "<group>"; };
+		15C0C92120C7AA2600FF3963 /* 密码1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "密码1@3x.png"; sourceTree = "<group>"; };
+		15C0C92320C7AA9E00FF3963 /* 指纹2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "指纹2@3x.png"; sourceTree = "<group>"; };
+		15C0C92520C7AF6400FF3963 /* 语音1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "语音1@3x.png"; sourceTree = "<group>"; };
+		15C0C92720C7B0D000FF3963 /* 个人111@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "个人111@3x.png"; sourceTree = "<group>"; };
+		15C0C92820C7B0D000FF3963 /* 点赞11@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "点赞11@3x.png"; sourceTree = "<group>"; };
+		15C0C92920C7B0D000FF3963 /* 发送11@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发送11@3x.png"; sourceTree = "<group>"; };
+		15C0C92A20C7B0D100FF3963 /* 反馈11@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "反馈11@3x.png"; sourceTree = "<group>"; };
+		15C0C93020C7B95900FF3963 /* ShanNianMiMaView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShanNianMiMaView.h; sourceTree = "<group>"; };
+		15C0C93120C7B95900FF3963 /* ShanNianMiMaView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShanNianMiMaView.m; sourceTree = "<group>"; };
 		15C3266820A56B190032E3E6 /* STImageVIew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STImageVIew.h; sourceTree = "<group>"; };
 		15C3266920A56B190032E3E6 /* STImageVIew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STImageVIew.m; sourceTree = "<group>"; };
 		15C3266A20A56B190032E3E6 /* STPhotoBroswer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STPhotoBroswer.h; sourceTree = "<group>"; };
@@ -328,6 +408,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1500831E20C771CA00415140 /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				1500831F20C771CA00415140 /* MASCompositeConstraint.h */,
+				1500832020C771CA00415140 /* NSLayoutConstraint+MASDebugAdditions.m */,
+				1500832120C771CA00415140 /* MASConstraint+Private.h */,
+				1500832220C771CA00415140 /* MASLayoutConstraint.h */,
+				1500832320C771CA00415140 /* NSArray+MASShorthandAdditions.h */,
+				1500832420C771CA00415140 /* MASConstraintMaker.h */,
+				1500832520C771CA00415140 /* View+MASAdditions.h */,
+				1500832620C771CA00415140 /* NSArray+MASAdditions.h */,
+				1500832720C771CA00415140 /* MASUtilities.h */,
+				1500832820C771CA00415140 /* MASViewAttribute.h */,
+				1500832920C771CA00415140 /* ViewController+MASAdditions.m */,
+				1500832A20C771CA00415140 /* MASViewConstraint.h */,
+				1500832B20C771CA00415140 /* MASConstraint.h */,
+				1500832C20C771CA00415140 /* NSLayoutConstraint+MASDebugAdditions.h */,
+				1500832D20C771CA00415140 /* MASCompositeConstraint.m */,
+				1500832E20C771CA00415140 /* MASConstraintMaker.m */,
+				1500832F20C771CA00415140 /* MASLayoutConstraint.m */,
+				1500833020C771CA00415140 /* NSArray+MASAdditions.m */,
+				1500833120C771CA00415140 /* View+MASAdditions.m */,
+				1500833220C771CA00415140 /* View+MASShorthandAdditions.h */,
+				1500833320C771CA00415140 /* Masonry.h */,
+				1500833420C771CA00415140 /* MASConstraint.m */,
+				1500833520C771CA00415140 /* ViewController+MASAdditions.h */,
+				1500833620C771CA00415140 /* MASViewConstraint.m */,
+				1500833720C771CA00415140 /* MASViewAttribute.m */,
+				1500833820C771CA00415140 /* Info.plist */,
+			);
+			path = Masonry;
+			sourceTree = "<group>";
+		};
 		152056BE20B64FB000B55E5F /* pcmPlayerCode */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +449,15 @@
 				152056C120B64FB000B55E5F /* PcmPlayerDelegate.h */,
 			);
 			path = pcmPlayerCode;
+			sourceTree = "<group>";
+		};
+		153A9AD720C7DA53009BCBFE /* 设置 */ = {
+			isa = PBXGroup;
+			children = (
+				153A9AD820C7DA8F009BCBFE /* BCMiMaYuJieSuoViewController.h */,
+				153A9AD920C7DA8F009BCBFE /* BCMiMaYuJieSuoViewController.m */,
+			);
+			path = "设置";
 			sourceTree = "<group>";
 		};
 		15610FD320C4D4B900983FFE /* BCShanNianKaPianManager */ = {
@@ -384,6 +506,15 @@
 				15950BC520B68BF900206DC6 /* ShanNianMuLuViewController.m */,
 			);
 			path = ShanNianController;
+			sourceTree = "<group>";
+		};
+		15C0C92F20C7B91D00FF3963 /* ShanNianMiMa */ = {
+			isa = PBXGroup;
+			children = (
+				15C0C93020C7B95900FF3963 /* ShanNianMiMaView.h */,
+				15C0C93120C7B95900FF3963 /* ShanNianMiMaView.m */,
+			);
+			path = ShanNianMiMa;
 			sourceTree = "<group>";
 		};
 		15C3266720A56B190032E3E6 /* ImageShowTool */ = {
@@ -471,6 +602,7 @@
 		15FAC19A20A526F500DD5E1B /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				1500831E20C771CA00415140 /* Masonry */,
 				F7F1534D20A5F21500525F05 /* BmobSDK.framework */,
 				F7F1530E20A5EB1800525F05 /* AboutMeController */,
 				F7F152F520A5DF1E00525F05 /* newProgress */,
@@ -486,12 +618,12 @@
 		F758D47A20C6C47E0033175D /* SettingView */ = {
 			isa = PBXGroup;
 			children = (
-				F758D47B20C6C47E0033175D /* SAMath.m */,
 				F758D47C20C6C47E0033175D /* SAMultisectorControl.h */,
-				F758D47D20C6C47E0033175D /* AKPickerView.m */,
-				F758D47E20C6C47E0033175D /* SAMath.h */,
 				F758D47F20C6C47E0033175D /* SAMultisectorControl.m */,
+				F758D47E20C6C47E0033175D /* SAMath.h */,
+				F758D47B20C6C47E0033175D /* SAMath.m */,
 				F758D48020C6C47E0033175D /* AKPickerView.h */,
+				F758D47D20C6C47E0033175D /* AKPickerView.m */,
 			);
 			path = SettingView;
 			sourceTree = "<group>";
@@ -499,6 +631,8 @@
 		F758D48F20C6DBCB0033175D /* ShanNianImageResource */ = {
 			isa = PBXGroup;
 			children = (
+				15C0C90620C77BF100FF3963 /* ng_bps_fuceng_duigou@2x.png */,
+				15C0C90720C77BF100FF3963 /* ng_bps_fuceng_duigou@3x.png */,
 				1576B86420BBD5DD00B8B1F9 /* 笔记本.png */,
 				1576B86320BBD5DD00B8B1F9 /* 标签.png */,
 				1576B86220BBD5DD00B8B1F9 /* 沟通.png */,
@@ -523,10 +657,28 @@
 		F758D49020C6DBD10033175D /* ShanNianSetVc */ = {
 			isa = PBXGroup;
 			children = (
+				15C0C92F20C7B91D00FF3963 /* ShanNianMiMa */,
+				15C0C92820C7B0D000FF3963 /* 点赞11@3x.png */,
+				15C0C92920C7B0D000FF3963 /* 发送11@3x.png */,
+				15C0C92A20C7B0D100FF3963 /* 反馈11@3x.png */,
+				15C0C92720C7B0D000FF3963 /* 个人111@3x.png */,
+				15C0C92520C7AF6400FF3963 /* 语音1@3x.png */,
+				15C0C92320C7AA9E00FF3963 /* 指纹2@3x.png */,
+				15C0C92120C7AA2600FF3963 /* 密码1@3x.png */,
+				15C0C91F20C7A95100FF3963 /* 密码@3x.png */,
+				15C0C91B20C7A82B00FF3963 /* 云1@3x.png */,
+				15C0C91C20C7A82C00FF3963 /* 云@3x.png */,
+				15C0C91920C79B4C00FF3963 /* 美国1@3x.png */,
+				15C0C91720C79B0400FF3963 /* 美国@3x.png */,
+				15C0C91320C7996100FF3963 /* 中文@3x.png */,
+				15C0C91120C78AD800FF3963 /* 英语@3x.png */,
 				F758D47720C6C4590033175D /* IATConfigViewController.h */,
 				F758D47820C6C4590033175D /* IATConfigViewController.m */,
 				1526F05B20C6961300E15B91 /* ShanNianVoiceSetViewController.h */,
 				1526F05C20C6961300E15B91 /* ShanNianVoiceSetViewController.m */,
+				15C0C90C20C77F8800FF3963 /* ShanNianVoiceSetCell.h */,
+				15C0C90D20C77F8800FF3963 /* ShanNianVoiceSetCell.m */,
+				15C0C90E20C77F8800FF3963 /* ShanNianVoiceSetCell.xib */,
 				152056A920B55C2E00B55E5F /* IATConfig.h */,
 				152056A820B55C2E00B55E5F /* IATConfig.m */,
 				152056B420B5606200B55E5F /* ISRDataHelper.h */,
@@ -557,6 +709,7 @@
 		F7F1530E20A5EB1800525F05 /* AboutMeController */ = {
 			isa = PBXGroup;
 			children = (
+				153A9AD720C7DA53009BCBFE /* 设置 */,
 				F7F1530D20A5EB1800525F05 /* AboutViewController.h */,
 				F7F1532920A5EB1800525F05 /* AboutViewController.m */,
 				F7F1532A20A5EB1800525F05 /* SettingViewController.h */,
@@ -753,44 +906,62 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15C0C91820C79B0800FF3963 /* 美国@3x.png in Resources */,
 				1576B86B20BBD5EE00B8B1F9 /* 日期.png in Resources */,
+				15C0C92E20C7B0D600FF3963 /* 个人111@3x.png in Resources */,
 				F7F1533320A5EB1900525F05 /* QQ20180311-3.jpg in Resources */,
 				F7F1534120A5EB1900525F05 /* 星级.png in Resources */,
 				F7F1533B20A5EB1900525F05 /* 增值服务1@3x.png in Resources */,
 				152056B320B55EB100B55E5F /* Main.storyboard in Resources */,
 				F7F1533E20A5EB1900525F05 /* 增值服务@3x.png in Resources */,
+				15C0C92220C7AA2800FF3963 /* 密码1@3x.png in Resources */,
 				F7F1533A20A5EB1900525F05 /* iconshoudiantong.png in Resources */,
 				F7F1533D20A5EB1900525F05 /* 沙漏@3x.png in Resources */,
+				15C0C91D20C7A89A00FF3963 /* 云1@3x.png in Resources */,
+				1500834320C771CB00415140 /* Info.plist in Resources */,
 				F758D48820C6D85E0033175D /* Localizable.strings in Resources */,
 				F7F1534720A5EB5200525F05 /* MainContentCell.xib in Resources */,
 				1576B85F20BBD4BC00B8B1F9 /* 灵感-2.png in Resources */,
 				F7F1533F20A5EB1900525F05 /* 返回1.png in Resources */,
 				1574878920C63269004CD38B /* 暂停播放-2.png in Resources */,
 				1576B86820BBD5E400B8B1F9 /* 标签.png in Resources */,
+				15C0C92620C7AF6600FF3963 /* 语音1@3x.png in Resources */,
 				1576B86120BBD53400B8B1F9 /* 目标.png in Resources */,
 				F7F1533420A5EB1900525F05 /* 关闭2.png in Resources */,
 				F7F1533720A5EB1900525F05 /* QQ20180311-1.jpg in Resources */,
 				F79A83A920A6F5FC008EC8E1 /* Assets.xcassets in Resources */,
+				15C0C90920C77BF800FF3963 /* ng_bps_fuceng_duigou@3x.png in Resources */,
 				F7F1533520A5EB1900525F05 /* ico_分享1@3x.png in Resources */,
 				1576B85D20BBD32D00B8B1F9 /* 灵感.png in Resources */,
+				15C0C92B20C7B0D600FF3963 /* 点赞11@3x.png in Resources */,
 				F7F1532F20A5EB1900525F05 /* zhihuIcon.jpg in Resources */,
 				15FAC17520A524D700DD5E1B /* LaunchScreen.storyboard in Resources */,
 				1576B87820BBF13700B8B1F9 /* 日历.png in Resources */,
+				15C0C91020C77F8800FF3963 /* ShanNianVoiceSetCell.xib in Resources */,
 				1576B87920BBF13700B8B1F9 /* 删除.png in Resources */,
+				15C0C92D20C7B0D600FF3963 /* 反馈11@3x.png in Resources */,
 				F7F1533220A5EB1900525F05 /* 增值服务2.png in Resources */,
 				1576B87520BBF13700B8B1F9 /* 下载.png in Resources */,
 				F7F1532D20A5EB1900525F05 /* weibo.jpg in Resources */,
 				1576B86720BBD5E100B8B1F9 /* 笔记本.png in Resources */,
+				15C0C91420C7996400FF3963 /* 中文@3x.png in Resources */,
 				1576B87A20BBF13700B8B1F9 /* 收藏.png in Resources */,
 				1574878820C63267004CD38B /* 视频-开始-播放-2.png in Resources */,
+				15C0C92C20C7B0D600FF3963 /* 发送11@3x.png in Resources */,
+				15C0C91A20C79B5600FF3963 /* 美国1@3x.png in Resources */,
 				15F8669020C50BB1006A2F99 /* smart.png in Resources */,
 				F7F1532E20A5EB1900525F05 /* iconcheng.png in Resources */,
 				1576B87620BBF13700B8B1F9 /* 编辑.png in Resources */,
+				15C0C91220C78ADA00FF3963 /* 英语@3x.png in Resources */,
+				15C0C91E20C7A89C00FF3963 /* 云@3x.png in Resources */,
 				1576B86A20BBD5EB00B8B1F9 /* 女士.png in Resources */,
 				F7F1533920A5EB1900525F05 /* 星级1@3x.png in Resources */,
+				15C0C92020C7A95C00FF3963 /* 密码@3x.png in Resources */,
+				15C0C90820C77BF500FF3963 /* ng_bps_fuceng_duigou@2x.png in Resources */,
 				1576B86920BBD5E700B8B1F9 /* 沟通.png in Resources */,
 				F7F1533620A5EB1900525F05 /* 关闭3.png in Resources */,
 				F7F1533120A5EB1900525F05 /* ico_分享.png in Resources */,
+				15C0C92420C7AAA600FF3963 /* 指纹2@3x.png in Resources */,
 				F7F1533C20A5EB1900525F05 /* IMG_0122.JPG in Resources */,
 				1576B87720BBF13700B8B1F9 /* 删除min.png in Resources */,
 				15950BC320B68B7B00206DC6 /* ShanNianTableViewCell.xib in Resources */,
@@ -827,31 +998,44 @@
 				1526F05D20C6961400E15B91 /* ShanNianVoiceSetViewController.m in Sources */,
 				1574878020C62198004CD38B /* ZZRDocument.m in Sources */,
 				F758D48120C6C47E0033175D /* SAMath.m in Sources */,
+				1500833C20C771CB00415140 /* MASConstraintMaker.m in Sources */,
 				F7F1532C20A5EB1900525F05 /* Factory.m in Sources */,
 				152056B620B5606200B55E5F /* ISRDataHelper.m in Sources */,
+				1500833F20C771CB00415140 /* View+MASAdditions.m in Sources */,
 				15FAC17820A524D800DD5E1B /* main.m in Sources */,
+				153A9ADA20C7DA8F009BCBFE /* BCMiMaYuJieSuoViewController.m in Sources */,
 				152056B920B562B500B55E5F /* PopupView.m in Sources */,
 				152056AF20B55E8800B55E5F /* LaunchViewController.m in Sources */,
 				F7F1530620A5DF1E00525F05 /* ZJViewShow.m in Sources */,
+				1500833920C771CB00415140 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				15FAC16A20A524D600DD5E1B /* AppDelegate.m in Sources */,
 				152056C220B64FB100B55E5F /* PcmPlayer.m in Sources */,
+				15C0C93220C7B95900FF3963 /* ShanNianMiMaView.m in Sources */,
 				F7F1534820A5EB5200525F05 /* MainContentCell.m in Sources */,
 				15C3267220A56C730032E3E6 /* STPhotoBroswer.m in Sources */,
 				F776443C20C57F0500AEF1E5 /* BCShanNianDateManager.m in Sources */,
 				F758D48320C6C47E0033175D /* SAMultisectorControl.m in Sources */,
 				1574878120C62198004CD38B /* ZZRModel.m in Sources */,
+				1500833E20C771CB00415140 /* NSArray+MASAdditions.m in Sources */,
 				1574877F20C62198004CD38B /* iCloudHandle.m in Sources */,
 				15610FD620C4D4E200983FFE /* BCShanNianKaPianManager.m in Sources */,
+				1500834020C771CB00415140 /* MASConstraint.m in Sources */,
+				15C0C90F20C77F8800FF3963 /* ShanNianVoiceSetCell.m in Sources */,
 				15950BC220B68B7B00206DC6 /* ShanNianTableViewCell.m in Sources */,
 				F758D47920C6C4590033175D /* IATConfigViewController.m in Sources */,
+				1500833B20C771CB00415140 /* MASCompositeConstraint.m in Sources */,
+				1500834220C771CB00415140 /* MASViewAttribute.m in Sources */,
 				15950BC620B68BF900206DC6 /* ShanNianMuLuViewController.m in Sources */,
 				F758D48220C6C47E0033175D /* AKPickerView.m in Sources */,
 				1520569720B54ACD00B55E5F /* ShanNianViewController.m in Sources */,
 				F7F1534220A5EB1900525F05 /* AboutViewController.m in Sources */,
+				1500834120C771CB00415140 /* MASViewConstraint.m in Sources */,
 				F7F1533020A5EB1900525F05 /* UIImage+ImageEffects.m in Sources */,
+				1500833D20C771CB00415140 /* MASLayoutConstraint.m in Sources */,
 				152056BC20B5652900B55E5F /* WaveView.m in Sources */,
 				15C3266F20A56B330032E3E6 /* STImageVIew.m in Sources */,
 				1576B86E20BBD86B00B8B1F9 /* UIImage+Gradient.m in Sources */,
+				1500833A20C771CB00415140 /* ViewController+MASAdditions.m in Sources */,
 				F7F1534320A5EB1900525F05 /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
