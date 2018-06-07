@@ -56,7 +56,7 @@
     NSUserDefaults *us = [NSUserDefaults standardUserDefaults];
     BOOL isDataInit = [[us objectForKey:@"dataAlreadyInit"] boolValue];
 //    if (count <= 0 && groups <= 0 && !isDataInit) {
-        [self creatData];
+//        [self creatData];
 //    }
     
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];

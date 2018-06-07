@@ -126,6 +126,9 @@
     //    [self.view addSubview:label111];
     
 }
+- (void)backAction{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -152,8 +155,11 @@
     cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     
-    CKRecord *record = [self.dataArr objectAtIndex:indexPath.row];
-    cell.textLabel.text = [record objectForKey:@"titleString"];
+//    CKRecord *record = [self.dataArr objectAtIndex:indexPath.row];
+//    cell.textLabel.text = [record objectForKey:@"titleString"];
+    
+    LZDataModel *model = self.dataSourceArray[indexPath.row];
+    cell.textLabel.text = model.titleString;
     
     if (indexPath.row == 1) {
         cell.label.backgroundColor  = PNCColor(164, 185, 277);
@@ -162,9 +168,9 @@
     
     cell.cellPlayBlock = ^{
     
-        CKAsset *pcmAsset = [record objectForKey:@"image"];
-        NSData *pcmData = [NSData dataWithContentsOfFile:pcmAsset.fileURL.path];
-        [weakSelf playPcmWith:pcmData];
+//        CKAsset *pcmAsset = [record objectForKey:@"image"];
+//        NSData *pcmData = [NSData dataWithContentsOfFile:pcmAsset.fileURL.path];
+//        [weakSelf playPcmWith:pcmData];
     };
     
     
