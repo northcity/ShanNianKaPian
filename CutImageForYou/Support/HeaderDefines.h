@@ -148,7 +148,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 //008e14 三叶草绿
 //09c628
-#define LZColorBase LZColorFromHex(0x0075a9)
+#define LZColorBase LZColorFromHex(0xffffff)
 #define LZFontDefaulte [UIFont systemFontOfSize:14]
 #define LZColorGray LZColorFromHex(0x555555)
 
@@ -166,6 +166,16 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #import "Masonry.h"
 #import "MFSideMenuContainerViewController.h"
 #import "SVProgressHUD.h"
+#import "MainContentCell.h"
+
+//是否ios7编译环境
+#define BuildWithIOS7Flag YES
+
+#ifndef PNCisIOS7Later
+#define PNCisIOS7Later  !([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] == NSOrderedAscending)
+#endif
+
+#define PCTopBarHeight                      (PNCisIPHONEX ?88.0f:((BuildWithIOS7Flag && PNCisIOS7Later) ?64.0f:44.0f))
 
 
 

@@ -28,8 +28,8 @@
 {
     if (!_headImageView) {
         _headImageView = [[UIImageView alloc] init];
-        
         _headImageView.userInteractionEnabled = YES;
+    
     }
     return _headImageView;
 }
@@ -41,7 +41,7 @@
         
         _headLabel.backgroundColor = [UIColor clearColor];
         _headLabel.textAlignment = NSTextAlignmentCenter;
-        _headLabel.font = [UIFont systemFontOfSize:17];
+        _headLabel.font = [UIFont fontWithName:@"HeiTi SC" size:17];
     }
     return _headLabel;
 }

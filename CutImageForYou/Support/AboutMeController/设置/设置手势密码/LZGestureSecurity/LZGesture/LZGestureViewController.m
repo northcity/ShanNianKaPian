@@ -79,22 +79,70 @@ static NSString *firstGesturePsw;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor colorWithRed:13/255.0 green:52/255.0 blue:89/255.0 alpha:1.0];
+//    self.view.backgroundColor = [UIColor colorWithRed:13/255.0 green:52/255.0 blue:89/255.0 alpha:1.0];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
     
     if (self.type == LZGestureTypeScreen) {
         
     } else {
-        
-        [self setupCustomNavi];
+        [self initOtherUI];
+//        [self setupCustomNavi];
     }
 }
 
 #pragma mark -- 自定义导航
+
+- (void)initOtherUI{
+    
+    _titleView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, PCTopBarHeight)];
+    _titleView.backgroundColor = [UIColor whiteColor];
+    _titleView.layer.shadowColor=[UIColor grayColor].CGColor;
+    _titleView.layer.shadowOffset=CGSizeMake(0, 2);
+    _titleView.layer.shadowOpacity=0.1f;
+    _titleView.layer.shadowRadius=12;
+    [self.view addSubview:_titleView];
+    
+    _navTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(ScreenWidth/2 - kAUTOWIDTH(150)/2, kAUTOHEIGHT(5), kAUTOWIDTH(150), kAUTOHEIGHT(66))];
+    _navTitleLabel.text = @"密码与解锁";
+    _navTitleLabel.font = [UIFont fontWithName:@"HeiTi SC" size:18];
+    _navTitleLabel.textColor = [UIColor blackColor];
+    _navTitleLabel.textAlignment = NSTextAlignmentCenter;
+    [_titleView addSubview:_navTitleLabel];
+    
+    
+    
+    _backBtn = [Factory createButtonWithTitle:@"" frame:CGRectMake(20, 28, 25, 25) backgroundColor:[UIColor clearColor] backgroundImage:[UIImage imageNamed:@""] target:self action:@selector(backButtonClick:)];
+    [_backBtn setImage:[UIImage imageNamed:@"关闭2"] forState:UIControlStateNormal];
+    if (PNCisIPHONEX) {
+        _backBtn.frame = CGRectMake(20, 48, 25, 25);
+    }
+    [_titleView addSubview:_backBtn];
+    _backBtn.transform = CGAffineTransformMakeRotation(M_PI_4);
+    
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2* NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        CABasicAnimation* rotationAnimation;
+        
+        rotationAnimation =[CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+        //        rotationAnimation.fromValue =[NSNumber numberWithFloat: 0M_PI_4];
+        
+        rotationAnimation.toValue =[NSNumber numberWithFloat: 0];
+        rotationAnimation.duration =0.4;
+        rotationAnimation.repeatCount =1;
+        rotationAnimation.removedOnCompletion = NO;
+        rotationAnimation.fillMode = kCAFillModeForwards;
+        [_backBtn.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+        
+    });
+}
+
+
 - (void)setupCustomNavi {
     
     UILabel *titleLabel = [[UILabel alloc]init];
-    titleLabel.font = [UIFont systemFontOfSize:16];
-    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.font = [UIFont fontWithName:@"HeiTi SC" size:15];
+    titleLabel.textColor = [UIColor blackColor];
     
     titleLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:titleLabel];
@@ -103,6 +151,7 @@ static NSString *firstGesturePsw;
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     backButton.frame = CGRectMake(10, 20, 40, 44);
     backButton.titleLabel.font = [UIFont systemFontOfSize:14];
+//    backButton.titleLabel.textColor  = [UIColor ]
     [backButton setTitle:@"╳" forState:UIControlStateNormal];
     [backButton addTarget:self action:@selector(backButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backButton];
@@ -156,6 +205,8 @@ static NSString *firstGesturePsw;
     [PCCircleViewConst saveGesture:nil Key:gestureOneSaveKey];
     
     self.showImage.image = [UIImage imageWithContentsOfFile:gestureDefaultImagePath];
+    [self.subLayer removeFromSuperlayer];
+
 }
 
 - (UIButton *)resetButton {
@@ -216,9 +267,9 @@ static NSString *firstGesturePsw;
     if (_forgetButton == nil) {
         
         _forgetButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _forgetButton.titleLabel.font = [UIFont systemFontOfSize:14];
+        _forgetButton.titleLabel.font = [UIFont fontWithName:@"HeiTi SC" size:14];
         [_forgetButton setTitle:@"忘记密码?" forState:UIControlStateNormal];
-        [_forgetButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_forgetButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         _forgetButton.frame = CGRectMake(20, CGRectGetMaxY(self.lockView.frame) + 20, 100, 14);
         
         [_forgetButton addTarget:self action:@selector(forgetButtonClick) forControlEvents:UIControlEventTouchUpInside];
@@ -233,14 +284,15 @@ static NSString *firstGesturePsw;
     if ([LZNumberTool isNumberPasswordEnable]) {
         
         LZPasswordViewController *psV = [[LZPasswordViewController alloc]init];
+        [self presentViewController:psV animated:YES completion:nil];
         [psV showInViewController:self style:LZPasswordStyleVerity];
         [psV veritySuccess:^{
-            
             [[LZGestureScreen shared] dismiss];
+        
         }];
         
     } else {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告⚠️" message:@"您没有设置数字密码,无法通过数字密码重置!如果无法使用指纹解锁,很抱歉,您无法使用相关功能!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告" message:@"您没有设置数字密码,无法通过数字密码重置!如果无法使用指纹解锁,很抱歉,您无法使用相关功能!" preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
@@ -259,10 +311,10 @@ static NSString *firstGesturePsw;
         
         _otherButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _otherButton.titleLabel.font = [UIFont systemFontOfSize:14];
-        [_otherButton setImage:[UIImage imageNamed:@"gesture_unlock"] forState:UIControlStateNormal];
+        [_otherButton setImage:[UIImage imageNamed:@"指纹2"] forState:UIControlStateNormal];
         [_otherButton setTitle:@" 指纹解锁" forState:UIControlStateNormal];
         [_otherButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        _otherButton.frame = CGRectMake(kScreenW - 120, CGRectGetMaxY(self.lockView.frame) + 20, 100, 14);
+        _otherButton.frame = CGRectMake(kScreenW - kAUTOWIDTH(60), ScreenHeight - kAUTOHEIGHT(60), kAUTOWIDTH(35), kAUTOHEIGHT(35));
         
         [_otherButton addTarget:self action:@selector(otherButtonClick) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:_otherButton];
@@ -314,25 +366,43 @@ static NSString *firstGesturePsw;
 }
 - (void)gestureSetting {
     
-    self.titleLab.text = @"设置手势密码";
+    self.navTitleLabel.text = @"设置手势密码";
     
     [self.lockView setType:CircleViewTypeSetting];
     [self.msgLabel showNormalMsg:gestureTextBeforeSet];
     self.showImage.image = [UIImage imageWithContentsOfFile:gestureDefaultImagePath];
+    [self.subLayer removeFromSuperlayer];
+
 }
 
 - (void)gestureVerity {
     
-    self.titleLab.text = @"验证手势密码";
+    self.navTitleLabel.text = @"验证手势密码";
     [self.lockView setType:(CircleViewTypeLogin)];
     [self.msgLabel showNormalMsg:gestureTextBeforeSet];
     
     self.showImage.image = [UIImage imageNamed:@"icon"];
+    [self.subLayer removeFromSuperlayer];
+
+    self.showImage.layer.cornerRadius =  12;
+    self.showImage.layer.masksToBounds = YES;
+//
+    CALayer *subLayer=[CALayer layer];
+    CGRect fixframe=self.showImage.layer.frame;
+    subLayer.frame = fixframe;
+    subLayer.cornerRadius = kAUTOHEIGHT(8);
+    subLayer.backgroundColor=[[UIColor grayColor] colorWithAlphaComponent:0.5].CGColor;
+    subLayer.masksToBounds=NO;
+    subLayer.shadowColor=[UIColor grayColor].CGColor;
+    subLayer.shadowOffset=CGSizeMake(0,5);
+    subLayer.shadowOpacity=0.8f;
+    subLayer.shadowRadius= 2;
+    [self.view.layer insertSublayer:subLayer below:self.showImage.layer];
 }
 
 - (void)gertureUpdate {
     
-    self.titleLab.text = @"修改手势密码";
+    self.navTitleLabel.text = @"修改手势密码";
     
     [self.lockView setType:CircleViewTypeVerify];
     [self.msgLabel showNormalMsg:gestureTextOldGesture];
@@ -352,6 +422,22 @@ static NSString *firstGesturePsw;
     [self.msgLabel showNormalMsg:gestureTextBeforeSet];
     
     self.showImage.image = [UIImage imageNamed:@"icon"];
+    
+    self.showImage.layer.cornerRadius =  12;
+    self.showImage.layer.masksToBounds = YES;
+    
+    _subLayer=[CALayer layer];
+    CGRect fixframe=self.showImage.layer.frame;
+    _subLayer.frame = fixframe;
+    _subLayer.cornerRadius = kAUTOHEIGHT(8);
+    _subLayer.backgroundColor=[[UIColor grayColor] colorWithAlphaComponent:0.5].CGColor;
+    _subLayer.masksToBounds=NO;
+    _subLayer.shadowColor=[UIColor grayColor].CGColor;
+    _subLayer.shadowOffset=CGSizeMake(0,5);
+    _subLayer.shadowOpacity=0.9f;
+    _subLayer.shadowRadius= 4;
+    [self.view.layer insertSublayer:_subLayer below:self.showImage.layer];
+    
 }
 
 #pragma mark - 设置手势密码代理方法
@@ -462,6 +548,7 @@ static NSString *firstGesturePsw;
             [self.lockView setType:CircleViewTypeSetting];
             [self.msgLabel showNormalMsg:gestureTextBeforeSet];
             self.showImage.image = [UIImage imageWithContentsOfFile:gestureDefaultImagePath];
+            [self.subLayer removeFromSuperlayer];
             isShowDefaultImage = YES;
         } else {
             
@@ -483,8 +570,11 @@ static NSString *firstGesturePsw;
             
             isShowDefaultImage = NO;
             self.showImage.image = [UIImage imageWithContentsOfFile:gestureDefaultImagePath];
+            [self.subLayer removeFromSuperlayer];
+
         } else {
-            
+            [self.subLayer removeFromSuperlayer];
+
             self.showImage.image = image;
         }
         

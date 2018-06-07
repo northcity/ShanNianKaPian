@@ -71,7 +71,7 @@ static NSString *LZ_dbPath = nil;
     //为数据设置缓存,提高查询效率
     [LZ_db setShouldCacheStatements:YES];
     if (![LZ_db tableExists:tableName]) {
-        NSString *createTable = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@'(identifier TEXT UNIQUE NOT NULL,groupName TEXT,nickName TEXT,userName TEXT,password TEXT,urlString TEXT,email TEXT,dsc TEXT,groupID TEXT NOT NULL)",tableName];
+        NSString *createTable = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@'(identifier TEXT UNIQUE NOT NULL,groupName TEXT,nickName TEXT,userName TEXT,password TEXT,urlString TEXT,email TEXT,titleString TEXT,contentString TEXT,colorString TEXT,pcmData TEXT,dsc TEXT,groupID TEXT NOT NULL)",tableName];
         [LZ_db executeUpdate:createTable];
     }
     
@@ -154,7 +154,9 @@ static NSString *LZ_dbPath = nil;
         NSString *userName = [LZStringEncode encode:model.userName];
         NSString *email = [LZStringEncode encode:model.email];
         NSString *dsc = [LZStringEncode encode:model.dsc];
-        NSString *update = [NSString stringWithFormat:@"UPDATE '%@' SET userName = '%@',password = '%@',nickName= '%@',groupName = '%@',dsc = '%@',urlString = '%@',groupID = '%@',email = '%@' WHERE identifier = '%@'",tableName,userName,psw,model.nickName,model.groupName,dsc,model.urlString,model.groupID,email,model.identifier];
+        
+        NSString *pcmData = [[NSString alloc] initWithData:model.pcmData encoding:NSUTF8StringEncoding];
+        NSString *update = [NSString stringWithFormat:@"UPDATE '%@' SET userName = '%@',password = '%@',nickName= '%@',groupName = '%@',dsc = '%@',urlString = '%@',groupID = '%@',email = '%@',titleString = '%@',contentString = '%@',colorString = '%@',pcmData = '%@' WHERE identifier = '%@'",tableName,userName,psw,model.nickName,model.groupName,dsc,model.urlString,model.groupID,email,model.identifier,model.titleString,model.contentString,model.colorString,pcmData];
         
 //        @"UPDATE '%@' SET userName = '%@',password = '%@',nickName= '%@',groupName = '%@',dsc = '%@',urlString = '%@',groupID = '%@',email = '%@' WHERE identifier = '%@'",tableName,model.userName,model.password,model.nickName,model.groupName,model.dsc,model.urlString,model.groupID,model.email,model.identifier
         
@@ -233,7 +235,9 @@ static NSString *LZ_dbPath = nil;
         NSString *email = [LZStringEncode encode:model.email];
         NSString *dsc = [LZStringEncode encode:model.dsc];
         
-        NSString *insert = [NSString stringWithFormat:@"INSERT INTO '%@' (identifier,groupName,nickName,userName,password,urlString,dsc,groupID,email) VALUES ('%@','%@','%@','%@','%@','%@','%@','%@','%@')",tableName,model.identifier,model.groupName,model.nickName,userName,psw,model.urlString,dsc,model.groupID,email];
+        NSString *pcmData = [[NSString alloc] initWithData:model.pcmData encoding:NSUTF8StringEncoding];
+
+        NSString *insert = [NSString stringWithFormat:@"INSERT INTO '%@' (identifier,groupName,nickName,userName,password,urlString,dsc,groupID,email,titleString,contentString,colorString,pcmData) VALUES ('%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@')",tableName,model.identifier,model.groupName,model.nickName,userName,psw,model.urlString,dsc,model.groupID,email,model.titleString,model.contentString,model.colorString,pcmData];
         
         [db executeUpdate:insert];
     }
@@ -361,6 +365,9 @@ static NSString *LZ_dbPath = nil;
             model.groupID = [fs stringForColumn:@"groupID"];
             NSString *email = [fs stringForColumn:@"email"];
             model.email = [LZStringEncode decode:email];
+            
+            model.titleString = [fs stringForColumn:@"titleString"];
+            
             [resultArray addObject:model];
         }
         
@@ -405,6 +412,9 @@ static NSString *LZ_dbPath = nil;
             model.groupID = [fs stringForColumn:@"groupID"];
             NSString *email = [fs stringForColumn:@"email"];
             model.email = [LZStringEncode decode:email];
+            
+            model.titleString = [fs stringForColumn:@"titleString"];
+
             [resultArray addObject:model];
         }
         
@@ -452,6 +462,8 @@ static NSString *LZ_dbPath = nil;
             model.groupID = [fs stringForColumn:@"groupID"];
             NSString *email = [fs stringForColumn:@"email"];
             model.email = [LZStringEncode decode:email];
+
+            model.titleString = [fs stringForColumn:@"titleString"];
 
         }
         
@@ -528,6 +540,9 @@ static NSString *LZ_dbPath = nil;
             model.groupName = [fs stringForColumn:@"groupName"];
             NSString *email = [fs stringForColumn:@"email"];
             model.email = [LZStringEncode decode:email];
+            
+            model.titleString = [fs stringForColumn:@"titleString"];
+
             [resultArray addObject:model];
         }
         

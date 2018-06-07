@@ -20,4 +20,10 @@
 @property (copy, nonatomic) NSString *identifier;
 @property (copy, nonatomic) NSString *groupID;
 @property (copy, nonatomic) NSString *email;
+
+@property (copy, nonatomic) NSString *titleString;
+@property (copy, nonatomic) NSString *contentString;
+@property (copy, nonatomic) NSString *colorString;
+@property (strong, nonatomic) NSData *pcmData;
+
 @end

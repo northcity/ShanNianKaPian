@@ -22,8 +22,21 @@
     // Do any additional setup after loading the view.
     
     [self setupUI];
-    [self setupNaviBar];
+//    [self setupNaviBar];
+    
+    [self initOtherUI];
+    self.navTitleLabel.text = @"设置 TouchID";
+    [self.backBtn setImage:[UIImage imageNamed:@"返回箭头2"] forState:UIControlStateNormal];
+    
+    [self.view insertSubview:self.titleView aboveSubview:_tableView];
+
+
 }
+
+- (void)backAction{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (void)setupNaviBar {
     [self lzSetNavigationTitle:@"设置 TouchID"];
@@ -39,8 +52,10 @@
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.separatorColor = [UIColor clearColor];
     
-    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"touchIDCell"];
-    
+    [_tableView registerNib:[UINib nibWithNibName:@"MainContentCell" bundle:nil] forCellReuseIdentifier:@"touchIDCell"];
+    _tableView.backgroundColor = [UIColor whiteColor];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     _tableView.dataSource = self;
     _tableView.delegate = self;
     
@@ -65,12 +80,16 @@
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 62;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identifier = @"touchIDCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    MainContentCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+        cell = [[MainContentCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:identifier];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -80,7 +99,10 @@
     
     
     UISwitch * sw = [[UISwitch alloc] init];
+    sw.tintColor = [UIColor blackColor];
+    sw.onTintColor = [UIColor blackColor];
     
+
     [sw addTarget:self action:@selector(sw:) forControlEvents:UIControlEventValueChanged];
     
     cell.textLabel.text = @"开启TouchID";

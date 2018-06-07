@@ -29,4 +29,12 @@ typedef void(^lzButtonBlock)(UIButton* button);
                       actionBlock:(lzButtonBlock)block;
 
 - (void)lzHiddenNavigationBar:(BOOL)hidden;
+
+
+@property(nonatomic,strong)UILabel *navTitleLabel;
+@property(nonatomic,strong)UIView *titleView;
+@property(nonatomic,strong)UIButton *backBtn;
+
+- (void)initOtherUI;
+
 @end

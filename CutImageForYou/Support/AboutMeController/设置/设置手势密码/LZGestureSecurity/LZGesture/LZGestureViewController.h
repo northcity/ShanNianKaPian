@@ -34,4 +34,11 @@ typedef NS_ENUM(NSInteger, LZGestureType) {
 - (void)showInViewController:(UIViewController *)vc type:(LZGestureType)type ;
 
 - (void)dismiss;
+
+
+@property(nonatomic,strong)UILabel *navTitleLabel;
+@property(nonatomic,strong)UIView *titleView;
+@property(nonatomic,strong)UIButton *backBtn;
+@property(nonatomic, strong) CALayer *subLayer;
+
 @end

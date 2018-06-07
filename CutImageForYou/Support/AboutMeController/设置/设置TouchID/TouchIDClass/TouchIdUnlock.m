@@ -77,7 +77,7 @@
 #ifdef __IPHONE_8_0
     LAContext *myContext = [[LAContext alloc] init];
     NSError *authError = nil;
-    
+
     if ([myContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authError])
     {
         /**

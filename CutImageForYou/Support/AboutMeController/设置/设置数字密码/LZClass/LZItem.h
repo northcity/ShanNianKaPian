@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-static CGFloat itemLineWidth = 16.0;
-static CGFloat itemCicleRadius = 16.0;
+static CGFloat itemLineWidth = 14.0;
+static CGFloat itemCicleRadius = 14.0;
 typedef NS_ENUM(NSInteger, LZItemStyle) {
     
     LZItemStyleLine = 0,

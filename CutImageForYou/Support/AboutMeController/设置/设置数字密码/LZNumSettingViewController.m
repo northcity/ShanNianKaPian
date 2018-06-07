@@ -39,10 +39,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self setupNaviBar];
+//    [self setupNaviBar];
+    [self initOtherUI];
+    self.navTitleLabel.text = @"设置数字密码";
+    [self.backBtn setImage:[UIImage imageNamed:@"返回箭头2"] forState:UIControlStateNormal];
     [self tableView];
+    [self.view insertSubview:self.titleView aboveSubview:self.tableView];
+
 }
 
+- (void)backAction{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)setupNaviBar {
     
     LZWeakSelf(ws)
@@ -61,6 +69,10 @@
         table.dataSource = self;
         [self.view addSubview:table];
         _tableView = table;
+        
+        [self.tableView registerNib:[UINib nibWithNibName:@"MainContentCell" bundle:nil] forCellReuseIdentifier:@"cellID"];
+        self.tableView.backgroundColor = [UIColor whiteColor];
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
         [table mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.and.bottom.mas_equalTo(self.view);
@@ -91,11 +103,14 @@
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 62;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
+    MainContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cellID"];
+        cell = [[MainContentCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cellID"];
         cell.textLabel.textColor = LZColorFromHex(0x555555);
         cell.textLabel.font = [UIFont systemFontOfSize:14];
 //
@@ -107,7 +122,12 @@
     
     if (indexPath.section == 0) {
         
+        
         UISwitch *sw = [[UISwitch alloc]init];
+        
+        sw.tintColor = [UIColor blackColor];
+        sw.onTintColor = [UIColor blackColor];
+        
         [sw addTarget:self action:@selector(switchTurnOn:) forControlEvents:UIControlEventValueChanged];
         sw.on = [LZNumberTool isNumberPasswordEnableByUser];
         cell.accessoryView = sw;
@@ -116,6 +136,8 @@
     } else if (indexPath.section == 1){
     
         UISwitch *sw = [[UISwitch alloc]init];
+        sw.tintColor = [UIColor blackColor];
+        sw.onTintColor = [UIColor blackColor];
         [sw addTarget:self action:@selector(useTouchID:) forControlEvents:UIControlEventValueChanged];
         sw.on = [LZNumberTool isNumberResetEnableByTouchID];
         cell.accessoryView = sw;

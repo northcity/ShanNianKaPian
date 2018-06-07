@@ -10,7 +10,7 @@
 
 
 
-static CGFloat itemLineHeight = 2.0;
+static CGFloat itemLineHeight = 1.0;
 
 @implementation LZItem
 
@@ -20,6 +20,7 @@ static CGFloat itemLineHeight = 2.0;
         
         _style = LZItemStyleLine;
         self.bounds = CGRectMake(0, 0, itemCicleRadius, itemCicleRadius);
+//        self.layer.cornerRadius = itemCicleRadius/2;
         self.backgroundColor = [UIColor clearColor];
     }
     
@@ -53,15 +54,48 @@ static CGFloat itemLineHeight = 2.0;
 
 - (void)drawCicle {
     
-    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:self.bounds];
+//    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:self.bounds];
+
+//    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 8, 8) cornerRadius:8];
+//
+//    UIColor *fillColor = [UIColor blackColor];
+//    [fillColor set];
+//    [path fill];
+//    [path stroke];
     
-    // 填充色
-    UIColor *fillColor = [UIColor blackColor];
-    [fillColor set];
-    [path fill];
+//    UIColor *color = [UIColor redColor];
+//    [color set]; //设置线条颜色
+//
+//    UIBezierPath* path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, 10, 10)];
+//
+//    path.lineWidth = 5.0;
+//    path.lineCapStyle = kCGLineCapRound; //线条拐角
+//    path.lineJoinStyle = kCGLineJoinRound; //终点处理
+//
+//    [path stroke];
     
+
+    
+    CAShapeLayer *layer = [[CAShapeLayer alloc] init];
+    layer.name = @"Radius";
+    CGFloat lineWidth =  10;
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    path.lineWidth = lineWidth;
+    path.lineCapStyle = kCGLineCapButt;
+    CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
+    CGFloat radius = (self.bounds.size.width - lineWidth)/2;
+    
+    CGFloat startAngle = -((float)M_PI)/7; //
+    CGFloat endAngle = ((float)M_PI)-startAngle ;
+    
+    [[UIColor blackColor] set];
+    
+    [path addArcWithCenter:center radius:radius startAngle:startAngle endAngle:endAngle clockwise:YES];
     
     [path stroke];
+    
+    [path closePath];
+    
 }
 
 - (void)drawLine {

@@ -42,6 +42,15 @@
     }
     
     [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
+    
+    for (int i = 0;  i < 3; i ++) {
+        LZNumberView *view = [self.scrollView viewWithTag:100 + i];
+        [view becomeFirstRespond];
+    }
+    
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGesture)];
+    [self.view addGestureRecognizer:gesture];
+    
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -51,15 +60,22 @@
     }
     
     [IQKeyboardManager sharedManager].enableAutoToolbar = YES;
+   
 }
 
+- (void)tapGesture{
+    for (int i = 0;  i < 3; i ++) {
+        LZNumberView *view = [self.scrollView viewWithTag:100 + i];
+        [view becomeFirstRespond];
+    }
+}
 - (void)showInViewController:(UIViewController *)vc style:(LZPasswordStyle)style {
     
     self.style = style;
     
-    [vc presentViewController:self animated:YES completion:^{
-        
-    }];
+//    [vc presentViewController:self animated:YES completion:^{
+//
+//    }];
 }
 
 - (void)dismiss {
@@ -75,23 +91,77 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self setupScroll];
     
     if (self.style == LZPasswordStyleScreen) {
         
     } else {
         
-        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        backBtn.frame = CGRectMake(10, 20, 44, 44);
-        [backBtn setTitle:@"╳" forState:UIControlStateNormal];
-        [backBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [backBtn addTarget:self action:@selector(backBtnClick) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:backBtn];
+        [self initOtherUI];
+//        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        backBtn.frame = CGRectMake(10, 20, 44, 44);
+//        [backBtn setTitle:@"╳" forState:UIControlStateNormal];
+//        [backBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//        [backBtn addTarget:self action:@selector(backBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//        [self.view addSubview:backBtn];
+    }
+    [self setupScroll];
+    [self.view insertSubview:self.titleView aboveSubview:self.scrollView];
+    for (int i = 0;  i < 3; i ++) {
+        LZNumberView *view = [self.scrollView viewWithTag:100 + i];
+        [view becomeFirstRespond];
     }
 }
 
-- (void)backBtnClick {
+
+#pragma mark -- 自定义导航
+
+- (void)initOtherUI{
     
+    _titleView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, PCTopBarHeight)];
+    _titleView.backgroundColor = [UIColor whiteColor];
+    _titleView.layer.shadowColor=[UIColor grayColor].CGColor;
+    _titleView.layer.shadowOffset=CGSizeMake(0, 2);
+    _titleView.layer.shadowOpacity=0.1f;
+    _titleView.layer.shadowRadius=12;
+    [self.view addSubview:_titleView];
+    
+    _navTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(ScreenWidth/2 - kAUTOWIDTH(150)/2, kAUTOHEIGHT(5), kAUTOWIDTH(150), kAUTOHEIGHT(66))];
+    _navTitleLabel.text = @"密码与解锁";
+    _navTitleLabel.font = [UIFont fontWithName:@"HeiTi SC" size:18];
+    _navTitleLabel.textColor = [UIColor blackColor];
+    _navTitleLabel.textAlignment = NSTextAlignmentCenter;
+    [_titleView addSubview:_navTitleLabel];
+    
+    
+    
+    _backBtn = [Factory createButtonWithTitle:@"" frame:CGRectMake(20, 28, 25, 25) backgroundColor:[UIColor clearColor] backgroundImage:[UIImage imageNamed:@""] target:self action:@selector(backBtnClick)];
+    [_backBtn setImage:[UIImage imageNamed:@"关闭2"] forState:UIControlStateNormal];
+    if (PNCisIPHONEX) {
+        _backBtn.frame = CGRectMake(20, 48, 25, 25);
+    }
+    [_titleView addSubview:_backBtn];
+    _backBtn.transform = CGAffineTransformMakeRotation(M_PI_4);
+    
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2* NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        CABasicAnimation* rotationAnimation;
+        
+        rotationAnimation =[CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+        //        rotationAnimation.fromValue =[NSNumber numberWithFloat: 0M_PI_4];
+        
+        rotationAnimation.toValue =[NSNumber numberWithFloat: 0];
+        rotationAnimation.duration =0.4;
+        rotationAnimation.repeatCount =1;
+        rotationAnimation.removedOnCompletion = NO;
+        rotationAnimation.fillMode = kCAFillModeForwards;
+        [_backBtn.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+        
+    });
+}
+
+
+
+- (void)backBtnClick {
     [self dismiss];
 }
 
@@ -136,13 +206,14 @@
         case LZPasswordStyleSetting:
         {
             
-            self.titleLabel.text = @"设置密码";
+            self.navTitleLabel.text = @"设置密码";
             self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame) * 2, CGRectGetHeight(self.view.frame));
             
             LZNumberView *first = [[LZNumberView alloc]init];
             first.tag = 100;
             first.delegate = self;
             first.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+            [first addSubview:first.lineView];
             [self.scrollView addSubview:first];
             first.warnLabel.text = @"请输入密码";
             
@@ -155,7 +226,7 @@
         }  break;
         case LZPasswordStyleVerity:
         {
-            self.titleLabel.text = @"验证密码";
+            self.navTitleLabel.text = @"验证密码";
             self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
             
             LZNumberView *first = [[LZNumberView alloc]init];
@@ -167,7 +238,7 @@
         }  break;
         case LZPasswordStyleUpdate:
         {
-            self.titleLabel.text = @"重置密码";
+            self.navTitleLabel.text = @"重置密码";
             self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame) * 3, CGRectGetHeight(self.view.frame));
             
             LZNumberView *first = [[LZNumberView alloc]init];
@@ -200,12 +271,13 @@
             first.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
             [self.scrollView addSubview:first];
             first.warnLabel.text = @"请输入密码";
+            [first becomeFirstRespond];
         } break;
         default:
             break;
     }
     
-    [self.view bringSubviewToFront:self.titleLabel];
+//    [self.view bringSubviewToFront:self.navTitleLabel];
 }
 
 #pragma mark - LZNumberViewDelegate
@@ -228,7 +300,7 @@
             if ([firstString isEqualToString:string]) {
                 
                 [LZNumberTool saveNumberPasswordValue:string];
-                view.subWarnLabel.text = @"设置成功✅";
+                view.subWarnLabel.text = @"设置成功";
                 view.subWarnLabel.textColor = [UIColor colorWithRed:25/255.0 green:177/255.0 blue:29/177.0 alpha:1.0];
                 [self performSelector:@selector(done:) withObject:string afterDelay:0.6];
             } else {
@@ -249,6 +321,7 @@
         if ([LZNumberTool isEqualToSavedPassword:string]) {
             
             
+            
             if (self.successed) {
                 self.successed();
             }
@@ -256,7 +329,7 @@
             [self dismiss];
         } else {
             
-            view.subWarnLabel.text = @"密码错误❌";
+            view.subWarnLabel.text = @"密码错误";
             view.subWarnLabel.textColor = [UIColor redColor];
             [view.subWarnLabel.layer shake];
             [view reset];
@@ -275,7 +348,7 @@
                 [second becomeFirstRespond];
             } else {
                 
-                view.subWarnLabel.text = @"密码错误❌";
+                view.subWarnLabel.text = @"密码错误";
                 view.subWarnLabel.textColor = [UIColor redColor];
                 [view.subWarnLabel.layer shake];
                 [view reset];
@@ -292,7 +365,7 @@
             if ([firstString isEqualToString:string]) {
                 
                 [LZNumberTool saveNumberPasswordValue:string];
-                view.subWarnLabel.text = @"重置成功✅";
+                view.subWarnLabel.text = @"重置成功";
                 view.subWarnLabel.textColor = [UIColor colorWithRed:25/255.0 green:177/255.0 blue:29/177.0 alpha:1.0];
                 [self performSelector:@selector(done:) withObject:string afterDelay:0.6];
             } else {
@@ -315,7 +388,7 @@
             [self dismiss];
         } else {
             
-            view.subWarnLabel.text = @"密码错误❌";
+            view.subWarnLabel.text = @"密码错误";
             view.subWarnLabel.textColor = [UIColor redColor];
             [view.subWarnLabel.layer shake];
             [view reset];

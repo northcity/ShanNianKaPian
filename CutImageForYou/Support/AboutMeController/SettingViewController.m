@@ -20,6 +20,7 @@
 
 #import "BCMiMaYuJieSuoViewController.h"
 #import "LZBaseNavigationController.h"
+#import "LZiCloudViewController.h"
 
 const CGFloat kNavigationBarHeight = 44;
 const CGFloat kStatusBarHeight = 20;
@@ -189,7 +190,7 @@ const CGFloat kStatusBarHeight = 20;
     if (indexPath.section == 0 && indexPath.row == 1) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.imageView.image = [UIImage imageNamed:@"云1"];
-        cell.textLabel.text = @"iCloud开关";
+        cell.textLabel.text = @"iCloud设置";
     }
     if (indexPath.section == 0 && indexPath.row == 2) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -199,7 +200,7 @@ const CGFloat kStatusBarHeight = 20;
     if (indexPath.section == 0 && indexPath.row == 3) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.imageView.image = [UIImage imageNamed:@"指纹2"];
-        cell.textLabel.text = @"Touch ID/Face ID";
+        cell.textLabel.text = @"主题设置";
     }
     
     if (indexPath.section == 1 && indexPath.row == 0) {
@@ -252,13 +253,15 @@ const CGFloat kStatusBarHeight = 20;
     
     if (indexPath.section == 0 && indexPath.row == 2) {
         BCMiMaYuJieSuoViewController *bvc = [[BCMiMaYuJieSuoViewController alloc]init];
-//        [self presentViewController:bvc animated:YES completion:nil];
-        
         LZBaseNavigationController *nav = [[LZBaseNavigationController alloc]initWithRootViewController:bvc];
         [self presentViewController:nav animated:YES completion:nil];
-        
     }
     
+    if (indexPath.section == 0 && indexPath.row == 1) {
+        LZiCloudViewController *bvc = [[LZiCloudViewController alloc]init];
+        LZBaseNavigationController *nav = [[LZBaseNavigationController alloc]initWithRootViewController:bvc];
+        [self presentViewController:nav animated:YES completion:nil];
+    }
     
     
     

@@ -22,6 +22,7 @@ typedef NS_ENUM(NSInteger, LZNumberViewStyle) {
 
 @property (nonatomic, assign) LZNumberViewStyle style;
 @property (nonatomic, assign) id <LZNumberViewDelegate>delegate;
+@property (nonatomic, strong) UITextField *textField;
 
 /**
  中间视图Y坐标,在整个视图的Y坐标的百分比
@@ -34,6 +35,7 @@ typedef NS_ENUM(NSInteger, LZNumberViewStyle) {
  提示label
  */
 @property (nonatomic, strong) UILabel *warnLabel;
+@property(nonatomic,strong) UIView *lineView;
 
 /**
  辅助提示信息

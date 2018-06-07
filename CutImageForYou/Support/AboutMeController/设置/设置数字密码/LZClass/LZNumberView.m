@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic, strong) NSMutableArray *inputs;
-@property (nonatomic, strong) UITextField *textField;
+//@property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) UIView *textBgView;
 @end
 
@@ -23,7 +23,7 @@
     self = [super init];
     if (self) {
         
-        self.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1.0];
+        self.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];
         self.style = style;
         _position = 0.4;
     }
@@ -36,9 +36,10 @@
     self = [super init];
     if (self) {
         
-        self.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1.0];
+        self.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];
         self.style = LZNumberViewStyleNumberFour;
         _position = 0.4;
+
     }
     
     return self;
@@ -55,7 +56,7 @@
     if (_warnLabel == nil) {
         
         _warnLabel = [[UILabel alloc]init];
-        _warnLabel.font = [UIFont systemFontOfSize:12];
+        _warnLabel.font =  [UIFont fontWithName:@"HeiTi SC" size:12];
         _warnLabel.textAlignment = NSTextAlignmentCenter;
         _warnLabel.frame = CGRectMake(0, self.position*CGRectGetHeight(self.frame)*0.8, CGRectGetWidth(self.frame), 30);
         [self addSubview:_warnLabel];
@@ -64,11 +65,20 @@
     return _warnLabel;
 }
 
+- (UIView *)lineView{
+    if (_lineView == nil) {
+        _lineView = [[UIView alloc]initWithFrame:CGRectMake(ScreenWidth/2 - kAUTOWIDTH(120/2), CGRectGetMaxY(_warnLabel.frame) + kAUTOHEIGHT(2), kAUTOWIDTH(120), 1)];
+        _lineView.backgroundColor = [UIColor grayColor];
+        [self addSubview:_lineView];
+    }
+    return _lineView;
+}
+
 - (UILabel *)subWarnLabel {
     if (_subWarnLabel == nil) {
         
         _subWarnLabel = [[UILabel alloc]init];
-        _subWarnLabel.font = [UIFont systemFontOfSize:12];
+        _subWarnLabel.font = [UIFont fontWithName:@"HeiTi SC" size:12];
         _subWarnLabel.textAlignment = NSTextAlignmentCenter;
         _subWarnLabel.frame = CGRectMake(0, self.position*CGRectGetHeight(self.frame)*1.2, CGRectGetWidth(self.frame), 30);
         _subWarnLabel.textColor = [UIColor redColor];
@@ -166,7 +176,6 @@
 }
 
 - (BOOL)resignFirstRespond {
-    
     return [self.textField resignFirstResponder];
 }
 

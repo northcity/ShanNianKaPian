@@ -57,7 +57,7 @@ UITableViewDelegate,LZGestureViewDelegate>
         
         _contendView = [UIView new];
         [self.view addSubview:_contendView];
-        
+        [self.view insertSubview:self.titleView aboveSubview:_contendView];
         [_contendView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.and.bottom.mas_equalTo(self.view);
             make.top.mas_equalTo(self.view).offset(LZNavigationHeight);
@@ -70,9 +70,16 @@ UITableViewDelegate,LZGestureViewDelegate>
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+//    [self setupNaviBar];
+    [self initOtherUI];
+    self.navTitleLabel.text = @"手势设置";
+    [self.backBtn setImage:[UIImage imageNamed:@"返回箭头2"] forState:UIControlStateNormal];
     [self setupMainView];
-    [self setupNaviBar];
-    
+
+}
+
+- (void)backAction{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)setupNaviBar {
@@ -89,11 +96,14 @@ UITableViewDelegate,LZGestureViewDelegate>
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _tableView.separatorColor = [UIColor clearColor];
+//    _tableView.separatorColor = [UIColor clearColor];
     
+    _tableView.backgroundColor = [UIColor whiteColor];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     
+    [_tableView registerNib:[UINib nibWithNibName:@"MainContentCell" bundle:nil] forCellReuseIdentifier:@"cellIdentifier"];
+
     
     [_contendView addSubview:_tableView];
     
@@ -135,14 +145,14 @@ UITableViewDelegate,LZGestureViewDelegate>
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identifier = @"cellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    MainContentCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+        cell = [[MainContentCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:identifier];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        cell.textLabel.font = [UIFont systemFontOfSize:16];
+//        cell.textLabel.font = [UIFont systemFontOfSize:16];
     }
     
     switch (indexPath.section)
@@ -150,7 +160,8 @@ UITableViewDelegate,LZGestureViewDelegate>
         case 0:
         {
             CMSwitch * sw = [[CMSwitch alloc] init];
-            
+            sw.tintColor = [UIColor blackColor];
+            sw.onTintColor = [UIColor blackColor];
             [sw addTarget:self action:@selector(sw:) forControlEvents:UIControlEventValueChanged];
             _stateSwitch = sw;
             cell.accessoryView = sw;
@@ -162,7 +173,8 @@ UITableViewDelegate,LZGestureViewDelegate>
         case 1:
         {
             CMSwitch * sw = [[CMSwitch alloc] init];
-            
+            sw.tintColor = [UIColor blackColor];
+            sw.onTintColor = [UIColor blackColor];
             [sw addTarget:self action:@selector(sw:) forControlEvents:UIControlEventValueChanged];
             cell.accessoryView = sw;
             sw.indexPath = indexPath;
@@ -234,6 +246,9 @@ UITableViewDelegate,LZGestureViewDelegate>
     }
     
     return nil;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 62;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

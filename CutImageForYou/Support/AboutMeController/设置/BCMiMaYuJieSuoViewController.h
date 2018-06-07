@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LZBaseViewController.h"
 
-@interface BCMiMaYuJieSuoViewController : UIViewController
+@interface BCMiMaYuJieSuoViewController : LZBaseViewController
 
 @end

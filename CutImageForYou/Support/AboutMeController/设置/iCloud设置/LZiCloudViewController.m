@@ -22,10 +22,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self setupNaviBar];
+//    [self setupNaviBar];
+    [self initOtherUI];
+    self.navTitleLabel.text = @"iCloud 设置";
+    [self.backBtn setImage:[UIImage imageNamed:@"返回箭头2"] forState:UIControlStateNormal];
+
     [self tableView];
+    [self.view insertSubview:self.titleView aboveSubview:self.tableView];
+
 }
 
+
+- (void)backAction{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)setupNaviBar {
     
     LZWeakSelf(ws)
@@ -45,6 +55,12 @@
         [self.view addSubview:table];
         _tableView = table;
         
+        
+        [self.tableView registerNib:[UINib nibWithNibName:@"MainContentCell" bundle:nil] forCellReuseIdentifier:@"cellID"];
+        self.tableView.backgroundColor = [UIColor whiteColor];
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
+        
         [table mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.and.bottom.mas_equalTo(self.view);
             make.top.mas_equalTo(self.view).offset(LZNavigationHeight);
@@ -52,6 +68,10 @@
     }
     
     return _tableView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 62;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -65,9 +85,9 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
+    MainContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cellID"];
+        cell = [[MainContentCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cellID"];
         cell.textLabel.textColor = LZColorFromHex(0x555555);
         cell.textLabel.font = [UIFont systemFontOfSize:14];
         //

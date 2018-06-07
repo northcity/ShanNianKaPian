@@ -11,6 +11,7 @@
 #import "iCloudHandle.h"
 #import "PcmPlayer.h"
 #import "PcmPlayerDelegate.h"
+#import "LZSqliteTool.h"
 
 @interface ShanNianMuLuViewController ()<UITableViewDataSource, UITableViewDelegate,PcmPlayerDelegate>
 
@@ -19,18 +20,37 @@
 @property (nonatomic ,copy)   NSArray                   *dataArr;
 @property (nonatomic, strong) PcmPlayer *audioPlayer;
 
+@property(nonatomic,strong)NSMutableArray *dataSourceArray;
 @end
 
 @implementation ShanNianMuLuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUpNotification];
+//    [self setUpNotification];
     [self createUI];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self getData];
-
+//    [self getData];
+    [self loadData];
 }
+
+- (void)loadData {
+    
+    self.dataSourceArray =[[NSMutableArray alloc]init];
+    
+    NSArray* array = [LZSqliteTool LZSelectAllElementsFromTable:LZSqliteDataTableName];
+    
+
+    if (self.dataArr.count > 0) {
+        
+        [self.dataSourceArray removeAllObjects];
+    }
+    
+    [self.dataSourceArray addObjectsFromArray:array];
+    
+    [self.tableView reloadData];
+}
+
 
 - (void)getData
 {
@@ -118,7 +138,7 @@
     return 55;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _dataArr.count;
+    return _dataSourceArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

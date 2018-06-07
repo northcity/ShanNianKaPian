@@ -33,36 +33,46 @@
     [self myTableView];
     [self initOtherUI];
     self.navigationController.navigationBar.hidden = YES;
+    self.navTitleLabel.text = @"密码与解锁";
+
 }
 
-- (void)initOtherUI{
-    UIButton * backBtn = [Factory createButtonWithTitle:@"" frame:CGRectMake(20, 28, 25, 25) backgroundColor:[UIColor clearColor] backgroundImage:[UIImage imageNamed:@""] target:self action:@selector(backAction)];
-    [backBtn setImage:[UIImage imageNamed:@"关闭2"] forState:UIControlStateNormal];
-    if (PNCisIPHONEX) {
-        backBtn.frame = CGRectMake(20, 48, 25, 25);
-    }
-    [self.view addSubview:backBtn];
-    backBtn.transform = CGAffineTransformMakeRotation(M_PI_4);
-    
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2* NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        CABasicAnimation* rotationAnimation;
-        
-        rotationAnimation =[CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-        //        rotationAnimation.fromValue =[NSNumber numberWithFloat: 0M_PI_4];
-        
-        rotationAnimation.toValue =[NSNumber numberWithFloat: 0];
-        rotationAnimation.duration =0.4;
-        rotationAnimation.repeatCount =1;
-        rotationAnimation.removedOnCompletion = NO;
-        rotationAnimation.fillMode = kCAFillModeForwards;
-        [backBtn.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
-        
-    });
-    
-    
-    
-}
+//- (void)initOtherUI{
+//
+//    UILabel *navTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(ScreenWidth/2 - kAUTOWIDTH(100)/2, kAUTOHEIGHT(5), kAUTOWIDTH(100), kAUTOHEIGHT(66))];
+//    navTitleLabel.text = @"密码与解锁";
+//    navTitleLabel.font = [UIFont fontWithName:@"HeiTi SC" size:18];
+//    navTitleLabel.textColor = [UIColor blackColor];
+//    navTitleLabel.textAlignment = NSTextAlignmentCenter;
+//    [self.view addSubview:navTitleLabel];
+//
+//    UIButton * backBtn = [Factory createButtonWithTitle:@"" frame:CGRectMake(20, 28, 25, 25) backgroundColor:[UIColor clearColor] backgroundImage:[UIImage imageNamed:@""] target:self action:@selector(backAction)];
+//    [backBtn setImage:[UIImage imageNamed:@"关闭2"] forState:UIControlStateNormal];
+//    if (PNCisIPHONEX) {
+//        backBtn.frame = CGRectMake(20, 48, 25, 25);
+//    }
+//    [self.view addSubview:backBtn];
+//    backBtn.transform = CGAffineTransformMakeRotation(M_PI_4);
+//
+//
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2* NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        CABasicAnimation* rotationAnimation;
+//
+//        rotationAnimation =[CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+//        //        rotationAnimation.fromValue =[NSNumber numberWithFloat: 0M_PI_4];
+//
+//        rotationAnimation.toValue =[NSNumber numberWithFloat: 0];
+//        rotationAnimation.duration =0.4;
+//        rotationAnimation.repeatCount =1;
+//        rotationAnimation.removedOnCompletion = NO;
+//        rotationAnimation.fillMode = kCAFillModeForwards;
+//        [backBtn.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+//
+//    });
+//
+//
+//
+//}
 
 - (void)backAction{
     [self dismissViewControllerAnimated:YES completion:^{
@@ -132,21 +142,28 @@
     //        cell.textLabel.text = arr[indexPath.row];
     //        return cell;
     //    } else
-    {
-        MainContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tableViewCellID"];
-        
-        if (cell == nil) {
-            cell = [[MainContentCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"tableViewCellID"];
-            cell.textLabel.textColor = LZColorFromHex(0x555555);
-            cell.textLabel.font = [UIFont systemFontOfSize:14];
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        }
-        
+    
+    
+    MainContentCell * cell = [tableView dequeueReusableCellWithIdentifier:@"tableViewCellID" forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
         NSArray *arr = self.dataArray[indexPath.section];
         cell.textLabel.text = arr[indexPath.row];
-        return cell;
+    
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        cell.imageView.image = [UIImage imageNamed:@"手势密码"];
     }
+    
+    if (indexPath.section == 0 && indexPath.row == 1) {
+        cell.imageView.image = [UIImage imageNamed:@"数字密码1"];
+    }
+    if (indexPath.section == 0 && indexPath.row == 2) {
+        cell.imageView.image = [UIImage imageNamed:@"指纹2"];
+    }
+        return cell;
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -190,8 +207,8 @@
     } else if (indexPath.section == 2) {
         
         LZiCloudViewController *icloud = [[LZiCloudViewController alloc]init];
-        
         [nav pushViewController:icloud animated:YES];
+        
     } else if (indexPath.section == 1){
         
 //        LZGroupViewController *group = [[LZGroupViewController alloc]init];

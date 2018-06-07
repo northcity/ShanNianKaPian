@@ -30,10 +30,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor colorWithRed:248.0/255.0 green:248.0/255.0 blue:248.0/255.0 alpha:1.0];
+//    self.view.backgroundColor = [UIColor colorWithRed:248.0/255.0 green:248.0/255.0 blue:248.0/255.0 alpha:1.0];
     
-    [self setupNaviBar];
+//    [self setupNaviBar];
+    [self initOtherUI];
+    self.navTitleLabel.text = @"创建手势密码";
+    [self.backBtn setImage:[UIImage imageNamed:@"返回箭头2"] forState:UIControlStateNormal];
     [self setupMainView];
+//    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)dealloc
@@ -66,25 +70,27 @@
         appName = @"";
     
     _gestureImgView = [[UIImageView alloc] initWithFrame:CGRectZero];
-    _gestureImgView.image = [UIImage imageNamed:@"gesture_introduce"];
+    _gestureImgView.image = [UIImage imageNamed:@"gestureBackImg.png"];
     _gestureImgView.contentMode = UIViewContentModeScaleAspectFit;
     
     _gestureButton = [[UIButton alloc] initWithFrame:CGRectZero];
-    _gestureButton.layer.cornerRadius = 5.0f;
-    _gestureButton.layer.masksToBounds = YES;
-    
-    UIImage * aImg = [self imageWithColor:[UIColor colorWithRed:56.0/255.0 green:187.0/255.0 blue:204.0/255.0 alpha:1.0]];
-    [_gestureButton setBackgroundImage:aImg forState:UIControlStateNormal];
+    _gestureButton.layer.cornerRadius = 10;
+//    _gestureButton.layer.masksToBounds = YES;
     [_gestureButton setTitle:@"创建手势密码" forState:UIControlStateNormal];
-    [_gestureButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_gestureButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
-    
+    [_gestureButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [_gestureButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    _gestureButton.titleLabel.font = [UIFont fontWithName:@"HeiTi SC" size:15];
     [_gestureButton addTarget:self action:@selector(onGestureButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [_gestureButton setBackgroundColor:[UIColor whiteColor]];
+    _gestureButton.layer.shadowColor=[UIColor grayColor].CGColor;
+    _gestureButton.layer.shadowOffset=CGSizeMake(0, 4);
+    _gestureButton.layer.shadowOpacity=0.4f;
+    _gestureButton.layer.shadowRadius=12;
     
     UILabel * lb = [[UILabel alloc] init];
     lb.text = [NSString stringWithFormat:@"你可以创建一个%@解锁图片，这样他人在借用你的手机时，将无法打开%@。", appName, appName];
     lb.textAlignment = NSTextAlignmentCenter;
-    lb.font = [UIFont systemFontOfSize:15.0];
+    lb.font = [UIFont fontWithName:@"HeiTi SC" size:13];
     lb.numberOfLines = 0;
     
     
@@ -92,27 +98,35 @@
     [self.view addSubview: _gestureButton];
     [self.view addSubview: lb];
 
-    [_gestureImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.view).offset(LZNavigationHeight + 30);
-        make.centerX.mas_equalTo(self.view);
-        make.width.mas_equalTo(@(LZSCREEN_WIDTH));
-        make.bottom.mas_equalTo(lb.mas_top).offset(-40);
-    }];
+    _gestureImgView.frame = CGRectMake(ScreenWidth/2 - ScreenWidth/6, PCTopBarHeight + kAUTOHEIGHT(60), ScreenWidth/3, ScreenWidth/3);
+    lb.frame = CGRectMake(kAUTOWIDTH(20), CGRectGetMaxY( _gestureImgView.frame) + kAUTOHEIGHT(50), ScreenWidth - kAUTOWIDTH(40), 60);
+    _gestureButton.frame = CGRectMake(kAUTOWIDTH(20), ScreenHeight - kAUTOHEIGHT(90), ScreenWidth - kAUTOWIDTH(40), 50);
     
-    [lb mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(_gestureImgView.mas_bottom).offset(40);
-        make.left.mas_equalTo(self.view).offset(20);
-        make.right.mas_equalTo(self.view).offset(-20);
-        make.height.mas_equalTo(@40);
-    }];
-    
-    [_gestureButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(lb.mas_bottom).offset(40);
-        make.left.mas_equalTo(self.view).offset(20);
-        make.right.mas_equalTo(self.view).offset(-20);
-        make.height.mas_equalTo(@40);
-        make.bottom.mas_equalTo(self.view).offset(-40);
-    }];
+//    [_gestureImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.mas_equalTo(self.view).offset(LZNavigationHeight + 30);
+//        make.centerX.mas_equalTo(self.view);
+//        make.width.mas_equalTo(@(ScreenWidth/2));
+//        make.height.mas_equalTo(@(ScreenWidth/2));
+//    }];
+//
+//    [lb mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.mas_equalTo(self).offset(-120);
+//        make.left.mas_equalTo(self.view).offset(20);
+//        make.right.mas_equalTo(self.view).offset(-20);
+//        make.height.mas_equalTo(@40);
+//    }];
+//
+//    [_gestureButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.mas_equalTo(lb.mas_bottom).offset(40);
+//        make.left.mas_equalTo(self.view).offset(20);
+//        make.right.mas_equalTo(self.view).offset(-20);
+//        make.height.mas_equalTo(@44);
+//        make.bottom.mas_equalTo(self.view).offset(-40);
+//    }];
+}
+
+- (void)backAction{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - 按钮事件

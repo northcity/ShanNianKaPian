@@ -36,6 +36,15 @@
 		1526F05D20C6961400E15B91 /* ShanNianVoiceSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1526F05C20C6961300E15B91 /* ShanNianVoiceSetViewController.m */; };
 		153A9ADA20C7DA8F009BCBFE /* BCMiMaYuJieSuoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 153A9AD920C7DA8F009BCBFE /* BCMiMaYuJieSuoViewController.m */; };
 		15610FD620C4D4E200983FFE /* BCShanNianKaPianManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15610FD520C4D4E200983FFE /* BCShanNianKaPianManager.m */; };
+		1571C37F20C8BD22008656B9 /* 手势密码@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1571C37E20C8BD1E008656B9 /* 手势密码@3x.png */; };
+		1571C38020C8BD24008656B9 /* 数字密码@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1571C37D20C8BD1E008656B9 /* 数字密码@3x.png */; };
+		1571C38220C8BDE2008656B9 /* 数字密码1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1571C38120C8BDD6008656B9 /* 数字密码1@3x.png */; };
+		1571C38620C8CCB3008656B9 /* 返回箭头.png in Resources */ = {isa = PBXBuildFile; fileRef = 1571C38520C8CC4D008656B9 /* 返回箭头.png */; };
+		1571C38820C8CD2B008656B9 /* 返回箭头2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1571C38720C8CD29008656B9 /* 返回箭头2.png */; };
+		1571C38B20C8F185008656B9 /* 手势解锁.png in Resources */ = {isa = PBXBuildFile; fileRef = 1571C38A20C8F17F008656B9 /* 手势解锁.png */; };
+		1571C38D20C8F6B6008656B9 /* gestureBackImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1571C38C20C8F6B5008656B9 /* gestureBackImg.png */; };
+		1571C39120C900E3008656B9 /* gesture_circle_nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1571C39020C900E3008656B9 /* gesture_circle_nor@2x.png */; };
+		1571C39420C92551008656B9 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1571C39320C92549008656B9 /* icon.png */; };
 		1574877F20C62198004CD38B /* iCloudHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1574877A20C62198004CD38B /* iCloudHandle.m */; };
 		1574878020C62198004CD38B /* ZZRDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1574877C20C62198004CD38B /* ZZRDocument.m */; };
 		1574878120C62198004CD38B /* ZZRModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1574877E20C62198004CD38B /* ZZRModel.m */; };
@@ -104,13 +113,11 @@
 		F758D4F620C81E700033175D /* DrawPatternLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D4A820C81E6F0033175D /* DrawPatternLockView.m */; };
 		F758D4F720C81E700033175D /* DrawPatternLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D4A920C81E6F0033175D /* DrawPatternLockViewController.m */; };
 		F758D4F820C81E700033175D /* GestureLockScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D4AA20C81E6F0033175D /* GestureLockScreen.m */; };
-		F758D4F920C81E700033175D /* gesture_circle_nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4AC20C81E6F0033175D /* gesture_circle_nor@2x.png */; };
 		F758D4FA20C81E700033175D /* gesture_circle_pre.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4AD20C81E6F0033175D /* gesture_circle_pre.png */; };
 		F758D4FB20C81E700033175D /* gesture_introduce.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4AE20C81E6F0033175D /* gesture_introduce.png */; };
 		F758D4FC20C81E700033175D /* gesture_circle_pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4AF20C81E6F0033175D /* gesture_circle_pre@2x.png */; };
 		F758D4FD20C81E700033175D /* gesture_unlock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4B020C81E6F0033175D /* gesture_unlock@2x.png */; };
 		F758D4FE20C81E700033175D /* gesture_unlock.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4B120C81E6F0033175D /* gesture_unlock.png */; };
-		F758D4FF20C81E700033175D /* gesture_circle_nor.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4B220C81E6F0033175D /* gesture_circle_nor.png */; };
 		F758D50020C81E700033175D /* gesture_introduce@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4B320C81E6F0033175D /* gesture_introduce@2x.png */; };
 		F758D50120C81E700033175D /* gesture_introduce@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4B420C81E6F0033175D /* gesture_introduce@3x.png */; };
 		F758D50220C81E700033175D /* LZGestureSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D4B720C81E6F0033175D /* LZGestureSettingViewController.m */; };
@@ -119,13 +126,11 @@
 		F758D50520C81E700033175D /* PCCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D4C020C81E6F0033175D /* PCCircle.m */; };
 		F758D50620C81E700033175D /* PCCircleViewConst.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D4C120C81E6F0033175D /* PCCircleViewConst.m */; };
 		F758D50720C81E700033175D /* PCCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D4C220C81E6F0033175D /* PCCircleView.m */; };
-		F758D50820C81E700033175D /* gesture_circle_nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4C520C81E6F0033175D /* gesture_circle_nor@2x.png */; };
 		F758D50920C81E700033175D /* gesture_circle_pre.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4C620C81E6F0033175D /* gesture_circle_pre.png */; };
 		F758D50A20C81E700033175D /* gesture_introduce.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4C720C81E6F0033175D /* gesture_introduce.png */; };
 		F758D50B20C81E700033175D /* gesture_circle_pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4C820C81E6F0033175D /* gesture_circle_pre@2x.png */; };
 		F758D50C20C81E700033175D /* gesture_unlock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4C920C81E6F0033175D /* gesture_unlock@2x.png */; };
 		F758D50D20C81E700033175D /* gesture_unlock.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4CA20C81E6F0033175D /* gesture_unlock.png */; };
-		F758D50E20C81E700033175D /* gesture_circle_nor.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4CB20C81E6F0033175D /* gesture_circle_nor.png */; };
 		F758D50F20C81E700033175D /* gesture_introduce@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4CC20C81E6F0033175D /* gesture_introduce@2x.png */; };
 		F758D51020C81E700033175D /* gesture_introduce@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4CD20C81E6F0033175D /* gesture_introduce@3x.png */; };
 		F758D51120C81E700033175D /* LZWarnLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D4D320C81E6F0033175D /* LZWarnLabel.m */; };
@@ -317,6 +322,15 @@
 		153A9AD920C7DA8F009BCBFE /* BCMiMaYuJieSuoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMiMaYuJieSuoViewController.m; sourceTree = "<group>"; };
 		15610FD420C4D4E200983FFE /* BCShanNianKaPianManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCShanNianKaPianManager.h; sourceTree = "<group>"; };
 		15610FD520C4D4E200983FFE /* BCShanNianKaPianManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCShanNianKaPianManager.m; sourceTree = "<group>"; };
+		1571C37D20C8BD1E008656B9 /* 数字密码@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "数字密码@3x.png"; sourceTree = "<group>"; };
+		1571C37E20C8BD1E008656B9 /* 手势密码@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "手势密码@3x.png"; sourceTree = "<group>"; };
+		1571C38120C8BDD6008656B9 /* 数字密码1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "数字密码1@3x.png"; sourceTree = "<group>"; };
+		1571C38520C8CC4D008656B9 /* 返回箭头.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回箭头.png"; sourceTree = "<group>"; };
+		1571C38720C8CD29008656B9 /* 返回箭头2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回箭头2.png"; sourceTree = "<group>"; };
+		1571C38A20C8F17F008656B9 /* 手势解锁.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "手势解锁.png"; sourceTree = "<group>"; };
+		1571C38C20C8F6B5008656B9 /* gestureBackImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gestureBackImg.png; sourceTree = "<group>"; };
+		1571C39020C900E3008656B9 /* gesture_circle_nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_circle_nor@2x.png"; sourceTree = "<group>"; };
+		1571C39320C92549008656B9 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		1574877920C62198004CD38B /* iCloudHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCloudHandle.h; sourceTree = "<group>"; };
 		1574877A20C62198004CD38B /* iCloudHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCloudHandle.m; sourceTree = "<group>"; };
 		1574877B20C62198004CD38B /* ZZRDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZRDocument.h; sourceTree = "<group>"; };
@@ -424,13 +438,11 @@
 		F758D4A820C81E6F0033175D /* DrawPatternLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawPatternLockView.m; sourceTree = "<group>"; };
 		F758D4A920C81E6F0033175D /* DrawPatternLockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawPatternLockViewController.m; sourceTree = "<group>"; };
 		F758D4AA20C81E6F0033175D /* GestureLockScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureLockScreen.m; sourceTree = "<group>"; };
-		F758D4AC20C81E6F0033175D /* gesture_circle_nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_circle_nor@2x.png"; sourceTree = "<group>"; };
 		F758D4AD20C81E6F0033175D /* gesture_circle_pre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_circle_pre.png; sourceTree = "<group>"; };
 		F758D4AE20C81E6F0033175D /* gesture_introduce.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_introduce.png; sourceTree = "<group>"; };
 		F758D4AF20C81E6F0033175D /* gesture_circle_pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_circle_pre@2x.png"; sourceTree = "<group>"; };
 		F758D4B020C81E6F0033175D /* gesture_unlock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_unlock@2x.png"; sourceTree = "<group>"; };
 		F758D4B120C81E6F0033175D /* gesture_unlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_unlock.png; sourceTree = "<group>"; };
-		F758D4B220C81E6F0033175D /* gesture_circle_nor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_circle_nor.png; sourceTree = "<group>"; };
 		F758D4B320C81E6F0033175D /* gesture_introduce@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_introduce@2x.png"; sourceTree = "<group>"; };
 		F758D4B420C81E6F0033175D /* gesture_introduce@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_introduce@3x.png"; sourceTree = "<group>"; };
 		F758D4B620C81E6F0033175D /* LZGestureSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZGestureSetupViewController.h; sourceTree = "<group>"; };
@@ -445,13 +457,11 @@
 		F758D4C120C81E6F0033175D /* PCCircleViewConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircleViewConst.m; sourceTree = "<group>"; };
 		F758D4C220C81E6F0033175D /* PCCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircleView.m; sourceTree = "<group>"; };
 		F758D4C320C81E6F0033175D /* PCCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircle.h; sourceTree = "<group>"; };
-		F758D4C520C81E6F0033175D /* gesture_circle_nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_circle_nor@2x.png"; sourceTree = "<group>"; };
 		F758D4C620C81E6F0033175D /* gesture_circle_pre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_circle_pre.png; sourceTree = "<group>"; };
 		F758D4C720C81E6F0033175D /* gesture_introduce.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_introduce.png; sourceTree = "<group>"; };
 		F758D4C820C81E6F0033175D /* gesture_circle_pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_circle_pre@2x.png"; sourceTree = "<group>"; };
 		F758D4C920C81E6F0033175D /* gesture_unlock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_unlock@2x.png"; sourceTree = "<group>"; };
 		F758D4CA20C81E6F0033175D /* gesture_unlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_unlock.png; sourceTree = "<group>"; };
-		F758D4CB20C81E6F0033175D /* gesture_circle_nor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_circle_nor.png; sourceTree = "<group>"; };
 		F758D4CC20C81E6F0033175D /* gesture_introduce@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_introduce@2x.png"; sourceTree = "<group>"; };
 		F758D4CD20C81E6F0033175D /* gesture_introduce@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_introduce@3x.png"; sourceTree = "<group>"; };
 		F758D4CF20C81E6F0033175D /* LZWarnLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZWarnLabel.h; sourceTree = "<group>"; };
@@ -920,6 +930,28 @@
 		F758D48F20C6DBCB0033175D /* ShanNianImageResource */ = {
 			isa = PBXGroup;
 			children = (
+				1571C39320C92549008656B9 /* icon.png */,
+				1571C38C20C8F6B5008656B9 /* gestureBackImg.png */,
+				1571C38A20C8F17F008656B9 /* 手势解锁.png */,
+				1571C38720C8CD29008656B9 /* 返回箭头2.png */,
+				1571C38520C8CC4D008656B9 /* 返回箭头.png */,
+				1571C38120C8BDD6008656B9 /* 数字密码1@3x.png */,
+				15C0C92820C7B0D000FF3963 /* 点赞11@3x.png */,
+				15C0C92920C7B0D000FF3963 /* 发送11@3x.png */,
+				15C0C92A20C7B0D100FF3963 /* 反馈11@3x.png */,
+				15C0C92720C7B0D000FF3963 /* 个人111@3x.png */,
+				15C0C92520C7AF6400FF3963 /* 语音1@3x.png */,
+				15C0C92320C7AA9E00FF3963 /* 指纹2@3x.png */,
+				15C0C92120C7AA2600FF3963 /* 密码1@3x.png */,
+				15C0C91F20C7A95100FF3963 /* 密码@3x.png */,
+				15C0C91B20C7A82B00FF3963 /* 云1@3x.png */,
+				15C0C91C20C7A82C00FF3963 /* 云@3x.png */,
+				15C0C91920C79B4C00FF3963 /* 美国1@3x.png */,
+				15C0C91720C79B0400FF3963 /* 美国@3x.png */,
+				15C0C91320C7996100FF3963 /* 中文@3x.png */,
+				15C0C91120C78AD800FF3963 /* 英语@3x.png */,
+				1571C37E20C8BD1E008656B9 /* 手势密码@3x.png */,
+				1571C37D20C8BD1E008656B9 /* 数字密码@3x.png */,
 				15C0C90620C77BF100FF3963 /* ng_bps_fuceng_duigou@2x.png */,
 				15C0C90720C77BF100FF3963 /* ng_bps_fuceng_duigou@3x.png */,
 				1576B86420BBD5DD00B8B1F9 /* 笔记本.png */,
@@ -947,20 +979,6 @@
 			isa = PBXGroup;
 			children = (
 				15C0C92F20C7B91D00FF3963 /* ShanNianMiMa */,
-				15C0C92820C7B0D000FF3963 /* 点赞11@3x.png */,
-				15C0C92920C7B0D000FF3963 /* 发送11@3x.png */,
-				15C0C92A20C7B0D100FF3963 /* 反馈11@3x.png */,
-				15C0C92720C7B0D000FF3963 /* 个人111@3x.png */,
-				15C0C92520C7AF6400FF3963 /* 语音1@3x.png */,
-				15C0C92320C7AA9E00FF3963 /* 指纹2@3x.png */,
-				15C0C92120C7AA2600FF3963 /* 密码1@3x.png */,
-				15C0C91F20C7A95100FF3963 /* 密码@3x.png */,
-				15C0C91B20C7A82B00FF3963 /* 云1@3x.png */,
-				15C0C91C20C7A82C00FF3963 /* 云@3x.png */,
-				15C0C91920C79B4C00FF3963 /* 美国1@3x.png */,
-				15C0C91720C79B0400FF3963 /* 美国@3x.png */,
-				15C0C91320C7996100FF3963 /* 中文@3x.png */,
-				15C0C91120C78AD800FF3963 /* 英语@3x.png */,
 				F758D47720C6C4590033175D /* IATConfigViewController.h */,
 				F758D47820C6C4590033175D /* IATConfigViewController.m */,
 				1526F05B20C6961300E15B91 /* ShanNianVoiceSetViewController.h */,
@@ -1057,13 +1075,12 @@
 		F758D4AB20C81E6F0033175D /* GestureImages */ = {
 			isa = PBXGroup;
 			children = (
-				F758D4AC20C81E6F0033175D /* gesture_circle_nor@2x.png */,
+				1571C39020C900E3008656B9 /* gesture_circle_nor@2x.png */,
 				F758D4AD20C81E6F0033175D /* gesture_circle_pre.png */,
 				F758D4AE20C81E6F0033175D /* gesture_introduce.png */,
 				F758D4AF20C81E6F0033175D /* gesture_circle_pre@2x.png */,
 				F758D4B020C81E6F0033175D /* gesture_unlock@2x.png */,
 				F758D4B120C81E6F0033175D /* gesture_unlock.png */,
-				F758D4B220C81E6F0033175D /* gesture_circle_nor.png */,
 				F758D4B320C81E6F0033175D /* gesture_introduce@2x.png */,
 				F758D4B420C81E6F0033175D /* gesture_introduce@3x.png */,
 			);
@@ -1074,10 +1091,10 @@
 			isa = PBXGroup;
 			children = (
 				F758D4B620C81E6F0033175D /* LZGestureSetupViewController.h */,
+				F758D4BA20C81E6F0033175D /* LZGestureSetupViewController.m */,
+				F758D4B920C81E6F0033175D /* LZGestureSettingViewController.h */,
 				F758D4B720C81E6F0033175D /* LZGestureSettingViewController.m */,
 				F758D4B820C81E6F0033175D /* LZGestureIntroduceViewController.h */,
-				F758D4B920C81E6F0033175D /* LZGestureSettingViewController.h */,
-				F758D4BA20C81E6F0033175D /* LZGestureSetupViewController.m */,
 				F758D4BB20C81E6F0033175D /* LZGestureIntroduceViewController.m */,
 			);
 			path = LZGestureSetting;
@@ -1096,12 +1113,12 @@
 		F758D4BD20C81E6F0033175D /* FrameWork */ = {
 			isa = PBXGroup;
 			children = (
-				F758D4BE20C81E6F0033175D /* PCCircleView.h */,
-				F758D4BF20C81E6F0033175D /* PCCircleViewConst.h */,
-				F758D4C020C81E6F0033175D /* PCCircle.m */,
-				F758D4C120C81E6F0033175D /* PCCircleViewConst.m */,
-				F758D4C220C81E6F0033175D /* PCCircleView.m */,
 				F758D4C320C81E6F0033175D /* PCCircle.h */,
+				F758D4C020C81E6F0033175D /* PCCircle.m */,
+				F758D4BF20C81E6F0033175D /* PCCircleViewConst.h */,
+				F758D4C120C81E6F0033175D /* PCCircleViewConst.m */,
+				F758D4BE20C81E6F0033175D /* PCCircleView.h */,
+				F758D4C220C81E6F0033175D /* PCCircleView.m */,
 			);
 			path = FrameWork;
 			sourceTree = "<group>";
@@ -1109,13 +1126,11 @@
 		F758D4C420C81E6F0033175D /* GestureImages */ = {
 			isa = PBXGroup;
 			children = (
-				F758D4C520C81E6F0033175D /* gesture_circle_nor@2x.png */,
 				F758D4C620C81E6F0033175D /* gesture_circle_pre.png */,
 				F758D4C720C81E6F0033175D /* gesture_introduce.png */,
 				F758D4C820C81E6F0033175D /* gesture_circle_pre@2x.png */,
 				F758D4C920C81E6F0033175D /* gesture_unlock@2x.png */,
 				F758D4CA20C81E6F0033175D /* gesture_unlock.png */,
-				F758D4CB20C81E6F0033175D /* gesture_circle_nor.png */,
 				F758D4CC20C81E6F0033175D /* gesture_introduce@2x.png */,
 				F758D4CD20C81E6F0033175D /* gesture_introduce@3x.png */,
 			);
@@ -1126,13 +1141,13 @@
 			isa = PBXGroup;
 			children = (
 				F758D4CF20C81E6F0033175D /* LZWarnLabel.h */,
-				F758D4D020C81E6F0033175D /* LZGestureTool.h */,
-				F758D4D120C81E6F0033175D /* LZGestureScreen.h */,
-				F758D4D220C81E6F0033175D /* LZGestureViewController.h */,
 				F758D4D320C81E6F0033175D /* LZWarnLabel.m */,
+				F758D4D120C81E6F0033175D /* LZGestureScreen.h */,
 				F758D4D420C81E6F0033175D /* LZGestureScreen.m */,
+				F758D4D020C81E6F0033175D /* LZGestureTool.h */,
 				F758D4D520C81E6F0033175D /* LZGestureTool.m */,
 				F758D4D620C81E6F0033175D /* LZGestureFile.h */,
+				F758D4D220C81E6F0033175D /* LZGestureViewController.h */,
 				F758D4D720C81E6F0033175D /* LZGestureViewController.m */,
 			);
 			path = LZGesture;
@@ -1170,9 +1185,9 @@
 		F758D4E120C81E700033175D /* 设置数字密码 */ = {
 			isa = PBXGroup;
 			children = (
+				F758D4EC20C81E700033175D /* LZNumSettingViewController.h */,
 				F758D4E220C81E700033175D /* LZNumSettingViewController.m */,
 				F758D4E320C81E700033175D /* LZClass */,
-				F758D4EC20C81E700033175D /* LZNumSettingViewController.h */,
 			);
 			path = "设置数字密码";
 			sourceTree = "<group>";
@@ -1180,14 +1195,14 @@
 		F758D4E320C81E700033175D /* LZClass */ = {
 			isa = PBXGroup;
 			children = (
-				F758D4E420C81E700033175D /* LZNumberView.h */,
-				F758D4E520C81E700033175D /* LZItem.m */,
-				F758D4E620C81E700033175D /* LZPasswordViewController.h */,
-				F758D4E720C81E700033175D /* LZNumberTool.m */,
 				F758D4E820C81E700033175D /* LZItem.h */,
-				F758D4E920C81E700033175D /* LZNumberView.m */,
-				F758D4EA20C81E700033175D /* LZPasswordViewController.m */,
+				F758D4E520C81E700033175D /* LZItem.m */,
 				F758D4EB20C81E700033175D /* LZNumberTool.h */,
+				F758D4E720C81E700033175D /* LZNumberTool.m */,
+				F758D4E420C81E700033175D /* LZNumberView.h */,
+				F758D4E920C81E700033175D /* LZNumberView.m */,
+				F758D4E620C81E700033175D /* LZPasswordViewController.h */,
+				F758D4EA20C81E700033175D /* LZPasswordViewController.m */,
 			);
 			path = LZClass;
 			sourceTree = "<group>";
@@ -1195,8 +1210,8 @@
 		F758D4ED20C81E700033175D /* iCloud设置 */ = {
 			isa = PBXGroup;
 			children = (
-				F758D4EE20C81E700033175D /* LZiCloudViewController.m */,
 				F758D4EF20C81E700033175D /* LZiCloudViewController.h */,
+				F758D4EE20C81E700033175D /* LZiCloudViewController.m */,
 			);
 			path = "iCloud设置";
 			sourceTree = "<group>";
@@ -1284,10 +1299,10 @@
 			children = (
 				F758D55420C81F810033175D /* LZBaseTableViewCell.m */,
 				F758D55520C81F810033175D /* LZBaseNavigationController.h */,
+				F758D55920C81F810033175D /* LZBaseViewController.h */,
 				F758D55620C81F810033175D /* LZBaseViewController.m */,
 				F758D55720C81F810033175D /* LZBaseNavigationController.m */,
 				F758D55820C81F810033175D /* LZBaseTableViewCell.h */,
-				F758D55920C81F810033175D /* LZBaseViewController.h */,
 			);
 			path = "配置文件";
 			sourceTree = "<group>";
@@ -1310,12 +1325,12 @@
 		F758D55E20C81FC10033175D /* LZSqliteTool */ = {
 			isa = PBXGroup;
 			children = (
+				F758D56220C81FC10033175D /* LZDataModel.h */,
 				F758D55F20C81FC10033175D /* LZDataModel.m */,
 				F758D56020C81FC10033175D /* LZGroupModel.h */,
-				F758D56120C81FC10033175D /* LZSqliteTool.m */,
-				F758D56220C81FC10033175D /* LZDataModel.h */,
 				F758D56320C81FC10033175D /* LZGroupModel.m */,
 				F758D56420C81FC10033175D /* LZSqliteTool.h */,
+				F758D56120C81FC10033175D /* LZSqliteTool.m */,
 			);
 			path = LZSqliteTool;
 			sourceTree = "<group>";
@@ -1324,8 +1339,8 @@
 			isa = PBXGroup;
 			children = (
 				F758D56620C81FC10033175D /* LZiCloud.h */,
-				F758D56720C81FC10033175D /* LZiCloudDocument */,
 				F758D56C20C81FC10033175D /* LZiCloud.m */,
+				F758D56720C81FC10033175D /* LZiCloudDocument */,
 			);
 			path = LZiCloud;
 			sourceTree = "<group>";
@@ -1333,10 +1348,10 @@
 		F758D56720C81FC10033175D /* LZiCloudDocument */ = {
 			isa = PBXGroup;
 			children = (
-				F758D56820C81FC10033175D /* LZiCloudDocument.h */,
-				F758D56920C81FC10033175D /* LZDocument.m */,
-				F758D56A20C81FC10033175D /* LZiCloudDocument.m */,
 				F758D56B20C81FC10033175D /* LZDocument.h */,
+				F758D56920C81FC10033175D /* LZDocument.m */,
+				F758D56820C81FC10033175D /* LZiCloudDocument.h */,
+				F758D56A20C81FC10033175D /* LZiCloudDocument.m */,
 			);
 			path = LZiCloudDocument;
 			sourceTree = "<group>";
@@ -1714,6 +1729,7 @@
 				F758D50A20C81E700033175D /* gesture_introduce.png in Resources */,
 				1576B86B20BBD5EE00B8B1F9 /* 日期.png in Resources */,
 				15C0C92E20C7B0D600FF3963 /* 个人111@3x.png in Resources */,
+				1571C38220C8BDE2008656B9 /* 数字密码1@3x.png in Resources */,
 				F7F1533320A5EB1900525F05 /* QQ20180311-3.jpg in Resources */,
 				F7F1534120A5EB1900525F05 /* 星级.png in Resources */,
 				F7F1533B20A5EB1900525F05 /* 增值服务1@3x.png in Resources */,
@@ -1730,6 +1746,7 @@
 				F758D50D20C81E700033175D /* gesture_unlock.png in Resources */,
 				1576B85F20BBD4BC00B8B1F9 /* 灵感-2.png in Resources */,
 				F7F1533F20A5EB1900525F05 /* 返回1.png in Resources */,
+				1571C38620C8CCB3008656B9 /* 返回箭头.png in Resources */,
 				1574878920C63269004CD38B /* 暂停播放-2.png in Resources */,
 				1576B86820BBD5E400B8B1F9 /* 标签.png in Resources */,
 				F758D50020C81E700033175D /* gesture_introduce@2x.png in Resources */,
@@ -1740,13 +1757,17 @@
 				F79A83A920A6F5FC008EC8E1 /* Assets.xcassets in Resources */,
 				15C0C90920C77BF800FF3963 /* ng_bps_fuceng_duigou@3x.png in Resources */,
 				F758D5BB20C81FC10033175D /* arrow_right@2x.png in Resources */,
+				1571C38D20C8F6B6008656B9 /* gestureBackImg.png in Resources */,
 				F758D51620C81E700033175D /* gesture_unlock.png in Resources */,
+				1571C38820C8CD2B008656B9 /* 返回箭头2.png in Resources */,
 				F758D50C20C81E700033175D /* gesture_unlock@2x.png in Resources */,
+				1571C39420C92551008656B9 /* icon.png in Resources */,
 				F7F1533520A5EB1900525F05 /* ico_分享1@3x.png in Resources */,
-				F758D50820C81E700033175D /* gesture_circle_nor@2x.png in Resources */,
 				F758D5DB20C81FFE0033175D /* SVProgressHUD.bundle in Resources */,
 				1576B85D20BBD32D00B8B1F9 /* 灵感.png in Resources */,
+				1571C39120C900E3008656B9 /* gesture_circle_nor@2x.png in Resources */,
 				F758D4FD20C81E700033175D /* gesture_unlock@2x.png in Resources */,
+				1571C38020C8BD24008656B9 /* 数字密码@3x.png in Resources */,
 				F758D4F420C81E700033175D /* LFForgetPwdViewController.xib in Resources */,
 				15C0C92B20C7B0D600FF3963 /* 点赞11@3x.png in Resources */,
 				F758D4FE20C81E700033175D /* gesture_unlock.png in Resources */,
@@ -1768,11 +1789,10 @@
 				1574878820C63267004CD38B /* 视频-开始-播放-2.png in Resources */,
 				15C0C92C20C7B0D600FF3963 /* 发送11@3x.png in Resources */,
 				15C0C91A20C79B5600FF3963 /* 美国1@3x.png in Resources */,
+				1571C37F20C8BD22008656B9 /* 手势密码@3x.png in Resources */,
 				15F8669020C50BB1006A2F99 /* smart.png in Resources */,
 				F7F1532E20A5EB1900525F05 /* iconcheng.png in Resources */,
-				F758D4F920C81E700033175D /* gesture_circle_nor@2x.png in Resources */,
 				1576B87620BBF13700B8B1F9 /* 编辑.png in Resources */,
-				F758D4FF20C81E700033175D /* gesture_circle_nor.png in Resources */,
 				15C0C91220C78ADA00FF3963 /* 英语@3x.png in Resources */,
 				15C0C91E20C7A89C00FF3963 /* 云@3x.png in Resources */,
 				1576B86A20BBD5EB00B8B1F9 /* 女士.png in Resources */,
@@ -1787,8 +1807,8 @@
 				F7F1533620A5EB1900525F05 /* 关闭3.png in Resources */,
 				F758D50120C81E700033175D /* gesture_introduce@3x.png in Resources */,
 				F7F1533120A5EB1900525F05 /* ico_分享.png in Resources */,
+				1571C38B20C8F185008656B9 /* 手势解锁.png in Resources */,
 				15C0C92420C7AAA600FF3963 /* 指纹2@3x.png in Resources */,
-				F758D50E20C81E700033175D /* gesture_circle_nor.png in Resources */,
 				F758D50920C81E700033175D /* gesture_circle_pre.png in Resources */,
 				F7F1533C20A5EB1900525F05 /* IMG_0122.JPG in Resources */,
 				1576B87720BBF13700B8B1F9 /* 删除min.png in Resources */,

@@ -8,7 +8,7 @@
 
 #import "LZiCloud.h"
 
-NSString *iCloudDataName = @"用户数据";
+NSString *iCloudDataName = @"Note";
 @implementation LZiCloud
 
 + (BOOL)iCloudEnable {

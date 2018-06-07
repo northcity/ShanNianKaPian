@@ -24,5 +24,11 @@ typedef NS_ENUM(NSInteger, LZPasswordStyle) {
 - (void)showInViewController:(UIViewController *)vc style:(LZPasswordStyle)style ;
 
 - (void)veritySuccess:(successBlock)success;
+
+
+@property(nonatomic,strong)UILabel *navTitleLabel;
+@property(nonatomic,strong)UIView *titleView;
+@property(nonatomic,strong)UIButton *backBtn;
+
 @end
 

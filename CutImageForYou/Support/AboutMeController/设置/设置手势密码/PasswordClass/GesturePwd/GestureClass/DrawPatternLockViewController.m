@@ -644,6 +644,8 @@
             if (!icon) {icon = [UIImage imageNamed:@"icon"];}
             
             _gestureInternalViews.headImageView.image = icon;
+            _gestureInternalViews.headImageView.layer.cornerRadius = 14;
+            _gestureInternalViews.headImageView.layer.masksToBounds = YES;
             if (_gestureInternalViews.headLabel.text.length <= 0) {
                 _gestureInternalViews.headLabel.text = @"绘制解锁图案";
             }

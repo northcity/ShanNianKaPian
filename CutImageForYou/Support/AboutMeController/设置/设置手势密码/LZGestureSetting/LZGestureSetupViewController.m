@@ -30,22 +30,30 @@ UITableViewDelegate>
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     [_tableView reloadData];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self setupNaviBar];
+//    [self setupNaviBar];
+    
     [self setupMainView];
+    [self initOtherUI];
+    self.navTitleLabel.text = @"加锁状态";
+    [self.backBtn setImage:[UIImage imageNamed:@"返回箭头2"] forState:UIControlStateNormal];
+}
+
+
+
+- (void)backAction{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)setupNaviBar {
     LZWeakSelf(ws)
     [self lzSetNavigationTitle:@"加锁状态"];
-    [self lzSetLeftButtonWithTitle:nil selectedImage:@"houtui" normalImage:@"houtui" actionBlock:^(UIButton *button) {
-        
+    [self lzSetLeftButtonWithTitle:nil selectedImage:@"关闭2" normalImage:@"关闭2" actionBlock:^(UIButton *button) {
         [ws.navigationController popViewControllerAnimated:YES];
     }];
 }
@@ -56,11 +64,12 @@ UITableViewDelegate>
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.separatorColor = [UIColor clearColor];
     
-    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellReuseIdentifier];
-    
+//    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellReuseIdentifier];
+    [_tableView registerNib:[UINib nibWithNibName:@"MainContentCell" bundle:nil] forCellReuseIdentifier:cellReuseIdentifier ];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.dataSource = self;
     _tableView.delegate = self;
-    
+    _tableView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tableView];
     
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -81,24 +90,29 @@ UITableViewDelegate>
     return 1;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 62;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellReuseIdentifier];
+    MainContentCell *cell = [tableView dequeueReusableCellWithIdentifier:cellReuseIdentifier];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     if (![cell.contentView viewWithTag:147258])
     {
-        float screenW = [UIScreen mainScreen].bounds.size.width;
-        UILabel * lb = [[UILabel alloc] initWithFrame:CGRectMake(screenW-90, 0, 60, cell.bounds.size.height)];
+        UILabel * lb = [[UILabel alloc] initWithFrame:CGRectMake(ScreenWidth-kAUTOWIDTH(100), 0, kAUTOWIDTH(60),62)];
         lb.text = nil;
-        lb.textColor = [UIColor blueColor];
+        lb.textColor = [UIColor redColor];
         lb.textAlignment = NSTextAlignmentRight;
-        
         lb.tag = 147258;//请勿更改这个。
-        
         lb.hidden = YES;
+        lb.font = [UIFont fontWithName:@"HeiTi SC" size:13];
         [cell.contentView addSubview: lb];
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.font = [UIFont systemFontOfSize:16];
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    cell.textLabel.font = [UIFont systemFontOfSize:16];
     
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -112,8 +126,7 @@ UITableViewDelegate>
     {
         UILabel * lb = (UILabel *)[cell.contentView viewWithTag:147258];
         lb.text = @"开启";//开启了手势锁屏
-        lb.textColor = [UIColor blueColor];
-        
+        lb.textColor = [UIColor redColor];
         lb.hidden = NO;
     }
     else if (![LZGestureTool isGesturePswSavedByUser])
@@ -148,7 +161,6 @@ UITableViewDelegate>
         
         LZGestureSettingViewController * gsVC = [[LZGestureSettingViewController alloc]init];
         __weak UITableView * ___tableView = _tableView;
-        
         
         gsVC.popBackBlock = ^{
             [___tableView reloadData];
