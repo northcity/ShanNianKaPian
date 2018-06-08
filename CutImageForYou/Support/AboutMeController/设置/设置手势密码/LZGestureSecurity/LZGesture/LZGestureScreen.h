@@ -12,6 +12,7 @@
 @protocol LZGestureScreenDelegate <NSObject>
 
 - (void)screen:(LZGestureScreen *)screen didSetup:(NSString *)psw;
+
 @end
 @interface LZGestureScreen : NSObject
 

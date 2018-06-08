@@ -12,8 +12,9 @@
 #import "PcmPlayer.h"
 #import "PcmPlayerDelegate.h"
 #import "LZSqliteTool.h"
+#import "ShanNianMuLuDetailViewController.h"
 
-@interface ShanNianMuLuViewController ()<UITableViewDataSource, UITableViewDelegate,PcmPlayerDelegate>
+@interface ShanNianMuLuViewController ()<UITableViewDataSource, UITableViewDelegate,PcmPlayerDelegate,UIViewControllerTransitioningDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -160,7 +161,15 @@
     
     LZDataModel *model = self.dataSourceArray[indexPath.row];
     cell.textLabel.text = model.titleString;
-    
+    NSData *pcmData =  [self decodeEchoImageBaseWith:model.pcmData];
+    if (model.colorString.length > 0) {
+        cell.label.backgroundColor = [BCShanNianKaPianManager yingSheFromCOlorString:model.colorString];
+
+    }else{
+        cell.label.backgroundColor = [UIColor whiteColor];
+    }
+
+
     if (indexPath.row == 1) {
         cell.label.backgroundColor  = PNCColor(164, 185, 277);
     }
@@ -168,14 +177,120 @@
     
     cell.cellPlayBlock = ^{
     
+
 //        CKAsset *pcmAsset = [record objectForKey:@"image"];
 //        NSData *pcmData = [NSData dataWithContentsOfFile:pcmAsset.fileURL.path];
-//        [weakSelf playPcmWith:pcmData];
+        [weakSelf playPcmWith:pcmData];
     };
     
     
     return cell;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    LZDataModel *model = self.dataSourceArray[indexPath.row];
+    self.modalPresentationStyle = UIModalPresentationCustom;
+    self.transitioningDelegate = self;
+    
+    ShanNianMuLuDetailViewController *mldVc = [[ShanNianMuLuDetailViewController alloc]init];
+    [self presentViewController:mldVc animated:YES completion:nil];
+    
+
+}
+
+-(id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+    self.isPresnted = YES;
+    return self;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    self.isPresnted = NO;
+    return self;
+}
+
+- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
+    return 1.0;
+}
+
+- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
+    
+    if (self.isPresnted == YES) {
+        //1.取出view
+        UIView *presentedView = [transitionContext viewForKey:UITransitionContextToViewKey];
+        //2.放入containerView
+        [[transitionContext containerView]addSubview:presentedView];
+        //3.设置基本属性
+        presentedView.alpha = 0;
+        //4.动画
+        [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+            presentedView.alpha = 1.0;
+        }completion:^(BOOL finished) {
+            [transitionContext completeTransition:YES];
+            
+        }];
+        
+    } else {
+        //1.取出view
+        UIView *dismissedView = [transitionContext viewForKey:UITransitionContextFromViewKey];
+        //2.放入containerView
+        [[transitionContext containerView]addSubview:dismissedView];
+        //3.设置基本属性
+        dismissedView.alpha = 1;
+        //4.动画
+        [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+            dismissedView.alpha = 0;
+        }completion:^(BOOL finished) {
+            
+            [transitionContext completeTransition:YES];
+        }];
+    }
+}
+
+
+
+
+
+
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"数据删除后,不可恢复,是否确定删除?" preferredStyle:UIAlertControllerStyleAlert];
+    
+    LZWeakSelf(ws)
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        [LZSqliteTool LZDeleteFromTable:LZSqliteDataTableName element:[ws.dataSourceArray objectAtIndex:indexPath.row]];
+        [ws.dataSourceArray removeObjectAtIndex:indexPath.row];
+        
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        // 当为0时 删除分组?
+        //        if (self.dataArray == 0) {
+        //
+        //            [LZSqliteTool LZDeleteFromGroupTable:LZSqliteGroupTableName element:self.groupModel];
+        //        }
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:ok];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (nullable NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return @"删除";
+}
+
+-(NSData *)decodeEchoImageBaseWith:(NSString *)str{
+    //先解base64
+    NSData * decompressData =[[NSData alloc] initWithBase64EncodedString:str options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    //在解GZIP压缩
+    NSData * decompressResultData = [BCShanNianKaPianManager decompressData:decompressData];
+    return  decompressResultData;
+}
+
 
 - (void)playPcmWith:(NSData *)pcmData{
     
@@ -185,6 +300,8 @@
     [_audioPlayer play];
     
 }
+
+
 @end
 
 

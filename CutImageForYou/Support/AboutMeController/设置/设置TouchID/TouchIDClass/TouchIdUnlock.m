@@ -6,7 +6,7 @@
 #import "TouchIdUnlock.h"
 #import <LocalAuthentication/LocalAuthentication.h>
 #import <AudioToolbox/AudioToolbox.h>
-
+#import "BCShanNianKaPianManager.h"
 
 @implementation TouchIdUnlock
 

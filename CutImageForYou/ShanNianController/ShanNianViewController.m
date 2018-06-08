@@ -20,9 +20,7 @@
 #import "UIImage+Gradient.h"
 #import "BCShanNianKaPianManager.h"
 #import <AudioToolbox/AudioToolbox.h>
-
 #import "SettingViewController.h"
-
 
 #define SPEAKVIEW_HEIZGHT   kAUTOHEIGHT(170)
 #define SPEAKVIEW_WIDTH     ScreenWidth - kAUTOWIDTH(40)
@@ -92,6 +90,7 @@
     self.navigationController.navigationBar.hidden = YES;
     [self createBaseUI];
     self.volumArray = [[NSMutableArray alloc]init];
+    self.nowColor = [BCShanNianKaPianManager toStrByUIColor:[UIColor blackColor]];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -1052,7 +1051,7 @@
 - (void)createSpeakView{
     
     self.speakView = [[UIView alloc]initWithFrame:CGRectMake(kAUTOWIDTH(20),ScreenHeight,SPEAKVIEW_WIDTH, SPEAKVIEW_HEIZGHT)];
-    self.speakView.backgroundColor = [UIColor redColor];
+    self.speakView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.speakView];
     self.speakView.alpha = 0;
     self.speakView.transform = CGAffineTransformMakeScale(0.7, 0.7);
@@ -1514,32 +1513,48 @@
           case XiaYiPaiClickActionBaoCun:
             [self createDismissSpeakViewAnimation];
             [self saveDataToiCloud];
+            break;
+        case XiaYiPaiClickActionRiLi:
+            [self copyStringToUIPasteboard];
+            break;
+        case XiaYiPaiClickActionShouCang:
+            [self createDismissSpeakViewAnimation];
+            [self saveDataToiCloud];
+            break;
+        case XiaYiPaiClickActionBianJi:
+            [self.speakTextView becomeFirstResponder];
+            break;
         default:
             break;
     }
 }
-
+- (void)copyStringToUIPasteboard{
+    UIPasteboard * pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = self.speakTextView.text;
+    [SVProgressHUD showInfoWithStatus:@"复制成功"];
+}
 - (void)ShangYiPaiButtonClick:(UIButton *)button{
     switch (button.tag) {
         case ShangYiPaiClickActionDaiban:
             self.speakView.backgroundColor = PNCColor(164, 185, 255);
-            self.nowColor = @"0XA4B9FF";
+            self.nowColor = @"52";
             break;
         case ShangYiPaiClickActionDaiFaXiaoXi:
             self.speakView.backgroundColor = PNCColor(255, 120, 159);
-            self.nowColor = @"0XFF789F";
+            self.nowColor = @"53";
             break;
         case ShangYiPaiClickActionJiShi:
             self.speakView.backgroundColor = PNCColor(255, 172, 94);
-            self.nowColor = @"0XFFAC5E";
+            self.nowColor = @"54";
             break;
         case ShangYiPaiClickActionLiaoTian:
             self.speakView.backgroundColor = PNCColor(109, 212, 92);
-            self.nowColor = @"0X6DD45E";
+            self.nowColor = @"55";
+
             break;
         case ShangYiPaiClickActionLingGan:
             self.speakView.backgroundColor = PNCColor(182, 118, 219);
-            self.nowColor = @"0XB676DB";
+            self.nowColor = @"56";
             break;
         default:
             break;
@@ -1565,19 +1580,52 @@
 }
 
 
+
+
+
+
 - (void)saveDataToiCloud{
+    
+    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *libraryPath = [paths objectAtIndex:0];
     NSString *cachesPath = [NSString stringWithFormat:@"%@%@",libraryPath,@"/asr.pcm"];
     NSFileManager* fm=[NSFileManager defaultManager];
     NSData *data = [fm contentsAtPath:cachesPath];
     
-
-
-    [iCloudHandle saveCloudKitModelWithTitle:_speakTextView.text
-                                     content:_speakTextView.text
-                                  photoImage:data];
+    LZDataModel *model3 = [[LZDataModel alloc]init];
+    model3.userName = @"";
+    model3.nickName = @"";
+    model3.password = @"";
+    model3.urlString = @"";
+    model3.groupName = @"";
+    //    model3.groupID = group.identifier;
+    model3.titleString = _speakTextView.text;
+    model3.contentString = _speakTextView.text;
+    model3.colorString = self.nowColor;
     
+    
+    NSData * compressCardBackStrData = [BCShanNianKaPianManager gzipData:data];
+    NSString *imageBackDataString=[compressCardBackStrData base64EncodedStringWithOptions:0];
+    
+    model3.pcmData = imageBackDataString;
+    
+    [LZSqliteTool LZInsertToTable:LZSqliteDataTableName model:model3];
+    
+
+
+//    [iCloudHandle saveCloudKitModelWithTitle:_speakTextView.text
+//                                     content:_speakTextView.text
+//                                  photoImage:data];
+//    
+}
+
+- (void)playPcmWith:(NSData *)pcmData{
+    NSError *error = nil;
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];
+    _audioPlayer = [[PcmPlayer alloc] initWithData:pcmData sampleRate:[@"16000" integerValue]];
+    [_audioPlayer play];
+
 }
 
 

@@ -10,4 +10,5 @@
 
 @interface ShanNianMuLuViewController : UIViewController
 
+@property(nonatomic,assign)BOOL isPresnted;
 @end

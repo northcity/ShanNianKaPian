@@ -35,6 +35,8 @@
 		152056C220B64FB100B55E5F /* PcmPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 152056C020B64FB000B55E5F /* PcmPlayer.m */; };
 		1526F05D20C6961400E15B91 /* ShanNianVoiceSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1526F05C20C6961300E15B91 /* ShanNianVoiceSetViewController.m */; };
 		153A9ADA20C7DA8F009BCBFE /* BCMiMaYuJieSuoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 153A9AD920C7DA8F009BCBFE /* BCMiMaYuJieSuoViewController.m */; };
+		1559849320CA181F0016442A /* TouchIDScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 1559849220CA181F0016442A /* TouchIDScreen.m */; };
+		1559849520CA24830016442A /* 指纹认证大.png in Resources */ = {isa = PBXBuildFile; fileRef = 1559849420CA247D0016442A /* 指纹认证大.png */; };
 		15610FD620C4D4E200983FFE /* BCShanNianKaPianManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15610FD520C4D4E200983FFE /* BCShanNianKaPianManager.m */; };
 		1571C37F20C8BD22008656B9 /* 手势密码@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1571C37E20C8BD1E008656B9 /* 手势密码@3x.png */; };
 		1571C38020C8BD24008656B9 /* 数字密码@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1571C37D20C8BD1E008656B9 /* 数字密码@3x.png */; };
@@ -65,6 +67,7 @@
 		1576B87820BBF13700B8B1F9 /* 日历.png in Resources */ = {isa = PBXBuildFile; fileRef = 1576B87120BBF10600B8B1F9 /* 日历.png */; };
 		1576B87920BBF13700B8B1F9 /* 删除.png in Resources */ = {isa = PBXBuildFile; fileRef = 1576B87020BBF0FC00B8B1F9 /* 删除.png */; };
 		1576B87A20BBF13700B8B1F9 /* 收藏.png in Resources */ = {isa = PBXBuildFile; fileRef = 1576B86F20BBF0FC00B8B1F9 /* 收藏.png */; };
+		157D3AFD20CA7515005542E6 /* ShanNianMuLuDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 157D3AFC20CA7515005542E6 /* ShanNianMuLuDetailViewController.m */; };
 		15950BC220B68B7B00206DC6 /* ShanNianTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15950BC020B68B7B00206DC6 /* ShanNianTableViewCell.m */; };
 		15950BC320B68B7B00206DC6 /* ShanNianTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15950BC120B68B7B00206DC6 /* ShanNianTableViewCell.xib */; };
 		15950BC620B68BF900206DC6 /* ShanNianMuLuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15950BC520B68BF900206DC6 /* ShanNianMuLuViewController.m */; };
@@ -320,6 +323,9 @@
 		1526F05C20C6961300E15B91 /* ShanNianVoiceSetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShanNianVoiceSetViewController.m; sourceTree = "<group>"; };
 		153A9AD820C7DA8F009BCBFE /* BCMiMaYuJieSuoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMiMaYuJieSuoViewController.h; sourceTree = "<group>"; };
 		153A9AD920C7DA8F009BCBFE /* BCMiMaYuJieSuoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMiMaYuJieSuoViewController.m; sourceTree = "<group>"; };
+		1559849120CA181F0016442A /* TouchIDScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchIDScreen.h; sourceTree = "<group>"; };
+		1559849220CA181F0016442A /* TouchIDScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchIDScreen.m; sourceTree = "<group>"; };
+		1559849420CA247D0016442A /* 指纹认证大.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "指纹认证大.png"; sourceTree = "<group>"; };
 		15610FD420C4D4E200983FFE /* BCShanNianKaPianManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCShanNianKaPianManager.h; sourceTree = "<group>"; };
 		15610FD520C4D4E200983FFE /* BCShanNianKaPianManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCShanNianKaPianManager.m; sourceTree = "<group>"; };
 		1571C37D20C8BD1E008656B9 /* 数字密码@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "数字密码@3x.png"; sourceTree = "<group>"; };
@@ -355,6 +361,8 @@
 		1576B87220BBF12100B8B1F9 /* 删除min.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除min.png"; sourceTree = "<group>"; };
 		1576B87320BBF12800B8B1F9 /* 编辑.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "编辑.png"; sourceTree = "<group>"; };
 		1576B87420BBF13200B8B1F9 /* 下载.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下载.png"; sourceTree = "<group>"; };
+		157D3AFB20CA7515005542E6 /* ShanNianMuLuDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShanNianMuLuDetailViewController.h; sourceTree = "<group>"; };
+		157D3AFC20CA7515005542E6 /* ShanNianMuLuDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShanNianMuLuDetailViewController.m; sourceTree = "<group>"; };
 		15950BBF20B68B7B00206DC6 /* ShanNianTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShanNianTableViewCell.h; sourceTree = "<group>"; };
 		15950BC020B68B7B00206DC6 /* ShanNianTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShanNianTableViewCell.m; sourceTree = "<group>"; };
 		15950BC120B68B7B00206DC6 /* ShanNianTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShanNianTableViewCell.xib; sourceTree = "<group>"; };
@@ -803,6 +811,8 @@
 				15950BC120B68B7B00206DC6 /* ShanNianTableViewCell.xib */,
 				15950BC420B68BF900206DC6 /* ShanNianMuLuViewController.h */,
 				15950BC520B68BF900206DC6 /* ShanNianMuLuViewController.m */,
+				157D3AFB20CA7515005542E6 /* ShanNianMuLuDetailViewController.h */,
+				157D3AFC20CA7515005542E6 /* ShanNianMuLuDetailViewController.m */,
 			);
 			path = ShanNianController;
 			sourceTree = "<group>";
@@ -930,6 +940,7 @@
 		F758D48F20C6DBCB0033175D /* ShanNianImageResource */ = {
 			isa = PBXGroup;
 			children = (
+				1559849420CA247D0016442A /* 指纹认证大.png */,
 				1571C39320C92549008656B9 /* icon.png */,
 				1571C38C20C8F6B5008656B9 /* gestureBackImg.png */,
 				1571C38A20C8F17F008656B9 /* 手势解锁.png */,
@@ -1144,6 +1155,8 @@
 				F758D4D320C81E6F0033175D /* LZWarnLabel.m */,
 				F758D4D120C81E6F0033175D /* LZGestureScreen.h */,
 				F758D4D420C81E6F0033175D /* LZGestureScreen.m */,
+				1559849120CA181F0016442A /* TouchIDScreen.h */,
+				1559849220CA181F0016442A /* TouchIDScreen.m */,
 				F758D4D020C81E6F0033175D /* LZGestureTool.h */,
 				F758D4D520C81E6F0033175D /* LZGestureTool.m */,
 				F758D4D620C81E6F0033175D /* LZGestureFile.h */,
@@ -1778,6 +1791,7 @@
 				1576B87920BBF13700B8B1F9 /* 删除.png in Resources */,
 				15C0C92D20C7B0D600FF3963 /* 反馈11@3x.png in Resources */,
 				F7F1533220A5EB1900525F05 /* 增值服务2.png in Resources */,
+				1559849520CA24830016442A /* 指纹认证大.png in Resources */,
 				1576B87520BBF13700B8B1F9 /* 下载.png in Resources */,
 				F758D51520C81E700033175D /* gesture_unlock@2x.png in Resources */,
 				F758D54A20C81F1F0033175D /* IQKeyboardManager.bundle in Resources */,
@@ -1866,6 +1880,7 @@
 				F758D51120C81E700033175D /* LZWarnLabel.m in Sources */,
 				F758D5A720C81FC10033175D /* ChineseToPinyin.m in Sources */,
 				1500833F20C771CB00415140 /* View+MASAdditions.m in Sources */,
+				1559849320CA181F0016442A /* TouchIDScreen.m in Sources */,
 				F758D5A420C81FC10033175D /* LZDocument.m in Sources */,
 				F758D4F320C81E700033175D /* LFForgetPwdViewController.m in Sources */,
 				F758D4F620C81E700033175D /* DrawPatternLockView.m in Sources */,
@@ -1908,6 +1923,7 @@
 				F758D50220C81E700033175D /* LZGestureSettingViewController.m in Sources */,
 				F776443C20C57F0500AEF1E5 /* BCShanNianDateManager.m in Sources */,
 				F758D54620C81F1F0033175D /* IQTitleBarButtonItem.m in Sources */,
+				157D3AFD20CA7515005542E6 /* ShanNianMuLuDetailViewController.m in Sources */,
 				F758D54C20C81F1F0033175D /* IQNSArray+Sort.m in Sources */,
 				F758D5A320C81FC10033175D /* LZGroupModel.m in Sources */,
 				F758D48320C6C47E0033175D /* SAMultisectorControl.m in Sources */,

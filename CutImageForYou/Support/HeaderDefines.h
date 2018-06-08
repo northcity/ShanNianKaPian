@@ -21,6 +21,9 @@
 #import "IFlyMSC/IFlyMSC.h"
 #import "ThirdPathKey.h"
 #import <Social/Social.h> // 导入苹果自带分享的头文件
+#import "LZSqliteTool.h"
+#import "LZDataModel.h"
+#import "BCShanNianKaPianManager.h"
 
 // iOS10 及以上需导  UserNotifications.framework
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0

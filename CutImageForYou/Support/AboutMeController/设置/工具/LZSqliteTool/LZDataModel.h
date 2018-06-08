@@ -24,6 +24,6 @@
 @property (copy, nonatomic) NSString *titleString;
 @property (copy, nonatomic) NSString *contentString;
 @property (copy, nonatomic) NSString *colorString;
-@property (strong, nonatomic) NSData *pcmData;
+@property (copy, nonatomic) NSString *pcmData;
 
 @end

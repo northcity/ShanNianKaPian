@@ -16,6 +16,9 @@
 #import "TouchIdUnlock.h"
 #import "LZSqliteTool.h"
 
+#import "TouchIDScreen.h"
+#import "BCShanNianKaPianManager.h"
+
 @interface AppDelegate ()
 
 @end
@@ -187,6 +190,18 @@
                 [[LZGestureScreen shared] dismiss];
             }];
         }
+    }else if([[TouchIdUnlock sharedInstance] isTouchIdEnabledOrNotByUser]){
+        [[TouchIDScreen shared] show];
+        if ([[TouchIdUnlock sharedInstance] canVerifyTouchID]) {
+            
+            [[TouchIdUnlock sharedInstance] startVerifyTouchID:^{
+                
+                [[TouchIDScreen shared] dismiss];
+                [BCShanNianKaPianManager maDaQingZhenDong];
+            }];
+        }
+    }else{
+        
     }
 }
 
