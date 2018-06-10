@@ -13,6 +13,7 @@
 #import "PcmPlayerDelegate.h"
 #import "LZSqliteTool.h"
 #import "ShanNianMuLuDetailViewController.h"
+#import "MainTextViewController.h"
 
 @interface ShanNianMuLuViewController ()<UITableViewDataSource, UITableViewDelegate,PcmPlayerDelegate,UIViewControllerTransitioningDelegate>
 
@@ -32,9 +33,69 @@
     [self createUI];
     self.view.backgroundColor = [UIColor whiteColor];
 //    [self getData];
+//    [self loadData];
+    [self initOtherUI];
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [self loadData];
 }
 
+- (void)initOtherUI{
+    
+    _titleView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, PCTopBarHeight)];
+    _titleView.backgroundColor = [UIColor whiteColor];
+    _titleView.layer.shadowColor=[UIColor grayColor].CGColor;
+    _titleView.layer.shadowOffset=CGSizeMake(0, 2);
+    _titleView.layer.shadowOpacity=0.1f;
+    _titleView.layer.shadowRadius=12;
+    [self.view addSubview:_titleView];
+    [self.view insertSubview:_titleView atIndex:99];
+    
+    _navTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(ScreenWidth/2 - kAUTOWIDTH(150)/2, kAUTOHEIGHT(5), kAUTOWIDTH(150), kAUTOHEIGHT(66))];
+    _navTitleLabel.text = @"我的灵感";
+    _navTitleLabel.font = [UIFont fontWithName:@"HeiTi SC" size:18];
+    _navTitleLabel.textColor = [UIColor blackColor];
+    _navTitleLabel.textAlignment = NSTextAlignmentCenter;
+    [_titleView addSubview:_navTitleLabel];
+    
+    
+    
+    _backBtn = [Factory createButtonWithTitle:@"" frame:CGRectMake(20, 28, 25, 25) backgroundColor:[UIColor clearColor] backgroundImage:[UIImage imageNamed:@""] target:self action:@selector(backAction)];
+    [_backBtn setImage:[UIImage imageNamed:@"返回箭头2"] forState:UIControlStateNormal];
+    if (PNCisIPHONEX) {
+        _backBtn.frame = CGRectMake(20, 48, 25, 25);
+    }
+    [_titleView addSubview:_backBtn];
+    _backBtn.transform = CGAffineTransformMakeRotation(M_PI_4);
+    
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2* NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        CABasicAnimation* rotationAnimation;
+        
+        rotationAnimation =[CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+        //        rotationAnimation.fromValue =[NSNumber numberWithFloat: 0M_PI_4];
+        
+        rotationAnimation.toValue =[NSNumber numberWithFloat: 0];
+        rotationAnimation.duration =0.4;
+        rotationAnimation.repeatCount =1;
+        rotationAnimation.removedOnCompletion = NO;
+        rotationAnimation.fillMode = kCAFillModeForwards;
+        [_backBtn.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+        
+    });
+}
+
+//- (void)backAction{
+//    [self dismissViewControllerAnimated:YES completion:^{
+//    }];
+//}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    self.view.backgroundColor = [UIColor whiteColor];
+
+}
 - (void)loadData {
     
     self.dataSourceArray =[[NSMutableArray alloc]init];
@@ -43,7 +104,6 @@
     
 
     if (self.dataArr.count > 0) {
-        
         [self.dataSourceArray removeAllObjects];
     }
     
@@ -91,6 +151,7 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.sectionHeaderHeight = 5;
     self.tableView.sectionFooterHeight = 0;
+    self.tableView.backgroundColor = [UIColor clearColor];
     if (PNCisIPHONEX) {
         //        self.tableView.sectionHeaderHeight = 24;
         self.tableView.sectionFooterHeight = 0;
@@ -146,7 +207,33 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 62;
+    NSInteger row=indexPath.row;
+    
+    CGFloat contentWidth = self.view.frame.size.width;
+    
+    //
+    
+    UIFont *font = [UIFont systemFontOfSize:14];
+    
+    //
+    
+    LZDataModel *model =  [_dataSourceArray objectAtIndex:row];
+    NSString *content = model.titleString;
+    
+    //
+    
+    CGSize size = [content sizeWithFont:[UIFont systemFontOfSize:15] constrainedToSize:CGSizeMake(ScreenWidth - 60, 1000.0f) lineBreakMode:UILineBreakModeWordWrap];
+    
+    NSLog(@"3");
+    
+    //
+    if (size.height > 50) {
+        return size.height+32;
+    }else{
+        return 62;
+    }
+    
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -154,13 +241,13 @@
     ShanNianTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     cell.backgroundColor = [UIColor clearColor];
-    cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
 //    CKRecord *record = [self.dataArr objectAtIndex:indexPath.row];
 //    cell.textLabel.text = [record objectForKey:@"titleString"];
     
     LZDataModel *model = self.dataSourceArray[indexPath.row];
-    cell.textLabel.text = model.titleString;
+//    cell.textLabel.text = model.titleString;
     NSData *pcmData =  [self decodeEchoImageBaseWith:model.pcmData];
     if (model.colorString.length > 0) {
         cell.label.backgroundColor = [BCShanNianKaPianManager yingSheFromCOlorString:model.colorString];
@@ -174,17 +261,42 @@
         cell.label.backgroundColor  = PNCColor(164, 185, 277);
     }
     __weak typeof(self)weakSelf= self;
+    [cell setContentModel:model];
+  
     
-    cell.cellPlayBlock = ^{
-    
-
-//        CKAsset *pcmAsset = [record objectForKey:@"image"];
-//        NSData *pcmData = [NSData dataWithContentsOfFile:pcmAsset.fileURL.path];
-        [weakSelf playPcmWith:pcmData];
-    };
-    
+//    cell.cellPlayBlock = ^{
+//    
+////        cell.label.hidden = YES;
+//        [cell.contentView addSubview:_waveView];
+//        [_waveView Animating];
+//        _waveView.targetWaveHeight = 1;
+//        
+////        [weakSelf playPcmWith:pcmData];
+//        
+//        
+//        _audioPlayer.playEnd = ^(BOOL playEnd) {
+//            if (playEnd) {
+//                //            _waveView.targetWaveHeight = 0;
+//                //            [weakSelf.waveView stopAnimating];
+//                [weakSelf.waveView stopAnimating];
+//                [weakSelf.waveView removeFromSuperview];
+//            }
+//        };
+//        
+//    };
+//    
+ 
     
     return cell;
+}
+
+- (WaveView *)waveView{
+    if (!_waveView) {
+        _waveView = [[WaveView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth  - kAUTOWIDTH(40), 52)];
+        _waveView.backgroundColor = [UIColor whiteColor];
+        _waveView.targetWaveHeight = 0;
+    }
+    return _waveView;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -192,63 +304,13 @@
     self.modalPresentationStyle = UIModalPresentationCustom;
     self.transitioningDelegate = self;
     
-    ShanNianMuLuDetailViewController *mldVc = [[ShanNianMuLuDetailViewController alloc]init];
+//    ShanNianMuLuDetailViewController *mldVc = [[ShanNianMuLuDetailViewController alloc]init];
+//    [self presentViewController:mldVc animated:YES completion:nil];
+    
+    MainTextViewController *mldVc = [[MainTextViewController alloc]init];
+    mldVc.model = model;
     [self presentViewController:mldVc animated:YES completion:nil];
-    
-
 }
-
--(id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
-    self.isPresnted = YES;
-    return self;
-}
-
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
-    self.isPresnted = NO;
-    return self;
-}
-
-- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
-    return 1.0;
-}
-
-- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    
-    if (self.isPresnted == YES) {
-        //1.取出view
-        UIView *presentedView = [transitionContext viewForKey:UITransitionContextToViewKey];
-        //2.放入containerView
-        [[transitionContext containerView]addSubview:presentedView];
-        //3.设置基本属性
-        presentedView.alpha = 0;
-        //4.动画
-        [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-            presentedView.alpha = 1.0;
-        }completion:^(BOOL finished) {
-            [transitionContext completeTransition:YES];
-            
-        }];
-        
-    } else {
-        //1.取出view
-        UIView *dismissedView = [transitionContext viewForKey:UITransitionContextFromViewKey];
-        //2.放入containerView
-        [[transitionContext containerView]addSubview:dismissedView];
-        //3.设置基本属性
-        dismissedView.alpha = 1;
-        //4.动画
-        [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-            dismissedView.alpha = 0;
-        }completion:^(BOOL finished) {
-            
-            [transitionContext completeTransition:YES];
-        }];
-    }
-}
-
-
-
-
 
 
 

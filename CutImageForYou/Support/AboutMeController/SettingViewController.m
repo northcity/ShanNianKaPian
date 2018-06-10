@@ -47,10 +47,59 @@ const CGFloat kStatusBarHeight = 20;
 @property(nonatomic,strong)UIBlurEffect *effect;
 @property(nonatomic,strong)UILabel *desginLabel;
 
+@property(nonatomic,strong)UILabel *zhuTiDetailLabel;
+@property(nonatomic,strong)UISwitch *zhuTiKaiGuanButon;
+
 @end
 
 
 @implementation SettingViewController
+
+- (void)initOtherUI{
+    
+    _titleView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, PCTopBarHeight)];
+    _titleView.backgroundColor = [UIColor whiteColor];
+    _titleView.layer.shadowColor=[UIColor grayColor].CGColor;
+    _titleView.layer.shadowOffset=CGSizeMake(0, 2);
+    _titleView.layer.shadowOpacity=0.1f;
+    _titleView.layer.shadowRadius=12;
+    [self.view addSubview:_titleView];
+    [self.view insertSubview:_titleView atIndex:99];
+    
+    _navTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(ScreenWidth/2 - kAUTOWIDTH(150)/2, kAUTOHEIGHT(5), kAUTOWIDTH(150), kAUTOHEIGHT(66))];
+    _navTitleLabel.text = @"通用设置";
+    _navTitleLabel.font = [UIFont fontWithName:@"HeiTi SC" size:18];
+    _navTitleLabel.textColor = [UIColor blackColor];
+    _navTitleLabel.textAlignment = NSTextAlignmentCenter;
+    [_titleView addSubview:_navTitleLabel];
+    
+    
+    _backBtn = [Factory createButtonWithTitle:@"" frame:CGRectMake(20, 28, 25, 25) backgroundColor:[UIColor clearColor] backgroundImage:[UIImage imageNamed:@""] target:self action:@selector(backAction)];
+    [_backBtn setImage:[UIImage imageNamed:@"返回箭头2"] forState:UIControlStateNormal];
+    if (PNCisIPHONEX) {
+        _backBtn.frame = CGRectMake(20, 48, 25, 25);
+    }
+    [_titleView addSubview:_backBtn];
+    
+    
+    _backBtn.transform = CGAffineTransformMakeRotation(M_PI_4);
+    
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2* NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        CABasicAnimation* rotationAnimation;
+        
+        rotationAnimation =[CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+        //        rotationAnimation.fromValue =[NSNumber numberWithFloat: 0M_PI_4];
+        
+        rotationAnimation.toValue =[NSNumber numberWithFloat: 0];
+        rotationAnimation.duration =0.4;
+        rotationAnimation.repeatCount =1;
+        rotationAnimation.removedOnCompletion = NO;
+        rotationAnimation.fillMode = kCAFillModeForwards;
+        [_backBtn.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+        
+    });
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -68,9 +117,10 @@ const CGFloat kStatusBarHeight = 20;
     self.title =@"ME";
     
     //信息内容
-    
     [self createUI];
     [self.view insertSubview:image aboveSubview:self.tableView];
+    [self initOtherUI];
+
     
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -80,6 +130,7 @@ const CGFloat kStatusBarHeight = 20;
 
 }
 - (void)backAction{
+    
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
@@ -101,6 +152,10 @@ const CGFloat kStatusBarHeight = 20;
         //        self.tableView.sectionHeaderHeight = 24;
         self.tableView.sectionFooterHeight = 0;
     }
+//    tableView!.cellLayoutMarginsFollowReadableWidth = false
+    if (PNCisIPAD) {
+        self.tableView.cellLayoutMarginsFollowReadableWidth = false;
+    }
     UIImageView * backimage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
     //    [self.view addSubview:backimage];
     backimage.image = [[UIImage imageNamed:@"QQ20180311-1.jpg"] applyBlurWithRadius:5 tintColor:nil saturationDeltaFactor:1 maskImage:nil];
@@ -110,13 +165,13 @@ const CGFloat kStatusBarHeight = 20;
     UIButton * backBtn = [Factory createButtonWithTitle:@"" frame:CGRectMake(20, 32, 25, 25) backgroundColor:[UIColor clearColor] backgroundImage:[UIImage imageNamed:@""] target:self action:@selector(backAction)];
     
     [backBtn setImage:[UIImage imageNamed:@"返回 (3).png"] forState:UIControlStateNormal];
-    [self.view addSubview:backBtn];
+//    [self.view addSubview:backBtn];
     
     UILabel * label = [Factory createLabelWithTitle: NSLocalizedString(@"关于", nil)  frame:CGRectMake(60, 25, 100, 40) fontSize:14.f];
     label.font = [UIFont fontWithName:@"Heiti SC" size:16.f];
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor blackColor];
-    [self.view addSubview:label];
+//    [self.view addSubview:label];
     
     if (PNCisIPHONEX) {
         backBtn.frame = CGRectMake(20, 48, 25, 25);
@@ -142,18 +197,52 @@ const CGFloat kStatusBarHeight = 20;
     
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    
+    return UITableViewAutomaticDimension;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    if (section == 0) {
+        
+        return @"基本通用设置";
+    } else {
+        
+        return @"更多设置";
+    }
+}
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+//
+//    return 10;
+//}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (PNCisIPHONEX) {
-        return 65;
-        
+        if (section == 0) {
+            
+            return 85;
+        } else {
+            
+            return 35;
+        }
     }
-    return 55;
-}
+    if (section == 0) {
+        
+        return 75;
+    } else {
+        
+        return 35;
+    }}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    if (section == 0) {
+        return 4;
+    }else{
+        return 3;
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 6) {
@@ -198,9 +287,50 @@ const CGFloat kStatusBarHeight = 20;
         cell.textLabel.text = @"密码与解锁";
     }
     if (indexPath.section == 0 && indexPath.row == 3) {
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.imageView.image = [UIImage imageNamed:@"指纹2"];
-        cell.textLabel.text = @"主题设置";
+        cell.imageView.image = [UIImage imageNamed:@"主题前.png"];
+        if (!_zhuTiKaiGuanButon) {
+            _zhuTiKaiGuanButon = [[UISwitch alloc]initWithFrame:CGRectMake(cell.bounds.size.width - kAUTOWIDTH(70), CGRectGetMinY(cell.label.frame) + 10, kAUTOWIDTH(50), 50)];
+            if (PNCisIPAD) {
+                _zhuTiKaiGuanButon.frame = CGRectMake(cell.bounds.size.width - 70, CGRectGetMinY(cell.label.frame) + 10, 50, 50);
+            }
+        }
+        [cell.contentView addSubview:_zhuTiKaiGuanButon];
+        [_zhuTiKaiGuanButon addTarget:self action:@selector(qieHuanZhuTiAction:) forControlEvents:UIControlEventTouchUpInside];
+        _zhuTiKaiGuanButon.transform = CGAffineTransformMakeScale(0.8,0.8);
+        _zhuTiKaiGuanButon.tintColor = [UIColor blackColor];
+        _zhuTiKaiGuanButon.onTintColor = [UIColor blackColor];
+        
+        if ([[BCUserDeafaults objectForKey:@"ZHUTI"] isEqualToString:@"1"]) {
+            _zhuTiKaiGuanButon.on = YES;
+            cell.textLabel.text = NSLocalizedString(@"默认主题", nil) ;
+            
+        }else if([[BCUserDeafaults objectForKey:@"ZHUTI"] isEqualToString:@"0"]){
+            _zhuTiKaiGuanButon.on = NO;
+            cell.textLabel.text = NSLocalizedString(@"情怀主题", nil) ;
+            
+        }else{
+            _zhuTiKaiGuanButon.on = YES;
+            cell.textLabel.text = NSLocalizedString(@"默认主题", nil) ;
+            
+        }
+        
+        if (!_zhuTiDetailLabel) {
+            _zhuTiDetailLabel = [Factory createLabelWithTitle:@"" frame:CGRectMake(cell.bounds.size.width - kAUTOWIDTH(195), 5, kAUTOWIDTH(120), 50)];
+            if (PNCisIPAD) {
+                _zhuTiDetailLabel.frame = CGRectMake(cell.bounds.size.width - 215, 5, 140, 50);
+            }
+//            _zhuTiDetailLabel.text =  NSLocalizedString(@"切换后需重启App生效", nil) ;
+            _zhuTiDetailLabel.font = [UIFont fontWithName:@"Heiti SC" size:10];
+            _zhuTiDetailLabel.textAlignment = NSTextAlignmentRight;
+            
+            if (ScreenWidth < 375) {
+                _zhuTiDetailLabel.font = [UIFont fontWithName:@"Heiti SC" size:8];
+            }
+        }
+        [cell.contentView addSubview:_zhuTiDetailLabel];
+        
+    
+//        cell.textLabel.text = @"主题设置";
     }
     
     if (indexPath.section == 1 && indexPath.row == 0) {
@@ -221,19 +351,48 @@ const CGFloat kStatusBarHeight = 20;
     if (indexPath.section == 1 && indexPath.row == 3) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.imageView.image = [UIImage imageNamed:@"个人111"];
-        cell.textLabel.text = @"主题设置";
+        cell.textLabel.text = @"关于";
     }
     
     return  cell;
 }
 
+- (void)qieHuanZhuTiAction:(UISwitch *)kaiGuanBtn{
+    
+    NSIndexPath *path=[NSIndexPath indexPathForRow:3 inSection:0];
+    MainContentCell *cell = (MainContentCell *)[_tableView cellForRowAtIndexPath:path];
+    
+    CABasicAnimation *baseAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    baseAnimation.duration = 0.4;
+    baseAnimation.repeatCount = 1;
+    baseAnimation.fromValue = [NSNumber numberWithFloat:0.0]; // 起始角度
+    baseAnimation.toValue = [NSNumber numberWithFloat:M_PI]; // 终止角度
+    [cell.imageView.layer addAnimation:baseAnimation forKey:@"rotate-layer"];
+    
+    
+    if (kaiGuanBtn.on == YES) {
+        [BCUserDeafaults setObject:@"1" forKey:@"ZHUTI"];
+        [BCUserDeafaults synchronize];
+        cell.textLabel .text =  NSLocalizedString(@"默认主题", nil) ;
+        [[NSNotificationCenter defaultCenter ] postNotificationName:@"CHANGEZHUTIDEFAULT" object:self];
+        
+    }else{
+        [BCUserDeafaults setObject:@"0" forKey:@"ZHUTI"];
+        [BCUserDeafaults synchronize];
+        
+        cell.textLabel.text = NSLocalizedString(@"情怀主题", nil) ;
+        [[NSNotificationCenter defaultCenter ] postNotificationName:@"CHANGEZHUTI" object:nil];
+
+    }
+    
+}
 
 - (void)loadAppStoreController{
     // 初始化控制器
     SKStoreProductViewController *storeProductViewContorller = [[SKStoreProductViewController alloc] init];
     // 设置代理请求为当前控制器本身
     storeProductViewContorller.delegate = self;
-    [storeProductViewContorller loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:@"1383797480"} completionBlock:^(BOOL result, NSError *error){
+    [storeProductViewContorller loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:@"1397149726"} completionBlock:^(BOOL result, NSError *error){
         if(error){
             NSLog(@"error %@ with userInfo %@",error,[error userInfo]);
         }else{
@@ -251,10 +410,9 @@ const CGFloat kStatusBarHeight = 20;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.section == 0 && indexPath.row == 2) {
-        BCMiMaYuJieSuoViewController *bvc = [[BCMiMaYuJieSuoViewController alloc]init];
-        LZBaseNavigationController *nav = [[LZBaseNavigationController alloc]initWithRootViewController:bvc];
-        [self presentViewController:nav animated:YES completion:nil];
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        ShanNianVoiceSetViewController *svc = [[ShanNianVoiceSetViewController alloc]init];
+        [self presentViewController:svc animated:YES completion:nil];
     }
     
     if (indexPath.section == 0 && indexPath.row == 1) {
@@ -263,25 +421,37 @@ const CGFloat kStatusBarHeight = 20;
         [self presentViewController:nav animated:YES completion:nil];
     }
     
+    if (indexPath.section == 0 && indexPath.row == 2) {
+        BCMiMaYuJieSuoViewController *bvc = [[BCMiMaYuJieSuoViewController alloc]init];
+        LZBaseNavigationController *nav = [[LZBaseNavigationController alloc]initWithRootViewController:bvc];
+        [self presentViewController:nav animated:YES completion:nil];
+    }
+    
+    if (indexPath.section == 0 && indexPath.row == 3) {
+      
+    
+    }
+    
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        [self pushEmail];
+    }
+    
+    if (indexPath.section == 1 && indexPath.row == 1) {
+        [self shareImage];
+    }
+    
+    if (indexPath.section == 1 && indexPath.row == 2) {
+        NSString *itunesurl = @"itms-apps://itunes.apple.com/cn/app/id1397149726?mt=8&action=write-review";
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:itunesurl]];
+        
+    }
     
     
     
-    
-    
-    
-    
-    
-    
-//    if (indexPath.row == 2) {
-//        NSString *itunesurl = @"itms-apps://itunes.apple.com/cn/app/id1383797480?mt=8&action=write-review";
-//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:itunesurl]];
-//
-//    }
-    
+
     
     if (indexPath.row == 4) {
         
-        [self openAppWithIdentifier:@"1353019343"];
         
     }else if (indexPath.row == 1){
         
@@ -311,10 +481,89 @@ const CGFloat kStatusBarHeight = 20;
 //        [self presentViewController:ab animated:YES completion:nil];
     }else if (indexPath.row == 3){
         
-        [self TiShiTongZhi];
+//        [self TiShiTongZhi];
         
     }
     
+}
+
+
+- (void)shareImage{
+    
+    
+    
+    NSString *text = @"闪念灵感";
+    //    NSString *imageName = @"QQ20180311-1.jpg";
+    //    NSString *path = [[NSBundle mainBundle] pathForResource:imageName ofType:nil];
+    //    UIImage *image2 = nil;
+    //
+    //    UIImageView *imageView1 = [[UIImageView alloc]init];
+    //    imageView1.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 130);
+    //    imageView1.image = image2;
+    //    imageView1.contentMode = UIViewContentModeScaleAspectFit;
+    //
+    //    UIImageView *imageView2 = [[UIImageView alloc]init];
+    //    imageView2.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+    //    [imageView2 addSubview:imageView1];
+    //
+    //    UIImageView  *iconImage3 = [[UIImageView alloc]init];
+    //    iconImage3.frame = CGRectMake(20, ScreenHeight - 100, 60, 60);
+    //    iconImage3.image = [UIImage imageNamed:@"shareicon.jpeg"];
+    //    [imageView2 addSubview:iconImage3];
+    //
+    //
+    //    UILabel *label = [Factory createLabelWithTitle:@"时间胶囊" frame:CGRectMake(20, ScreenHeight - 40, 60, 20)];
+    //    label.font = [UIFont fontWithName:@"Heiti SC" size:9];
+    //    label.textAlignment = NSTextAlignmentCenter;
+    //    [imageView2 addSubview:label];
+    //
+    //    imageView2.backgroundColor = [UIColor whiteColor];
+    ////    UIImage *zuihouImage = [self convertImageViewToImage:imageView2];
+    
+    NSURL *urlToShare = [NSURL URLWithString:@"https://itunes.apple.com/cn/app/id1397149726?mt=8"];
+    NSArray *activityItems = @[text,urlToShare];
+    
+
+    UIActivityViewController *activityViewController =[[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    
+    activityViewController.popoverPresentationController.sourceView = self.view;
+    
+    [self presentViewController:activityViewController animated:YES completion:nil];
+    // 分享类型
+    [activityViewController setCompletionWithItemsHandler:^(NSString * __nullable activityType, BOOL completed, NSArray * __nullable returnedItems, NSError * __nullable activityError){
+        // 显示选中的分享类型
+        NSLog(@"当前选择分享平台 %@",activityType);
+        if (completed) {
+            [SVProgressHUD showInfoWithStatus:@"分享成功"];
+            NSLog(@"分享成功");
+        }else {
+            [SVProgressHUD showInfoWithStatus:@"分享失败"];
+            
+            NSLog(@"分享失败");
+        }
+        
+    }];
+    
+}
+
+-(void)pushEmail{
+    MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+    if (!controller) {
+        // 在设备还没有添加邮件账户的时候mailViewController为空，下面的present view controller会导致程序崩溃，这里要作出判断
+        NSLog(@"设备还没有添加邮件账户");
+    }else{
+        controller.mailComposeDelegate = self;
+        [controller setSubject:@"闪念灵感(iOS版)反馈"];
+        NSString * device = [[UIDevice currentDevice] model];
+        NSString * ios = [[UIDevice currentDevice] systemVersion];
+        NSString *body = [NSString stringWithFormat:@"请留下您的宝贵建议和意见：\n\n\n以下信息有助于我们确认您的问题，建议保留。\nDevice: %@\nOS Version: %@\n", device, ios];
+        [controller setMessageBody:body isHTML:NO];
+        NSArray *toRecipients = [NSArray arrayWithObject:@"506343891@qq.com"];
+        [controller setToRecipients:toRecipients];
+        
+        [self presentViewController:controller animated:YES completion:nil];
+        
+    }
 }
 
 - (void)TiShiTongZhi{
@@ -430,44 +679,7 @@ const CGFloat kStatusBarHeight = 20;
     //    }];
 }
 
-- (void)clearHuancun{
-    //第0分区
-    NSString *sizeStr = [NSString stringWithFormat:@"%.2fM",[self getCacheSize]];
-    UIAlertController *actionsheet = [UIAlertController alertControllerWithTitle:@"清除缓存" message:sizeStr preferredStyle:UIAlertControllerStyleActionSheet];
-    [actionsheet addAction:[UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-        //删除按钮
-        //1.删除sd
-        //        [[SDImageCache sharedImageCache] clearMemory];//清除内存缓存
-        //        [[SDImageCache sharedImageCache] clearDisk];//磁盘
-        //2.界面下载的缓存
-        NSString *myPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/MyCaches"];
-        //删除
-        [[NSFileManager defaultManager] removeItemAtPath:myPath error:nil];
-        
-    }]];
-    [actionsheet addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-        //NSLog(@"取消");
-    }]];
-    [self presentViewController:actionsheet animated:YES completion:nil];
-}
-//获取所有缓存大小
-- (CGFloat)getCacheSize {
-    //缓存 有两类 sdwebimage 还有 每个界面保存的缓存
-    //    CGFloat sdSize = [[SDImageCache sharedImageCache] getSize];
-    NSString *myPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/MyCaches"];
-    //获取文件夹中的所有的文件
-    NSArray *arr = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:myPath error:nil];
-    unsigned long long size = 0;
-    for (NSString *fileName in arr) {
-        NSString *filePath = [myPath stringByAppendingPathComponent:fileName];
-        NSDictionary *dict = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
-        size += dict.fileSize;
-    }
-    //1M = 1024 K = 1024*1024字节
-    CGFloat totalSize = 1024;
-    //    (sdSize+size) * 3/1024.0/1024.0;
-    return totalSize;
-}
+
 - (void)mailComposeController:(MFMailComposeViewController*)controller
           didFinishWithResult:(MFMailComposeResult)result
                         error:(NSError*)error;

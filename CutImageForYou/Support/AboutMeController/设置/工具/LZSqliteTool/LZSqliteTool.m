@@ -155,9 +155,8 @@ static NSString *LZ_dbPath = nil;
         NSString *email = [LZStringEncode encode:model.email];
         NSString *dsc = [LZStringEncode encode:model.dsc];
         
-        NSString *pcmData =  [LZStringEncode encode:model.pcmData];
 
-        NSString *update = [NSString stringWithFormat:@"UPDATE '%@' SET userName = '%@',password = '%@',nickName= '%@',groupName = '%@',dsc = '%@',urlString = '%@',groupID = '%@',email = '%@',titleString = '%@',contentString = '%@',colorString = '%@',pcmData = '%@' WHERE identifier = '%@'",tableName,userName,psw,model.nickName,model.groupName,dsc,model.urlString,model.groupID,email,model.identifier,model.titleString,model.contentString,model.colorString,pcmData];
+        NSString *update = [NSString stringWithFormat:@"UPDATE '%@' SET userName = '%@',password = '%@',nickName= '%@',groupName = '%@',dsc = '%@',urlString = '%@',groupID = '%@',email = '%@',titleString = '%@',contentString = '%@',colorString = '%@',pcmData = '%@' WHERE identifier = '%@'",tableName,userName,psw,model.nickName,model.groupName,dsc,model.urlString,model.groupID,email,model.titleString,model.contentString,model.colorString,model.pcmData,model.identifier];
         
 //        @"UPDATE '%@' SET userName = '%@',password = '%@',nickName= '%@',groupName = '%@',dsc = '%@',urlString = '%@',groupID = '%@',email = '%@' WHERE identifier = '%@'",tableName,model.userName,model.password,model.nickName,model.groupName,model.dsc,model.urlString,model.groupID,model.email,model.identifier
         
@@ -165,6 +164,7 @@ static NSString *LZ_dbPath = nil;
 //        [LZ_db executeQueryWithFormat:@"UPDATE %@ SET userName = %@,password = %@ WHERE identifier = %@",tableName,model.userName,model.password,model.identifier];
         
         [LZ_db executeUpdate:update];
+        
     }
     
     [LZ_db close];

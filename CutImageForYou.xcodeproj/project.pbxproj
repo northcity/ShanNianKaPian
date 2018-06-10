@@ -23,7 +23,6 @@
 		1520569D20B5514900B55E5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1520569C20B5514900B55E5F /* Foundation.framework */; };
 		1520569F20B5516100B55E5F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1520569E20B5516100B55E5F /* UIKit.framework */; };
 		152056A120B5517200B55E5F /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 152056A020B5517200B55E5F /* Contacts.framework */; };
-		152056A320B5517C00B55E5F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 152056A220B5517C00B55E5F /* AddressBook.framework */; };
 		152056A520B5518700B55E5F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 152056A420B5518700B55E5F /* QuartzCore.framework */; };
 		152056AA20B55C2F00B55E5F /* IATConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 152056A820B55C2E00B55E5F /* IATConfig.m */; };
 		152056AF20B55E8800B55E5F /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 152056AB20B55E8700B55E5F /* LaunchViewController.m */; };
@@ -94,7 +93,6 @@
 		15C3267120A56B390032E3E6 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C3266E20A56B190032E3E6 /* UIView+Extension.m */; };
 		15C3267220A56C730032E3E6 /* STPhotoBroswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C3266B20A56B190032E3E6 /* STPhotoBroswer.m */; };
 		15F8669020C50BB1006A2F99 /* smart.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F8668F20C50BA9006A2F99 /* smart.png */; };
-		15F8669420C53231006A2F99 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F8669320C53230006A2F99 /* CloudKit.framework */; };
 		15FAC16A20A524D600DD5E1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FAC16920A524D600DD5E1B /* AppDelegate.m */; };
 		15FAC17520A524D700DD5E1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15FAC17320A524D700DD5E1B /* LaunchScreen.storyboard */; };
 		15FAC17820A524D800DD5E1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FAC17720A524D800DD5E1B /* main.m */; };
@@ -129,13 +127,6 @@
 		F758D50520C81E700033175D /* PCCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D4C020C81E6F0033175D /* PCCircle.m */; };
 		F758D50620C81E700033175D /* PCCircleViewConst.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D4C120C81E6F0033175D /* PCCircleViewConst.m */; };
 		F758D50720C81E700033175D /* PCCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D4C220C81E6F0033175D /* PCCircleView.m */; };
-		F758D50920C81E700033175D /* gesture_circle_pre.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4C620C81E6F0033175D /* gesture_circle_pre.png */; };
-		F758D50A20C81E700033175D /* gesture_introduce.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4C720C81E6F0033175D /* gesture_introduce.png */; };
-		F758D50B20C81E700033175D /* gesture_circle_pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4C820C81E6F0033175D /* gesture_circle_pre@2x.png */; };
-		F758D50C20C81E700033175D /* gesture_unlock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4C920C81E6F0033175D /* gesture_unlock@2x.png */; };
-		F758D50D20C81E700033175D /* gesture_unlock.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4CA20C81E6F0033175D /* gesture_unlock.png */; };
-		F758D50F20C81E700033175D /* gesture_introduce@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4CC20C81E6F0033175D /* gesture_introduce@2x.png */; };
-		F758D51020C81E700033175D /* gesture_introduce@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D4CD20C81E6F0033175D /* gesture_introduce@3x.png */; };
 		F758D51120C81E700033175D /* LZWarnLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D4D320C81E6F0033175D /* LZWarnLabel.m */; };
 		F758D51220C81E700033175D /* LZGestureScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D4D420C81E6F0033175D /* LZGestureScreen.m */; };
 		F758D51320C81E700033175D /* LZGestureTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D4D520C81E6F0033175D /* LZGestureTool.m */; };
@@ -203,9 +194,30 @@
 		F758D5D920C81FFE0033175D /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D5CE20C81FFE0033175D /* SVProgressHUD.m */; };
 		F758D5DA20C81FFE0033175D /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D5CF20C81FFE0033175D /* SVIndefiniteAnimatedView.m */; };
 		F758D5DB20C81FFE0033175D /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F758D5D020C81FFE0033175D /* SVProgressHUD.bundle */; };
+		F758D5DE20CBDDA40033175D /* MainTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D5DD20CBDDA40033175D /* MainTextViewController.m */; };
+		F758D5FC20CBE2DD0033175D /* MSNumberScrollAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D5F320CBE2DD0033175D /* MSNumberScrollAnimatedView.m */; };
+		F758D5FD20CBE2DD0033175D /* DatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D5F420CBE2DD0033175D /* DatePickerView.m */; };
+		F758D5FE20CBE2DD0033175D /* JXPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D5F920CBE2DD0033175D /* JXPopoverView.m */; };
+		F758D5FF20CBE2DD0033175D /* JXPopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D5FA20CBE2DD0033175D /* JXPopoverViewCell.m */; };
+		F758D60020CBE2DD0033175D /* JXPopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D5FB20CBE2DD0033175D /* JXPopoverAction.m */; };
+		F758D60220CBE56C0033175D /* 方正宋刻本秀楷繁体.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F758D60120CBE56C0033175D /* 方正宋刻本秀楷繁体.ttf */; };
+		F758D60420CBF7930033175D /* 暂停@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D60320CBF7930033175D /* 暂停@3x.png */; };
+		F758D60620CBF7970033175D /* 播放-暂停@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D60520CBF7970033175D /* 播放-暂停@3x.png */; };
+		F758D60A20CCBC510033175D /* UIViewController+InteractivePushGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = F758D60820CCBC510033175D /* UIViewController+InteractivePushGesture.m */; };
+		F758D60D20CCCE580033175D /* 文档.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D60B20CCCE580033175D /* 文档.png */; };
+		F758D60E20CCCE580033175D /* 分享new.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D60C20CCCE580033175D /* 分享new.png */; };
+		F758D61020CCD4630033175D /* dkw_完成@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F758D60F20CCD4630033175D /* dkw_完成@3x.png */; };
 		F776443C20C57F0500AEF1E5 /* BCShanNianDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F776443B20C57F0500AEF1E5 /* BCShanNianDateManager.m */; };
 		F79A83A920A6F5FC008EC8E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F758C81020A6F5260083B2B7 /* Assets.xcassets */; };
 		F7B49FB520C4239F00B7B280 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B49FB420C4239F00B7B280 /* iflyMSC.framework */; };
+		F7DE23F720CD3D9800E72499 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 152056A220B5517C00B55E5F /* AddressBook.framework */; };
+		F7E9977420CCE7C800760727 /* beginButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E9977320CCE7C800760727 /* beginButtonImage.png */; };
+		F7E9977620CCEB2300760727 /* newbeginButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E9977520CCEB2300760727 /* newbeginButtonImage.png */; };
+		F7E9977820CCEC4200760727 /* newbeginSpeakButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E9977720CCEC4200760727 /* newbeginSpeakButton.png */; };
+		F7E9977B20CCEF8600760727 /* 返回zhuye.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E9977A20CCEF8500760727 /* 返回zhuye.png */; };
+		F7E9977D20CCF2A300760727 /* 设置 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = F7E9977C20CCF2A300760727 /* 设置 (1).png */; };
+		F7E9978320CCFF0500760727 /* 主题前@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E9978220CCFF0500760727 /* 主题前@3x.png */; };
+		F7E9978920CD265700760727 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E9978820CD265700760727 /* CloudKit.framework */; };
 		F7F1530620A5DF1E00525F05 /* ZJViewShow.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F152FE20A5DF1E00525F05 /* ZJViewShow.m */; };
 		F7F1532C20A5EB1900525F05 /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F1531020A5EB1800525F05 /* Factory.m */; };
 		F7F1532D20A5EB1900525F05 /* weibo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7F1531220A5EB1800525F05 /* weibo.jpg */; };
@@ -396,8 +408,6 @@
 		15C3266D20A56B190032E3E6 /* UIView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		15C3266E20A56B190032E3E6 /* UIView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		15F8668F20C50BA9006A2F99 /* smart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smart.png; sourceTree = "<group>"; };
-		15F8669220C53203006A2F99 /* CutImageForYou.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CutImageForYou.entitlements; sourceTree = "<group>"; };
-		15F8669320C53230006A2F99 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		15FAC16520A524D600DD5E1B /* CutImageForYou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CutImageForYou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15FAC16820A524D600DD5E1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		15FAC16920A524D600DD5E1B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -465,13 +475,6 @@
 		F758D4C120C81E6F0033175D /* PCCircleViewConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircleViewConst.m; sourceTree = "<group>"; };
 		F758D4C220C81E6F0033175D /* PCCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircleView.m; sourceTree = "<group>"; };
 		F758D4C320C81E6F0033175D /* PCCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircle.h; sourceTree = "<group>"; };
-		F758D4C620C81E6F0033175D /* gesture_circle_pre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_circle_pre.png; sourceTree = "<group>"; };
-		F758D4C720C81E6F0033175D /* gesture_introduce.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_introduce.png; sourceTree = "<group>"; };
-		F758D4C820C81E6F0033175D /* gesture_circle_pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_circle_pre@2x.png"; sourceTree = "<group>"; };
-		F758D4C920C81E6F0033175D /* gesture_unlock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_unlock@2x.png"; sourceTree = "<group>"; };
-		F758D4CA20C81E6F0033175D /* gesture_unlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_unlock.png; sourceTree = "<group>"; };
-		F758D4CC20C81E6F0033175D /* gesture_introduce@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_introduce@2x.png"; sourceTree = "<group>"; };
-		F758D4CD20C81E6F0033175D /* gesture_introduce@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_introduce@3x.png"; sourceTree = "<group>"; };
 		F758D4CF20C81E6F0033175D /* LZWarnLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZWarnLabel.h; sourceTree = "<group>"; };
 		F758D4D020C81E6F0033175D /* LZGestureTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZGestureTool.h; sourceTree = "<group>"; };
 		F758D4D120C81E6F0033175D /* LZGestureScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZGestureScreen.h; sourceTree = "<group>"; };
@@ -603,9 +606,37 @@
 		F758D5CF20C81FFE0033175D /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		F758D5D020C81FFE0033175D /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		F758D5D120C81FFE0033175D /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		F758D5DC20CBDDA30033175D /* MainTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTextViewController.h; sourceTree = "<group>"; };
+		F758D5DD20CBDDA40033175D /* MainTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTextViewController.m; sourceTree = "<group>"; };
+		F758D5F020CBE2DC0033175D /* DatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerView.h; sourceTree = "<group>"; };
+		F758D5F220CBE2DD0033175D /* MSNumberScrollAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSNumberScrollAnimatedView.h; sourceTree = "<group>"; };
+		F758D5F320CBE2DD0033175D /* MSNumberScrollAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSNumberScrollAnimatedView.m; sourceTree = "<group>"; };
+		F758D5F420CBE2DD0033175D /* DatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerView.m; sourceTree = "<group>"; };
+		F758D5F620CBE2DD0033175D /* JXPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPopoverView.h; sourceTree = "<group>"; };
+		F758D5F720CBE2DD0033175D /* JXPopoverViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPopoverViewCell.h; sourceTree = "<group>"; };
+		F758D5F820CBE2DD0033175D /* JXPopoverAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPopoverAction.h; sourceTree = "<group>"; };
+		F758D5F920CBE2DD0033175D /* JXPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPopoverView.m; sourceTree = "<group>"; };
+		F758D5FA20CBE2DD0033175D /* JXPopoverViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPopoverViewCell.m; sourceTree = "<group>"; };
+		F758D5FB20CBE2DD0033175D /* JXPopoverAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPopoverAction.m; sourceTree = "<group>"; };
+		F758D60120CBE56C0033175D /* 方正宋刻本秀楷繁体.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "方正宋刻本秀楷繁体.ttf"; sourceTree = "<group>"; };
+		F758D60320CBF7930033175D /* 暂停@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "暂停@3x.png"; sourceTree = "<group>"; };
+		F758D60520CBF7970033175D /* 播放-暂停@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "播放-暂停@3x.png"; sourceTree = "<group>"; };
+		F758D60820CCBC510033175D /* UIViewController+InteractivePushGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+InteractivePushGesture.m"; sourceTree = "<group>"; };
+		F758D60920CCBC510033175D /* UIViewController+InteractivePushGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+InteractivePushGesture.h"; sourceTree = "<group>"; };
+		F758D60B20CCCE580033175D /* 文档.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "文档.png"; sourceTree = "<group>"; };
+		F758D60C20CCCE580033175D /* 分享new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "分享new.png"; sourceTree = "<group>"; };
+		F758D60F20CCD4630033175D /* dkw_完成@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dkw_完成@3x.png"; sourceTree = "<group>"; };
 		F776443A20C57F0500AEF1E5 /* BCShanNianDateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCShanNianDateManager.h; sourceTree = "<group>"; };
 		F776443B20C57F0500AEF1E5 /* BCShanNianDateManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCShanNianDateManager.m; sourceTree = "<group>"; };
 		F7B49FB420C4239F00B7B280 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iflyMSC.framework; path = CutImageForYou/Support/iflyMSC.framework; sourceTree = "<group>"; };
+		F7E9977320CCE7C800760727 /* beginButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beginButtonImage.png; sourceTree = "<group>"; };
+		F7E9977520CCEB2300760727 /* newbeginButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newbeginButtonImage.png; sourceTree = "<group>"; };
+		F7E9977720CCEC4200760727 /* newbeginSpeakButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newbeginSpeakButton.png; sourceTree = "<group>"; };
+		F7E9977A20CCEF8500760727 /* 返回zhuye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回zhuye.png"; sourceTree = "<group>"; };
+		F7E9977C20CCF2A300760727 /* 设置 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置 (1).png"; sourceTree = "<group>"; };
+		F7E9978220CCFF0500760727 /* 主题前@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "主题前@3x.png"; sourceTree = "<group>"; };
+		F7E9978720CD263A00760727 /* CutImageForYou.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CutImageForYou.entitlements; sourceTree = "<group>"; };
+		F7E9978820CD265700760727 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		F7F152F820A5DF1E00525F05 /* ZJViewShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJViewShow.h; sourceTree = "<group>"; };
 		F7F152FE20A5DF1E00525F05 /* ZJViewShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJViewShow.m; sourceTree = "<group>"; };
 		F7F1530D20A5EB1800525F05 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
@@ -662,13 +693,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15F8669420C53231006A2F99 /* CloudKit.framework in Frameworks */,
+				F7DE23F720CD3D9800E72499 /* AddressBook.framework in Frameworks */,
 				F7F1535B20A5F28200525F05 /* AudioToolbox.framework in Frameworks */,
 				F7F1536B20A5F2CF00525F05 /* libicucore.tbd in Frameworks */,
 				F7F1535920A5F27800525F05 /* libc++.tbd in Frameworks */,
 				F7F1535F20A5F29700525F05 /* CoreGraphics.framework in Frameworks */,
 				152056A520B5518700B55E5F /* QuartzCore.framework in Frameworks */,
-				152056A320B5517C00B55E5F /* AddressBook.framework in Frameworks */,
 				152056A120B5517200B55E5F /* Contacts.framework in Frameworks */,
 				1520569F20B5516100B55E5F /* UIKit.framework in Frameworks */,
 				F7F1536520A5F2B200525F05 /* CoreTelephony.framework in Frameworks */,
@@ -684,6 +714,7 @@
 				F7B49FB520C4239F00B7B280 /* iflyMSC.framework in Frameworks */,
 				F7F1535520A5F25D00525F05 /* libsqlite3.tbd in Frameworks */,
 				F7F1535320A5F24C00525F05 /* Security.framework in Frameworks */,
+				F7E9978920CD265700760727 /* CloudKit.framework in Frameworks */,
 				F7F1535120A5F23A00525F05 /* Social.framework in Frameworks */,
 				F7F1534E20A5F21500525F05 /* BmobSDK.framework in Frameworks */,
 			);
@@ -813,6 +844,13 @@
 				15950BC520B68BF900206DC6 /* ShanNianMuLuViewController.m */,
 				157D3AFB20CA7515005542E6 /* ShanNianMuLuDetailViewController.h */,
 				157D3AFC20CA7515005542E6 /* ShanNianMuLuDetailViewController.m */,
+				F758D5DC20CBDDA30033175D /* MainTextViewController.h */,
+				F758D5DD20CBDDA40033175D /* MainTextViewController.m */,
+				F758D5F020CBE2DC0033175D /* DatePickerView.h */,
+				F758D5F420CBE2DD0033175D /* DatePickerView.m */,
+				F758D60120CBE56C0033175D /* 方正宋刻本秀楷繁体.ttf */,
+				F758D5F520CBE2DD0033175D /* JXPopoverView */,
+				F758D5F120CBE2DD0033175D /* MSNumberScrollAnimatedView */,
 			);
 			path = ShanNianController;
 			sourceTree = "<group>";
@@ -871,7 +909,7 @@
 		15FAC16720A524D600DD5E1B /* CutImageForYou */ = {
 			isa = PBXGroup;
 			children = (
-				15F8669220C53203006A2F99 /* CutImageForYou.entitlements */,
+				F7E9978720CD263A00760727 /* CutImageForYou.entitlements */,
 				15610FD320C4D4B900983FFE /* BCShanNianKaPianManager */,
 				15950BBE20B68B4200206DC6 /* ShanNianController */,
 				15FAC19A20A526F500DD5E1B /* Support */,
@@ -911,6 +949,7 @@
 		15FAC19A20A526F500DD5E1B /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				F758D60720CCBC510033175D /* InteractivePushGesture */,
 				1500831E20C771CA00415140 /* Masonry */,
 				F7F1534D20A5F21500525F05 /* BmobSDK.framework */,
 				F7F1530E20A5EB1800525F05 /* AboutMeController */,
@@ -940,6 +979,9 @@
 		F758D48F20C6DBCB0033175D /* ShanNianImageResource */ = {
 			isa = PBXGroup;
 			children = (
+				F758D60F20CCD4630033175D /* dkw_完成@3x.png */,
+				F758D60520CBF7970033175D /* 播放-暂停@3x.png */,
+				F758D60320CBF7930033175D /* 暂停@3x.png */,
 				1559849420CA247D0016442A /* 指纹认证大.png */,
 				1571C39320C92549008656B9 /* icon.png */,
 				1571C38C20C8F6B5008656B9 /* gestureBackImg.png */,
@@ -976,12 +1018,20 @@
 				1574878620C63265004CD38B /* 视频-开始-播放-2.png */,
 				1574878720C63265004CD38B /* 暂停播放-2.png */,
 				15F8668F20C50BA9006A2F99 /* smart.png */,
+				F758D60C20CCCE580033175D /* 分享new.png */,
+				F758D60B20CCCE580033175D /* 文档.png */,
 				1576B87420BBF13200B8B1F9 /* 下载.png */,
 				1576B87320BBF12800B8B1F9 /* 编辑.png */,
 				1576B87220BBF12100B8B1F9 /* 删除min.png */,
 				1576B87120BBF10600B8B1F9 /* 日历.png */,
 				1576B87020BBF0FC00B8B1F9 /* 删除.png */,
 				1576B86F20BBF0FC00B8B1F9 /* 收藏.png */,
+				F7E9977320CCE7C800760727 /* beginButtonImage.png */,
+				F7E9977520CCEB2300760727 /* newbeginButtonImage.png */,
+				F7E9977720CCEC4200760727 /* newbeginSpeakButton.png */,
+				F7E9977A20CCEF8500760727 /* 返回zhuye.png */,
+				F7E9977C20CCF2A300760727 /* 设置 (1).png */,
+				F7E9978220CCFF0500760727 /* 主题前@3x.png */,
 			);
 			path = ShanNianImageResource;
 			sourceTree = "<group>";
@@ -1115,7 +1165,6 @@
 			isa = PBXGroup;
 			children = (
 				F758D4BD20C81E6F0033175D /* FrameWork */,
-				F758D4C420C81E6F0033175D /* GestureImages */,
 				F758D4CE20C81E6F0033175D /* LZGesture */,
 			);
 			path = LZGestureSecurity;
@@ -1132,20 +1181,6 @@
 				F758D4C220C81E6F0033175D /* PCCircleView.m */,
 			);
 			path = FrameWork;
-			sourceTree = "<group>";
-		};
-		F758D4C420C81E6F0033175D /* GestureImages */ = {
-			isa = PBXGroup;
-			children = (
-				F758D4C620C81E6F0033175D /* gesture_circle_pre.png */,
-				F758D4C720C81E6F0033175D /* gesture_introduce.png */,
-				F758D4C820C81E6F0033175D /* gesture_circle_pre@2x.png */,
-				F758D4C920C81E6F0033175D /* gesture_unlock@2x.png */,
-				F758D4CA20C81E6F0033175D /* gesture_unlock.png */,
-				F758D4CC20C81E6F0033175D /* gesture_introduce@2x.png */,
-				F758D4CD20C81E6F0033175D /* gesture_introduce@3x.png */,
-			);
-			path = GestureImages;
 			sourceTree = "<group>";
 		};
 		F758D4CE20C81E6F0033175D /* LZGesture */ = {
@@ -1529,6 +1564,37 @@
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
+		F758D5F120CBE2DD0033175D /* MSNumberScrollAnimatedView */ = {
+			isa = PBXGroup;
+			children = (
+				F758D5F220CBE2DD0033175D /* MSNumberScrollAnimatedView.h */,
+				F758D5F320CBE2DD0033175D /* MSNumberScrollAnimatedView.m */,
+			);
+			path = MSNumberScrollAnimatedView;
+			sourceTree = "<group>";
+		};
+		F758D5F520CBE2DD0033175D /* JXPopoverView */ = {
+			isa = PBXGroup;
+			children = (
+				F758D5F620CBE2DD0033175D /* JXPopoverView.h */,
+				F758D5F720CBE2DD0033175D /* JXPopoverViewCell.h */,
+				F758D5F820CBE2DD0033175D /* JXPopoverAction.h */,
+				F758D5F920CBE2DD0033175D /* JXPopoverView.m */,
+				F758D5FA20CBE2DD0033175D /* JXPopoverViewCell.m */,
+				F758D5FB20CBE2DD0033175D /* JXPopoverAction.m */,
+			);
+			path = JXPopoverView;
+			sourceTree = "<group>";
+		};
+		F758D60720CCBC510033175D /* InteractivePushGesture */ = {
+			isa = PBXGroup;
+			children = (
+				F758D60820CCBC510033175D /* UIViewController+InteractivePushGesture.m */,
+				F758D60920CCBC510033175D /* UIViewController+InteractivePushGesture.h */,
+			);
+			path = InteractivePushGesture;
+			sourceTree = "<group>";
+		};
 		F7F152F520A5DF1E00525F05 /* newProgress */ = {
 			isa = PBXGroup;
 			children = (
@@ -1596,7 +1662,7 @@
 		F7F1534F20A5F23A00525F05 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				15F8669320C53230006A2F99 /* CloudKit.framework */,
+				F7E9978820CD265700760727 /* CloudKit.framework */,
 				F7B49FB420C4239F00B7B280 /* iflyMSC.framework */,
 				152056A420B5518700B55E5F /* QuartzCore.framework */,
 				152056A220B5517C00B55E5F /* AddressBook.framework */,
@@ -1690,10 +1756,10 @@
 				TargetAttributes = {
 					15FAC16420A524D600DD5E1B = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.iCloud = {
 								enabled = 1;
@@ -1738,8 +1804,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F758D60620CBF7970033175D /* 播放-暂停@3x.png in Resources */,
 				15C0C91820C79B0800FF3963 /* 美国@3x.png in Resources */,
-				F758D50A20C81E700033175D /* gesture_introduce.png in Resources */,
 				1576B86B20BBD5EE00B8B1F9 /* 日期.png in Resources */,
 				15C0C92E20C7B0D600FF3963 /* 个人111@3x.png in Resources */,
 				1571C38220C8BDE2008656B9 /* 数字密码1@3x.png in Resources */,
@@ -1756,7 +1822,6 @@
 				1500834320C771CB00415140 /* Info.plist in Resources */,
 				F758D48820C6D85E0033175D /* Localizable.strings in Resources */,
 				F7F1534720A5EB5200525F05 /* MainContentCell.xib in Resources */,
-				F758D50D20C81E700033175D /* gesture_unlock.png in Resources */,
 				1576B85F20BBD4BC00B8B1F9 /* 灵感-2.png in Resources */,
 				F7F1533F20A5EB1900525F05 /* 返回1.png in Resources */,
 				1571C38620C8CCB3008656B9 /* 返回箭头.png in Resources */,
@@ -1764,6 +1829,7 @@
 				1576B86820BBD5E400B8B1F9 /* 标签.png in Resources */,
 				F758D50020C81E700033175D /* gesture_introduce@2x.png in Resources */,
 				15C0C92620C7AF6600FF3963 /* 语音1@3x.png in Resources */,
+				F758D61020CCD4630033175D /* dkw_完成@3x.png in Resources */,
 				1576B86120BBD53400B8B1F9 /* 目标.png in Resources */,
 				F7F1533420A5EB1900525F05 /* 关闭2.png in Resources */,
 				F7F1533720A5EB1900525F05 /* QQ20180311-1.jpg in Resources */,
@@ -1773,8 +1839,8 @@
 				1571C38D20C8F6B6008656B9 /* gestureBackImg.png in Resources */,
 				F758D51620C81E700033175D /* gesture_unlock.png in Resources */,
 				1571C38820C8CD2B008656B9 /* 返回箭头2.png in Resources */,
-				F758D50C20C81E700033175D /* gesture_unlock@2x.png in Resources */,
 				1571C39420C92551008656B9 /* icon.png in Resources */,
+				F758D60D20CCCE580033175D /* 文档.png in Resources */,
 				F7F1533520A5EB1900525F05 /* ico_分享1@3x.png in Resources */,
 				F758D5DB20C81FFE0033175D /* SVProgressHUD.bundle in Resources */,
 				1576B85D20BBD32D00B8B1F9 /* 灵感.png in Resources */,
@@ -1787,15 +1853,17 @@
 				F7F1532F20A5EB1900525F05 /* zhihuIcon.jpg in Resources */,
 				15FAC17520A524D700DD5E1B /* LaunchScreen.storyboard in Resources */,
 				1576B87820BBF13700B8B1F9 /* 日历.png in Resources */,
+				F758D60E20CCCE580033175D /* 分享new.png in Resources */,
 				15C0C91020C77F8800FF3963 /* ShanNianVoiceSetCell.xib in Resources */,
 				1576B87920BBF13700B8B1F9 /* 删除.png in Resources */,
 				15C0C92D20C7B0D600FF3963 /* 反馈11@3x.png in Resources */,
 				F7F1533220A5EB1900525F05 /* 增值服务2.png in Resources */,
+				F7E9978320CCFF0500760727 /* 主题前@3x.png in Resources */,
 				1559849520CA24830016442A /* 指纹认证大.png in Resources */,
 				1576B87520BBF13700B8B1F9 /* 下载.png in Resources */,
 				F758D51520C81E700033175D /* gesture_unlock@2x.png in Resources */,
+				F7E9977B20CCEF8600760727 /* 返回zhuye.png in Resources */,
 				F758D54A20C81F1F0033175D /* IQKeyboardManager.bundle in Resources */,
-				F758D50F20C81E700033175D /* gesture_introduce@2x.png in Resources */,
 				F7F1532D20A5EB1900525F05 /* weibo.jpg in Resources */,
 				1576B86720BBD5E100B8B1F9 /* 笔记本.png in Resources */,
 				15C0C91420C7996400FF3963 /* 中文@3x.png in Resources */,
@@ -1808,26 +1876,29 @@
 				F7F1532E20A5EB1900525F05 /* iconcheng.png in Resources */,
 				1576B87620BBF13700B8B1F9 /* 编辑.png in Resources */,
 				15C0C91220C78ADA00FF3963 /* 英语@3x.png in Resources */,
+				F7E9977D20CCF2A300760727 /* 设置 (1).png in Resources */,
 				15C0C91E20C7A89C00FF3963 /* 云@3x.png in Resources */,
+				F7E9977820CCEC4200760727 /* newbeginSpeakButton.png in Resources */,
 				1576B86A20BBD5EB00B8B1F9 /* 女士.png in Resources */,
 				F7F1533920A5EB1900525F05 /* 星级1@3x.png in Resources */,
-				F758D50B20C81E700033175D /* gesture_circle_pre@2x.png in Resources */,
 				F758D5AF20C81FC10033175D /* LICENSE in Resources */,
 				F758D5B920C81FC10033175D /* address_select@2x.png in Resources */,
+				F7E9977620CCEB2300760727 /* newbeginButtonImage.png in Resources */,
 				15C0C92020C7A95C00FF3963 /* 密码@3x.png in Resources */,
 				15C0C90820C77BF500FF3963 /* ng_bps_fuceng_duigou@2x.png in Resources */,
-				F758D51020C81E700033175D /* gesture_introduce@3x.png in Resources */,
 				1576B86920BBD5E700B8B1F9 /* 沟通.png in Resources */,
 				F7F1533620A5EB1900525F05 /* 关闭3.png in Resources */,
 				F758D50120C81E700033175D /* gesture_introduce@3x.png in Resources */,
 				F7F1533120A5EB1900525F05 /* ico_分享.png in Resources */,
 				1571C38B20C8F185008656B9 /* 手势解锁.png in Resources */,
 				15C0C92420C7AAA600FF3963 /* 指纹2@3x.png in Resources */,
-				F758D50920C81E700033175D /* gesture_circle_pre.png in Resources */,
+				F758D60420CBF7930033175D /* 暂停@3x.png in Resources */,
 				F7F1533C20A5EB1900525F05 /* IMG_0122.JPG in Resources */,
 				1576B87720BBF13700B8B1F9 /* 删除min.png in Resources */,
 				15950BC320B68B7B00206DC6 /* ShanNianTableViewCell.xib in Resources */,
 				F758D4FC20C81E700033175D /* gesture_circle_pre@2x.png in Resources */,
+				F7E9977420CCE7C800760727 /* beginButtonImage.png in Resources */,
+				F758D60220CBE56C0033175D /* 方正宋刻本秀楷繁体.ttf in Resources */,
 				F7F1534020A5EB1900525F05 /* 星级2@3x.png in Resources */,
 				F7F1533820A5EB1900525F05 /* 反馈问题@3x.png in Resources */,
 				F758D4FA20C81E700033175D /* gesture_circle_pre.png in Resources */,
@@ -1884,11 +1955,13 @@
 				F758D5A420C81FC10033175D /* LZDocument.m in Sources */,
 				F758D4F320C81E700033175D /* LFForgetPwdViewController.m in Sources */,
 				F758D4F620C81E700033175D /* DrawPatternLockView.m in Sources */,
+				F758D60A20CCBC510033175D /* UIViewController+InteractivePushGesture.m in Sources */,
 				F758D54E20C81F1F0033175D /* IQUITextFieldView+Additions.m in Sources */,
 				F758D5A620C81FC10033175D /* LZiCloud.m in Sources */,
 				F758D5D320C81FFE0033175D /* FMDatabaseAdditions.m in Sources */,
 				F758D50620C81E700033175D /* PCCircleViewConst.m in Sources */,
 				F758D54B20C81F1F0033175D /* IQKeyboardManager.m in Sources */,
+				F758D5DE20CBDDA40033175D /* MainTextViewController.m in Sources */,
 				F758D4F120C81E700033175D /* GestureTool_Private.m in Sources */,
 				15FAC17820A524D800DD5E1B /* main.m in Sources */,
 				153A9ADA20C7DA8F009BCBFE /* BCMiMaYuJieSuoViewController.m in Sources */,
@@ -1937,13 +2010,16 @@
 				F758D55A20C81F810033175D /* LZBaseTableViewCell.m in Sources */,
 				1574877F20C62198004CD38B /* iCloudHandle.m in Sources */,
 				F758D50520C81E700033175D /* PCCircle.m in Sources */,
+				F758D5FC20CBE2DD0033175D /* MSNumberScrollAnimatedView.m in Sources */,
 				F758D5D220C81FFE0033175D /* FMDatabaseQueue.m in Sources */,
 				15610FD620C4D4E200983FFE /* BCShanNianKaPianManager.m in Sources */,
 				F758D51820C81E700033175D /* LZTouchIDViewController.m in Sources */,
 				F758D54720C81F1F0033175D /* IQBarButtonItem.m in Sources */,
 				1500834020C771CB00415140 /* MASConstraint.m in Sources */,
+				F758D60020CBE2DD0033175D /* JXPopoverAction.m in Sources */,
 				F758D51B20C81E700033175D /* LZNumberTool.m in Sources */,
 				F758D5AC20C81FC10033175D /* LZPasswordTool.m in Sources */,
+				F758D5FD20CBE2DD0033175D /* DatePickerView.m in Sources */,
 				F758D5B120C81FC10033175D /* NSData+CommonCrypto.m in Sources */,
 				F758D51E20C81E700033175D /* LZiCloudViewController.m in Sources */,
 				15C0C90F20C77F8800FF3963 /* ShanNianVoiceSetCell.m in Sources */,
@@ -1956,7 +2032,9 @@
 				1500834220C771CB00415140 /* MASViewAttribute.m in Sources */,
 				15950BC620B68BF900206DC6 /* ShanNianMuLuViewController.m in Sources */,
 				F758D51420C81E700033175D /* LZGestureViewController.m in Sources */,
+				F758D5FE20CBE2DD0033175D /* JXPopoverView.m in Sources */,
 				F758D48220C6C47E0033175D /* AKPickerView.m in Sources */,
+				F758D5FF20CBE2DD0033175D /* JXPopoverViewCell.m in Sources */,
 				1520569720B54ACD00B55E5F /* ShanNianViewController.m in Sources */,
 				F758D54520C81F1F0033175D /* IQToolbar.m in Sources */,
 				F7F1534220A5EB1900525F05 /* AboutViewController.m in Sources */,
@@ -2157,8 +2235,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CutImageForYou/CutImageForYou.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = F7C352F4MW;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2170,8 +2248,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chenxi.shanniankapian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "8b85f37c-9d3e-479a-a659-b09df87165ea";
+				PROVISIONING_PROFILE_SPECIFIER = newnewnewnenwenweewewewewew;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2182,8 +2260,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CutImageForYou/CutImageForYou.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = F7C352F4MW;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2195,8 +2273,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chenxi.shanniankapian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "8b85f37c-9d3e-479a-a659-b09df87165ea";
+				PROVISIONING_PROFILE_SPECIFIER = newnewnewnenwenweewewewewew;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

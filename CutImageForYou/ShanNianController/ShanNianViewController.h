@@ -43,4 +43,8 @@ typedef NS_ENUM(NSUInteger, ShangYiPaiClickActionTag) {
 
 @property(nonatomic,copy)NSString *nowColor;
 
+@property(nonatomic,strong)UIImageView *bgImageView;
+
+@property(nonatomic,strong)UILabel *sloginLabel;
+
 @end

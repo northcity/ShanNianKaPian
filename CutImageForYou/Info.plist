@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>闪念卡片</string>
+	<string>闪念</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.0</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -34,7 +34,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>5</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
@@ -53,17 +53,19 @@
 		<true/>
 	</dict>
 	<key>NSContactsUsageDescription</key>
-	<string></string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string></string>
-	<key>NSLocationUsageDescription</key>
-	<string></string>
+	<string>是否允许使用通讯录权限，用来更好的语音识别您通讯录中的人名</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>使用FaceID保护您的数据安全</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string></string>
+	<string>是否允许麦克风权限，用来进行语音识别</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>是否允许访问相册，用来把切图保存到本地</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>是否允许访问相册，用来获取您的图片进行切图</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>方正宋刻本秀楷繁体.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

@@ -252,7 +252,7 @@
         if (![LZGestureTool isGestureEnable]&&
             ![[TouchIdUnlock sharedInstance] isTouchIdEnabledOrNotBySystem]) {
             
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告⚠️" message:@"您没有设置手势密码,无法通过手势密码重置!" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告" message:@"您没有设置手势密码,无法通过手势密码重置!" preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction *ok = [UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 

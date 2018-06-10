@@ -83,11 +83,12 @@
     if (_dataArray == nil) {
         
         if ([[TouchIdUnlock sharedInstance] isTouchIdEnabledOrNotBySystem]) {
-            
-            _dataArray = [[NSMutableArray alloc]initWithObjects:@[@"设置手势密码",@"设置数字密码",@"设置TouchID"],@[@"分组管理"],@[@"iCloud同步"],@[@"关于我们"], nil];
+//            _dataArray = [[NSMutableArray alloc]initWithObjects:@[@"设置手势密码",@"设置数字密码",@"设置TouchID"],@[@"分组管理"],@[@"iCloud同步"],@[@"关于我们"], nil];
+
+            _dataArray = [[NSMutableArray alloc]initWithObjects:@[@"设置手势密码",@"设置数字密码",@"设置TouchID/FaceID"], nil];
         } else {
             
-            _dataArray = [[NSMutableArray alloc]initWithObjects:@[@"设置手势密码",@"设置数字密码"],@[@"分组管理"],@[@"iCloud同步"],@[@"关于我们"], nil];
+            _dataArray = [[NSMutableArray alloc]initWithObjects:@[@"设置手势密码",@"设置数字密码"], nil];
         }
         
         //        ,@"设置数字密码"

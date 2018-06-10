@@ -7,8 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WaveView.h"
 @interface ShanNianMuLuViewController : UIViewController
 
 @property(nonatomic,assign)BOOL isPresnted;
+@property (nonatomic,strong) WaveView *waveView;
+
+@property(nonatomic,strong)UILabel *navTitleLabel;
+@property(nonatomic,strong)UIView *titleView;
+@property(nonatomic,strong)UIButton *backBtn;
+
+
 @end

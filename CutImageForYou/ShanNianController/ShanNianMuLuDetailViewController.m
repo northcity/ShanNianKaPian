@@ -33,7 +33,7 @@
     [self.view insertSubview:_titleView atIndex:99];
     
     _navTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(ScreenWidth/2 - kAUTOWIDTH(150)/2, kAUTOHEIGHT(5), kAUTOWIDTH(150), kAUTOHEIGHT(66))];
-    _navTitleLabel.text = @"密码与解锁";
+    _navTitleLabel.text = @"卡片";
     _navTitleLabel.font = [UIFont fontWithName:@"HeiTi SC" size:18];
     _navTitleLabel.textColor = [UIColor blackColor];
     _navTitleLabel.textAlignment = NSTextAlignmentCenter;
@@ -64,6 +64,11 @@
         [_backBtn.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
         
     });
+}
+
+- (void)backAction{
+    [self dismissViewControllerAnimated:YES completion:^{
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

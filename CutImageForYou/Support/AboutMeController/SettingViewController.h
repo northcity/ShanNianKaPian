@@ -12,4 +12,9 @@
 @property(nonatomic,strong)UIView *bgView;
 @property(nonatomic,strong)UIView *bgViews;
 @property(nonatomic,strong)UIImageView *bgImageView;
+
+@property(nonatomic,strong)UILabel *navTitleLabel;
+@property(nonatomic,strong)UIView *titleView;
+@property(nonatomic,strong)UIButton *backBtn;
+
 @end

@@ -25,7 +25,7 @@
 //    [self setupNaviBar];
     
     [self initOtherUI];
-    self.navTitleLabel.text = @"设置 TouchID";
+    self.navTitleLabel.text = @"设置 TouchID/FaceID";
     [self.backBtn setImage:[UIImage imageNamed:@"返回箭头2"] forState:UIControlStateNormal];
     
     [self.view insertSubview:self.titleView aboveSubview:_tableView];
@@ -105,7 +105,7 @@
 
     [sw addTarget:self action:@selector(sw:) forControlEvents:UIControlEventValueChanged];
     
-    cell.textLabel.text = @"开启TouchID";
+    cell.textLabel.text = @"开启TouchID/FaceID";
     cell.accessoryView = sw;
     
     sw.on = [[TouchIdUnlock sharedInstance] isTouchIdEnabledOrNotByUser];

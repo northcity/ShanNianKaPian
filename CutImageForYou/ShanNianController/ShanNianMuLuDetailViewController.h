@@ -16,4 +16,8 @@
 @property(nonatomic,strong)UIView *titleView;
 @property(nonatomic,strong)UIButton *backBtn;
 
+@property(nonatomic,strong)UIView *MbgView;
+@property(nonatomic,strong)UIView *bgViews;
+@property(nonatomic,strong)UIImageView *bgImageView;
+
 @end

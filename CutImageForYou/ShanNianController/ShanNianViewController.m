@@ -22,6 +22,8 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "SettingViewController.h"
 
+#import "UIViewController+InteractivePushGesture.h"
+
 #define SPEAKVIEW_HEIZGHT   kAUTOHEIGHT(170)
 #define SPEAKVIEW_WIDTH     ScreenWidth - kAUTOWIDTH(40)
 
@@ -36,7 +38,7 @@
 #define NAME        @"userwords"
 #define USERWORDS   @"{\"userword\":[{\"name\":\"我的常用词\",\"words\":[\"佳晨实业\",\"蜀南庭苑\",\"高兰路\",\"复联二\"]},{\"name\":\"我的好友\",\"words\":[\"李馨琪\",\"鹿晓雷\",\"张集栋\",\"周家莉\",\"叶震珂\",\"熊泽萌\"]}]}"
 
-@interface ShanNianViewController ()<IFlySpeechRecognizerDelegate,IFlyRecognizerViewDelegate,UIActionSheetDelegate,IFlyPcmRecorderDelegate,PcmPlayerDelegate,AVAudioPlayerDelegate,WKNavigationDelegate,WKUIDelegate>
+@interface ShanNianViewController ()<IFlySpeechRecognizerDelegate,IFlyRecognizerViewDelegate,UIActionSheetDelegate,IFlyPcmRecorderDelegate,PcmPlayerDelegate,AVAudioPlayerDelegate,WKNavigationDelegate,WKUIDelegate,UIViewControllerInteractivePushGestureDelegate>
 @property(nonatomic,strong)UIButton *beginSpeakButton;
 @property(nonatomic,strong)UILabel *speakLabel;
 @property(nonatomic,strong)UIButton *beginPlayButton;
@@ -66,31 +68,61 @@
 
 @implementation ShanNianViewController
 
+//- (UIViewController *)destinationViewControllerFromViewController:(UIViewController *)fromViewController {
+//    ShanNianMuLuViewController *vc = [[ShanNianMuLuViewController alloc] init];
+////    vc.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0];
+//    return vc;
+//}
+
+
 #pragma mark ========生命周期==========
 - (void)createBgImageView{
-    UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
-    bgImageView.image = [UIImage imageNamed:@"smart"];
-    [self.view addSubview:bgImageView];
+    _bgImageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
+    _bgImageView.image = [UIImage imageNamed:@"smart"];
+    [self.view addSubview:_bgImageView];
     
             self.effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     
             self.effectView = [[UIVisualEffectView alloc] initWithEffect:self.effect];
     
-            self.effectView.frame = bgImageView.bounds;
+            self.effectView.frame = _bgImageView.bounds;
     
             self.effectView.alpha = 1.f;
             self.effectView.userInteractionEnabled = YES;
-            [bgImageView addSubview:self.effectView];
+            [_bgImageView addSubview:self.effectView];
+    [self.view sendSubviewToBack:_bgImageView];
+}
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+- (void)changeZhiTi{
+    [self createBgImageView];
+}
+- (void)changeZhuTiDefault{
+    if ([_bgImageView isDescendantOfView:self.view]) {
+        [_bgImageView removeFromSuperview];
+    }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self createBgImageView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeZhiTi) name:@"CHANGEZHUTI" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeZhuTiDefault) name:@"CHANGEZHUTIDEFAULT" object:nil];
+
+    //    [self createBgImageView];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.hidden = YES;
     [self createBaseUI];
     self.volumArray = [[NSMutableArray alloc]init];
     self.nowColor = [BCShanNianKaPianManager toStrByUIColor:[UIColor blackColor]];
+//    self.interactivePushGestureEnabled = YES;
+//    self.interactivePushGestureDelegate = self;
+    
+    self.sloginLabel = [[UILabel alloc]initWithFrame:CGRectMake(kAUTOWIDTH(20), ScreenHeight/2 - kAUTOHEIGHT(20), ScreenWidth - kAUTOWIDTH(40), kAUTOHEIGHT(40))];
+    self.sloginLabel.font = [UIFont fontWithName:@"FZSKBXKFW--GB1-0" size:15];
+    self.sloginLabel.textColor = [UIColor grayColor];
+    self.sloginLabel.text = @"长按开始记录你的灵感，松手即可保存以及搜索。";
+    [self.view addSubview:self.sloginLabel];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -134,6 +166,8 @@
 - (void)startBtnHandler:(id)sender {
     
     NSLog(@"%s[IN]",__func__);
+    [self.view addSubview:self.waveView];
+    [self.waveView Animating];
     [self chuLiSuoYouView];
     //    [self createDismissSpeakViewAnimation];
     [self createSpeakView];
@@ -388,6 +422,8 @@
     
     NSString * vol = [NSString stringWithFormat:@"%@：%d", NSLocalizedString(@"T_RecVol", nil),volume];
     [_popUpView showText: vol];
+    _waveView.targetWaveHeight = (CGFloat)volume/100;
+
 }
 
 
@@ -508,6 +544,7 @@
     _speakTextView.text = [NSString stringWithFormat:@"%@%@", _speakTextView.text,resultFromJson];
 
     if (isLast){
+        [self.waveView stopAnimating];
         [self createWebView];
         [self createWebViewAnimation];
         NSString *urlString = [NSString stringWithFormat:@"https://www.baidu.com/s?wd=%@",_speakTextView.text];
@@ -893,6 +930,9 @@
 //    [self.view.layer insertSublayer:subLayer below:self.webFatherView.layer];
     
     
+//    [SVProgressHUD show];
+
+    
     UIView *titleView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth - kAUTOWIDTH(40), kAUTOHEIGHT(44))];
     titleView.backgroundColor = [UIColor whiteColor];
     [self.webFatherView addSubview:titleView];
@@ -928,7 +968,7 @@
 
 - (WaveView *)waveView{
     if (!_waveView) {
-        _waveView = [[WaveView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_speakLabel.frame) + 50, self.view.bounds.size.width, 100)];
+        _waveView = [[WaveView alloc]initWithFrame:CGRectMake(0, CGRectGetMinY(_beginSpeakButton.frame) - 150, self.view.bounds.size.width, 100)];
         _waveView.backgroundColor = [UIColor whiteColor];
         _waveView.targetWaveHeight = 0;
     }
@@ -943,6 +983,7 @@
 
         self.speakTextView.frame = CGRectMake(kAUTOWIDTH(30), kAUTOHEIGHT(15), SPEAKVIEW_WIDTH - kAUTOWIDTH(60), SPEAKVIEW_HEIZGHT - kAUTOHEIGHT(80));
         
+        self.speakTextView.alpha = 0;
         for (int i = 0; i < 5; i ++) {
             UIButton *upButton = [self.speakView viewWithTag:1000 + i];
             upButton.transform = CGAffineTransformMakeScale(1.2, 1.2);
@@ -966,7 +1007,7 @@
         }
         
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:3 animations:^{
+        [UIView animateWithDuration:AnimationTime animations:^{
             self.speakView.frame = CGRectMake(ScreenWidth, kAUTOHEIGHT(44) + SPEAKVIEW_HEIZGHT/2 - kAUTOHEIGHT(22),ScreenWidth/3, kAUTOHEIGHT(44));
             self.speakView.alpha = 0;
             
@@ -1051,7 +1092,7 @@
 - (void)createSpeakView{
     
     self.speakView = [[UIView alloc]initWithFrame:CGRectMake(kAUTOWIDTH(20),ScreenHeight,SPEAKVIEW_WIDTH, SPEAKVIEW_HEIZGHT)];
-    self.speakView.backgroundColor = [UIColor blackColor];
+    self.speakView.backgroundColor = PNCColor(164, 185, 255);
     [self.view addSubview:self.speakView];
     self.speakView.alpha = 0;
     self.speakView.transform = CGAffineTransformMakeScale(0.7, 0.7);
@@ -1092,6 +1133,10 @@
         button.backgroundColor = [UIColor blueColor];
         [self.speakView addSubview:button];
         
+        if (PNCisIPAD) {
+            button.frame = CGRectMake( kAUTOWIDTH(100)/2  + i *(((ScreenWidth - kAUTOWIDTH(40) - kAUTOWIDTH(100))- kAUTOWIDTH(30)*5)/4 + kAUTOWIDTH(30)), -kAUTOHEIGHT(15), 30, 30);
+        }
+        
         button.layer.borderWidth = 2;
         button.layer.borderColor = [UIColor whiteColor].CGColor;
         button.layer.shadowOffset = CGSizeMake(0, 2);
@@ -1099,6 +1144,7 @@
         button.layer.shadowOpacity = 0.3;
         button.layer.shadowRadius = 3;
         button.layer.cornerRadius = kAUTOHEIGHT(15);
+        
         
         
 //        UIImage *backImage = [UIImage alloc] createImageWithSize:CGSizeMake(80, 80) gradientColors:@[(id)PNCColor(55, 188, 253),(id)PNCColor(0, 0, 0)] percentageArray:@[@(0.5),@(1)]  percentage:@[@(0.3),@(1)] gradientType:GradientFromTopToBottom];
@@ -1167,12 +1213,19 @@
         [button addTarget:self action:@selector(ShangYiPaiButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         button.tag = 1000 + i;
         button.hidden = YES;
+        
+        if (PNCisIPAD) {
+            [button setImageEdgeInsets:UIEdgeInsetsMake(6, 6,6, 6)];
+        }
     }
     
    
     for (int i = 0; i < 5; i ++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake( kAUTOWIDTH(30)/2  + i *(((ScreenWidth - kAUTOWIDTH(40) - kAUTOWIDTH(30))- kAUTOWIDTH(30)*5)/4 + kAUTOWIDTH(30)),SPEAKVIEW_HEIZGHT - kAUTOHEIGHT(35), kAUTOWIDTH(30), kAUTOHEIGHT(30));
+        if (PNCisIPAD) {
+             button.frame = CGRectMake( kAUTOWIDTH(30)/2  + i *(((ScreenWidth - kAUTOWIDTH(40) - kAUTOWIDTH(30))- kAUTOWIDTH(30)*5)/4 + kAUTOWIDTH(30)),SPEAKVIEW_HEIZGHT - kAUTOHEIGHT(35), 30, 30);
+        }
         button.backgroundColor = [UIColor blueColor];
         [self.speakView addSubview:button];
         [button setImage:[UIImage imageNamed:@"灵感"] forState:UIControlStateNormal];
@@ -1203,7 +1256,7 @@
             
             
             button.backgroundColor = PNCColor(255, 120, 159);
-            [button setImage:[UIImage imageNamed:@"日历"] forState:UIControlStateNormal];
+            [button setImage:[UIImage imageNamed:@"分享new"] forState:UIControlStateNormal];
             
         }else if (i == 2){
             
@@ -1211,7 +1264,7 @@
             
             
             button.backgroundColor = PNCColor(255, 172, 94);
-            [button setImage:[UIImage imageNamed:@"收藏"] forState:UIControlStateNormal];
+            [button setImage:[UIImage imageNamed:@"文档"] forState:UIControlStateNormal];
             
         }else if (i == 3){
             
@@ -1229,6 +1282,10 @@
             [button setImage:[UIImage imageNamed:@"下载"] forState:UIControlStateNormal];
         }
         
+        if (PNCisIPAD) {
+            [button setImageEdgeInsets:UIEdgeInsetsMake(6, 6,6, 6)];
+            
+        }
     }
     
     for (int i = 0; i < 4; i ++) {
@@ -1340,11 +1397,38 @@
     }
 }
 
-- (void)pushSettingViewController{
+- (void)pushSettingViewController:(UIButton *)sender{
+    
+    // 先缩小
+    sender.transform = CGAffineTransformMakeScale(0.8, 0.8);
+    
+    // 弹簧动画，参数分别为：时长，延时，弹性（越小弹性越大），初始速度
+    [UIView animateWithDuration: 0.7 delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:0.3 options:0 animations:^{
+        // 放大
+        sender.transform = CGAffineTransformMakeScale(1, 1);
+    } completion:nil];
     
     SettingViewController *svc = [[SettingViewController alloc]init];
-    
     [self presentViewController:svc animated:YES completion:nil];
+}
+
+
+#pragma mark - ======开始心跳动画Animation=======
+- (void)startHeartAnimation:(CALayer *)layer repeatCount:(CGFloat)repeatCount{
+    CASpringAnimation *springAnimation = [CASpringAnimation animationWithKeyPath:@"transform.scale"];
+    springAnimation.mass = 10.0;
+    springAnimation.stiffness = 1200;
+    springAnimation.damping = 2;
+    springAnimation.initialVelocity = 0;
+    springAnimation.duration = 5;
+    springAnimation.fromValue = [NSNumber numberWithFloat:0.95];
+    springAnimation.toValue = [NSNumber numberWithFloat:1];
+    springAnimation.repeatCount = repeatCount;
+    springAnimation.autoreverses = YES;
+    springAnimation.removedOnCompletion = NO;
+    springAnimation.fillMode = kCAFillModeForwards;
+    springAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    [layer addAnimation:springAnimation forKey:@"springAnimation"];
 }
 
 - (void)createBaseUI{
@@ -1352,21 +1436,47 @@
     
     
     self.setBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.setBtn.frame = CGRectMake(kAUTOWIDTH(20), ScreenHeight - 100, 50, 50);
-    self.setBtn.backgroundColor = [UIColor redColor];
+    self.setBtn.frame = CGRectMake(20, 30, 40, 40);
+//    self.setBtn.backgroundColor = [UIColor redColor];
     self.setBtn.layer.masksToBounds = YES;
     self.setBtn.layer.cornerRadius = 25;
+    [self.setBtn setImage:[UIImage imageNamed:@"设置 (1).png"] forState:UIControlStateNormal];
     [self.setBtn setTitle:@"设置" forState:UIControlStateNormal];
     [self.view addSubview:self.setBtn];
-    [self.setBtn addTarget:self action:@selector(pushSettingViewController) forControlEvents:UIControlEventTouchUpInside];
+    [self.setBtn addTarget:self action:@selector(pushSettingViewController:) forControlEvents:UIControlEventTouchUpInside];
     
+    if (PNCisIPHONEX) {
+        self.setBtn.frame = CGRectMake(20, 50, 40, 40);
+    }
     
     self.beginSpeakButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.beginSpeakButton.frame = CGRectMake(ScreenWidth/2 - 25, ScreenHeight - 100, 50, 50);
-    self.beginSpeakButton.backgroundColor = [UIColor redColor];
+    self.beginSpeakButton.frame = CGRectMake(ScreenWidth/2 - 32.5, ScreenHeight - 100, 65, 65);
+//    self.beginSpeakButton.backgroundColor = [UIColor redColor];
+    [self.beginSpeakButton setImage:[UIImage imageNamed:@"newbeginSpeakButton"] forState:UIControlStateNormal];
     self.beginSpeakButton.layer.masksToBounds = YES;
-    self.beginSpeakButton.layer.cornerRadius = 25;
+    self.beginSpeakButton.layer.cornerRadius = 32.5;
     [self.beginSpeakButton setTitle:@"说话" forState:UIControlStateNormal];
+    
+//    self.beginSpeakButton.layer.shadowColor=[UIColor grayColor].CGColor;
+//    self.beginSpeakButton.layer.shadowOffset=CGSizeMake(0, 10);
+//    self.beginSpeakButton.layer.shadowOpacity=0.9f;
+//    self.beginSpeakButton.layer.shadowRadius=12;
+    self.beginSpeakButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.beginSpeakButton.layer.borderWidth = 2;
+    
+    
+    CALayer * speakSubLayer=[CALayer layer];
+    CGRect fixframe=self.beginSpeakButton.layer.frame;
+    speakSubLayer.frame = CGRectMake(ScreenWidth/2 - 30, ScreenHeight - 97.5, 60, 60);
+    speakSubLayer.cornerRadius =30;
+    speakSubLayer.backgroundColor=[[UIColor grayColor] colorWithAlphaComponent:0.5].CGColor;
+    speakSubLayer.masksToBounds=NO;
+    speakSubLayer.shadowColor=[UIColor grayColor].CGColor;
+    speakSubLayer.shadowOffset=CGSizeMake(0,0);
+    speakSubLayer.shadowOpacity=0.8f;
+    speakSubLayer.shadowRadius= 10;
+    [self.view.layer insertSublayer:speakSubLayer below:self.speakView.layer];
+    
     [self.view addSubview:self.beginSpeakButton];
    
 //    [self.beginSpeakButton addTarget:self action:@selector(beginMaDaQingZhenDong) forControlEvents:UIControlEventTouchDown];
@@ -1383,23 +1493,25 @@
     self.beginPlayButton.backgroundColor = [UIColor redColor];
     self.beginPlayButton.layer.masksToBounds = YES;
     self.beginPlayButton.layer.cornerRadius = 25;
-    [self.view addSubview:self.beginPlayButton];
+//    [self.view addSubview:self.beginPlayButton];
     [self.beginPlayButton addTarget:self action:@selector(playRecord) forControlEvents:UIControlEventTouchUpInside];
     
     self.pushButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.pushButton.frame = CGRectMake(ScreenWidth/2 - 25 + 70, ScreenHeight - 170, 50, 50);
-    self.pushButton.backgroundColor = [UIColor redColor];
+    self.pushButton.frame = CGRectMake(ScreenWidth -65, ScreenHeight/2 + 100, 45, 45);
+//    self.pushButton.backgroundColor = [UIColor redColor];
+    [self.pushButton setImage:[UIImage imageNamed:@"返回zhuye"] forState:UIControlStateNormal];
     self.pushButton.layer.masksToBounds = YES;
     self.pushButton.layer.cornerRadius = 25;
     [self.pushButton setTitle:@"next" forState:UIControlStateNormal];
     [self.view addSubview:self.pushButton];
     [self.pushButton addTarget:self action:@selector(pushMuLu) forControlEvents:UIControlEventTouchUpInside];
     
-    
+    [self startHeartAnimation:self.pushButton.layer repeatCount:1];
+    [self startHeartAnimation:self.beginSpeakButton.layer repeatCount:MAXFLOAT];
     self.speakLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 350, ScreenWidth-20, 200)];
     self.speakLabel.textColor = [UIColor redColor];
     self.speakLabel.numberOfLines = 0;
-    [self.view addSubview:self.speakLabel];
+//    [self.view addSubview:self.speakLabel];
     
 //    //创建语音识别对象
 //    _iFlySpeechRecognizer = [IFlySpeechRecognizer sharedInstance];
@@ -1515,11 +1627,12 @@
             [self saveDataToiCloud];
             break;
         case XiaYiPaiClickActionRiLi:
-            [self copyStringToUIPasteboard];
+            [self shareImage];
+//            [self createDismissSpeakViewAnimation];
+//            [self saveDataToiCloud];
             break;
         case XiaYiPaiClickActionShouCang:
-            [self createDismissSpeakViewAnimation];
-            [self saveDataToiCloud];
+            [self copyStringToUIPasteboard];
             break;
         case XiaYiPaiClickActionBianJi:
             [self.speakTextView becomeFirstResponder];
@@ -1528,6 +1641,65 @@
             break;
     }
 }
+
+- (void)shareImage{
+    
+    
+    
+    NSString *text = _speakTextView.text;
+//    NSString *imageName = @"QQ20180311-1.jpg";
+//    NSString *path = [[NSBundle mainBundle] pathForResource:imageName ofType:nil];
+//    UIImage *image2 = nil;
+//
+//    UIImageView *imageView1 = [[UIImageView alloc]init];
+//    imageView1.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 130);
+//    imageView1.image = image2;
+//    imageView1.contentMode = UIViewContentModeScaleAspectFit;
+//
+//    UIImageView *imageView2 = [[UIImageView alloc]init];
+//    imageView2.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+//    [imageView2 addSubview:imageView1];
+//
+//    UIImageView  *iconImage3 = [[UIImageView alloc]init];
+//    iconImage3.frame = CGRectMake(20, ScreenHeight - 100, 60, 60);
+//    iconImage3.image = [UIImage imageNamed:@"shareicon.jpeg"];
+//    [imageView2 addSubview:iconImage3];
+//
+//
+//    UILabel *label = [Factory createLabelWithTitle:@"时间胶囊" frame:CGRectMake(20, ScreenHeight - 40, 60, 20)];
+//    label.font = [UIFont fontWithName:@"Heiti SC" size:9];
+//    label.textAlignment = NSTextAlignmentCenter;
+//    [imageView2 addSubview:label];
+//
+//    imageView2.backgroundColor = [UIColor whiteColor];
+////    UIImage *zuihouImage = [self convertImageViewToImage:imageView2];
+    
+    
+    NSArray *activityItems = @[text];
+    
+    UIActivityViewController *activityViewController =[[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    
+    activityViewController.popoverPresentationController.sourceView = self.view;
+    
+    [self presentViewController:activityViewController animated:YES completion:nil];
+    // 分享类型
+    [activityViewController setCompletionWithItemsHandler:^(NSString * __nullable activityType, BOOL completed, NSArray * __nullable returnedItems, NSError * __nullable activityError){
+        // 显示选中的分享类型
+        NSLog(@"当前选择分享平台 %@",activityType);
+        if (completed) {
+            [SVProgressHUD showInfoWithStatus:@"分享成功"];
+            NSLog(@"分享成功");
+        }else {
+            [SVProgressHUD showInfoWithStatus:@"分享失败"];
+
+            NSLog(@"分享失败");
+        }
+        
+    }];
+    
+}
+
+
 - (void)copyStringToUIPasteboard{
     UIPasteboard * pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = self.speakTextView.text;
